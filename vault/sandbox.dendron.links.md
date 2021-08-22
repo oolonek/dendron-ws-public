@@ -2,7 +2,7 @@
 id: mi7QMGWON4RccahrmXjcS
 title: Links
 desc: ''
-updated: 1629652952626
+updated: 1629653132433
 created: 1629652528134
 ---
 
@@ -25,3 +25,5 @@ https://wiki.dendron.so/notes/3472226a-ff3c-432d-bf5d-10926f39f6c2.html#other-li
 I dont know if this doc is outdated but it looks like I am not required to prefix any of my links to references across vaults.
 
 See a link to dendron-ws-private note [[tools.digital.chemoinformatics.mol2name]]
+
+--forsync--
