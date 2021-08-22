@@ -39,7 +39,7 @@ site:
     gh_edit_view_mode: edit
     assetsPrefix: dendron-ws-public
     usePrettyRefs: true
-    title: Dendron
+    title: Dendron WS Public
     description: Personal knowledge space
     duplicateNoteBehavior:
         action: useVault
