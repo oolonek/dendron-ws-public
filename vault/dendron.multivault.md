@@ -2,7 +2,7 @@
 id: aSdkWUKotXosi4oFUEbLJ
 title: Multivault
 desc: ''
-updated: 1629647988894
+updated: 1629648764328
 created: 1629642713694
 ---
 
@@ -40,13 +40,13 @@ I have 3 dendron **workspaces**.
 - **dendron-ws-private**
 - **dendron-ws-public**
 
-**dendron-global** and **dendron-ws-private** are git-versioned on a private github repos (https://github.com/oolonek/dendron-global and https://github.com/oolonek/**dendron-ws-private**, respectively) while **dendron-ws-public** is versioned on a public repo (https://github.com/oolonek/dendron-ws-public). 
+**dendron-global** and **dendron-ws-private** are git-versioned on a private github repos (https://github.com/oolonek/dendron-global and https://github.com/oolonek/dendron-ws-private, respectively) while **dendron-ws-public** is versioned on a public repo (https://github.com/oolonek/dendron-ws-public). 
 
 I did a 'Dendron: Vault add' command from the **dendron-global** vault to incorporate **dendron-ws-private** and **dendron-ws-public**.
 
 As a result I have three websites:
 
-https://oolonek.github.io/dendron-ws-global/
+https://oolonek.github.io/dendron-global/
 https://oolonek.github.io/dendron-ws-private/
 https://oolonek.github.io/dendron-ws-public/
 
@@ -82,7 +82,7 @@ Where :
 
 and
 
-- dendron-global.gitpage is https://oolonek.github.io/dendron-ws-global/
+- dendron-global.gitpage is https://oolonek.github.io/dendron-global/
 - dendron-ws-private.gitpage is https://oolonek.github.io/dendron-ws-private/
 - dendron-ws-public.gitpage is https://oolonek.github.io/dendron-ws-public/
 
