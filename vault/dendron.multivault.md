@@ -2,7 +2,7 @@
 id: aSdkWUKotXosi4oFUEbLJ
 title: Multivault
 desc: ''
-updated: 1629648942744
+updated: 1629649185083
 created: 1629642713694
 ---
 
@@ -19,7 +19,7 @@ In my case I have been wanting to set this up for a long time and tried at least
 
 So I will write a note regarding the recipe I followed for what seems to be (up to now) a convenient solution for me. This is a note for my future self but also for people how have been having difficulties to setup up a multivault configurations.
 
-# Why do I want ?
+# What do I want ?
 
 My requirements were the following ones:
 
@@ -32,7 +32,7 @@ My requirements were the following ones:
 One thing that confounded me at first was the distinction between vaults and workspace.
 After enough trial an error the setup I adopted is the following one.
 
-# Why do I have now ?
+# What do I have now ?
 
 I have 3 dendron **workspaces**. 
 
