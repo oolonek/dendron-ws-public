@@ -32,6 +32,11 @@ site:
         - root
     siteRootDir: docs
     siteUrl: https://oolonek.github.io
+    gh_edit_link: true
+    gh_edit_link_text: Click here to edit this page on Github !
+    gh_edit_repository: 'https://github.com/oolonek/dendron-ws-public'
+    gh_edit_branch: main
+    gh_edit_view_mode: edit
     assetsPrefix: dendron-ws-public
     usePrettyRefs: true
     title: Dendron
