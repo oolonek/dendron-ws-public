@@ -2,7 +2,7 @@
 id: aSdkWUKotXosi4oFUEbLJ
 title: Multivault
 desc: ''
-updated: 1629648764328
+updated: 1629648942744
 created: 1629642713694
 ---
 
@@ -172,6 +172,10 @@ This should automatically upgrade the dendron.yml of the global workspace.
 ```
 
 Note that you will need to prepare a PAT if you pull from a private repo.
+
+# Questions or editions
+
+Please comment directly on github by clicking the link below 👇
 
 
 
