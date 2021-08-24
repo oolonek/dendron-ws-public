@@ -1,9 +1,15 @@
 {
     "todo": {
-        "prefix": "to",
+        "prefix": "todo",
         "scope": "markdown,yaml",
         "body": "- [ ] ",
         "description": "render todo box"
+    },
+    "tag": {
+        "prefix": "#",
+        "scope": "markdown,yaml",
+        "body": "[[#${1:my-tag}|tag.${1}]]",
+        "description": "tag"
     },
     "date": {
         "prefix": "date",
@@ -11,10 +17,80 @@
         "body": "$CURRENT_YEAR.$CURRENT_MONTH.$CURRENT_DATE",
         "description": "today's date"
     },
+    "now": {
+        "prefix": "now",
+        "scope": "markdown,yaml",
+        "body": "- `$CURRENT_HOUR:$CURRENT_MINUTE` ",
+        "description": "now in hour:min"
+    },
     "time": {
         "prefix": "time",
         "scope": "markdown,yaml",
         "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE",
         "description": "time"
+    },
+    "day": {
+        "prefix": "day",
+        "scope": "markdown,yaml",
+        "body": "$CURRENT_DAY_NAME $CURRENT_DATE $CURRENT_MONTH_NAME $CURRENT_YEAR${1}",
+        "description": "day"
+    },
+    "bash": {
+        "prefix": "bash",
+        "scope": "markdown,yaml",
+        "body": "```bash\n${1}```",
+        "description": "bash chunk"
+    },
+    "python": {
+        "prefix": "python",
+        "scope": "markdown,yaml",
+        "body": "```python\n${1}```",
+        "description": "python chunk"
+    },
+    "codechunck": {
+        "prefix": "codechunck",
+        "scope": "markdown,yaml",
+        "body": "#%%\n# What the following line(s) do is to ${1}",
+        "description": "python codechunck chunk"
+    },
+    "local_link_raw": {
+        "prefix": "local_link_raw",
+        "scope": "markdown,yaml",
+        "body": "[](../../../../..)",
+        "description": "local_link_raw"
+    },
+    "local_link_home": {
+        "prefix": "local_link_home",
+        "scope": "markdown,yaml",
+        "body": "[](../../..)",
+        "description": "local_link_home"
+    },
+    "project": {
+        "prefix": "project",
+        "body": [
+            "## Goals",
+            "",
+            "## Details",
+            "",
+            "## Discussions",
+            "",
+            "## Tasks",
+            "",
+            "## Release Notes",
+            ""
+        ],
+        "description": ""
+    },
+    "pbar": {
+        "prefix": "pbar",
+        "scope": "markdown,yaml",
+        "body": "<iframe src=\"https://progress-bar.dev/${1:25}\" frameborder=\"0\" scrolling=\"0\" width=\"170\" height=\"30\" title=\"${1}\"></iframe>",
+        "description": "pbar"
+    },
+    "ctno": {
+        "prefix": "ctno",
+        "scope": "markdown,yaml",
+        "body": "# ${1:Title} \ntime\n## Context\nFirst, provide some context to orient you/readers/your grandma who are less familiar with your topic and to establish the importance of this note/paragraph/text/paper/project.\n## Need\nSecond, state the need for your note/paragraph/text/paper/project, as an opposition between what you/others/the scientific community/your grandma currently has and what it wants.\n## Task (of the note/paragraph/text/paper/project)\nThird, indicate what you have done in an effort to address the need (this is the task).\n- [ ] did this\n- [ ] did that\n- [ ] oh and this also\n## Object (of the note/paragraph/text/paper/project)\nFinally, preview the remainder of the paper to mentally prepare you/readers for its structure, in the object of the document.",
+        "description": "ctno"
     }
 }
