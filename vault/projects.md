@@ -1,11 +1,11 @@
 ---
-id: Cov6ypXcaNZ0Yu1OVjM8x
+id: q5kFqQrTnytdWSux3nwOk
 title: Projects
 desc: ''
-updated: 1629652515877
+updated: 1630160581616
 created: 1629637750410
 ---
-So in the dendron-ws-publi we also have a projects architecture.
+So toin the dendron-ws-publi we also have a projects architecture.
 
 We can for example reference to Martin Dupont' top secret project [[projects.martin-dupont]] however, this one should only be visible if you are on the dendron-ws-private or dendron-global repos or website.
 Let's see if this is the case.
