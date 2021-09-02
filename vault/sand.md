@@ -24,6 +24,6 @@ https://wiki.dendron.so/notes/3472226a-ff3c-432d-bf5d-10926f39f6c2.html#other-li
 
 I dont know if this doc is outdated but it looks like I am not required to prefix any of my links to references across vaults.
 
-See a link to dendron-ws-private note [[tools.digital.chemoinformatics.mol2name]]
+See a link to dendron-ws-private note [[tools.chemoinformatics.mol2name]]
 
 --forsync--
