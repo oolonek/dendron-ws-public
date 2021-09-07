@@ -2,7 +2,7 @@
 id: 3qcjidzC0tkyobYKlrWYc
 title: Sand
 desc: ''
-updated: 1629653132433
+updated: 1631006677004
 created: 1629652528134
 ---
 
@@ -26,4 +26,10 @@ I dont know if this doc is outdated but it looks like I am not required to prefi
 
 See a link to dendron-ws-private note [[tools.chemoinformatics.mol2name]]
 
---forsync--
+
+## further test with cross links for references
+
+![[project.commons-public.wikidata.mibig]]
+
+![[dendron:dendron:project.commons-public.wikidata.mibig]]
+
