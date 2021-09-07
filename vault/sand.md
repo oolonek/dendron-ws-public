@@ -2,7 +2,7 @@
 id: 3qcjidzC0tkyobYKlrWYc
 title: Sand
 desc: ''
-updated: 1631006677004
+updated: 1631010030621
 created: 1629652528134
 ---
 
@@ -31,5 +31,4 @@ See a link to dendron-ws-private note [[tools.chemoinformatics.mol2name]]
 
 ![[project.commons-public.wikidata.mibig]]
 
-![[dendron:dendron:project.commons-public.wikidata.mibig]]
-
+![[dendron://commons-dws-public/project.commons-public.wikidata.mibig]]
