@@ -31,7 +31,7 @@ site:
     siteHierarchies:
         - root
     siteRootDir: docs
-    siteUrl: https://oolonek.github.io
+    siteUrl: 'https://oolonek.github.io'
     gh_edit_link: true
     gh_edit_link_text: Click here to edit this page on Github !
     gh_edit_repository: 'https://github.com/oolonek/dendron-ws-public'
@@ -39,10 +39,12 @@ site:
     gh_edit_view_mode: edit
     assetsPrefix: dendron-ws-public
     usePrettyRefs: true
-    title: Dendron WS Public
+    siteLastModified
+    title: GrndStt's Dendron
     description: Personal knowledge space
     duplicateNoteBehavior:
         action: useVault
         payload:
             - vault
 initializeRemoteVaults: true
+dendronVersion: 0.57.0
