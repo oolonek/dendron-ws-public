@@ -29,6 +29,6 @@ See a link to dendron-ws-private note [[tools.chemoinformatics.mol2name]]
 
 ## further test with cross links for references
 
-![[project.commons-public.wikidata.mibig]]
+<!-- ![[project.commons-public.wikidata.mibig]]
 
-![[dendron://commons-dws-public/project.commons-public.wikidata.mibig]]
+![[dendron://commons-dws-public/project.commons-public.wikidata.mibig]] -->
