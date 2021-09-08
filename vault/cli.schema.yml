@@ -1,0 +1,26 @@
+version: 1
+schemas:
+# this will match "cli.*" notes
+- id: cli 
+  # human readable description of hierarchy
+  desc: command line interface reference
+  # add this to the domain of your schema hierarchy
+  parent: root
+  # when a schema is a namespace, it can have arbitrary children. equivalent to cli.* glob pattern
+  namespace: true 
+  children:
+    - cmd
+    - env
+# will match cli.*.env
+- id: env
+  desc: cli specific env variables
+# will match cli.*.cmd.*
+- id: cmd
+  desc: subcommands
+  pattern : "[proutos]"
+  namespace: true
+  template:
+    # identifier for the template (for a note based template, it would be the name of the note)
+    id: template.bib
+    # what sort of template we are creating. currently, only 'note' is supported
+    type: note

@@ -1,0 +1,11 @@
+version: 1
+imports: []
+schemas:
+  - id: whatever
+    children: []
+    pattern : "*"
+    parent: root
+    namespace: true
+    template: 
+      id: template.bib
+      type: note
