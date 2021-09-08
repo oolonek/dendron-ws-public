@@ -39,7 +39,7 @@ site:
     gh_edit_view_mode: edit
     assetsPrefix: dendron-ws-public
     usePrettyRefs: true
-    siteLastModified
+    siteLastModified: true
     title: GrndStt's Dendron
     description: Personal knowledge space
     duplicateNoteBehavior:
