@@ -2,17 +2,10 @@
 id: z3JGBaIV6l5uiV7u6CkgU
 title: Mnemonics
 desc: ''
-updated: 1611555457957
+updated: 1631123413622
 created: 1611410658861
 ---
-x---
-id: 1fc6ff52-0893-44ff-bc3b-e8855ee6318e
-title: Mnemonics
-desc: ''
-updated: 1610657511416
-created: 1600716697073
-stub: false
----
+
 
 A list of Mnemonics related tools 
 
@@ -45,4 +38,9 @@ Could be useful mostly for class material.
 * https://github.com/frenya/vscode-recall
 * https://github.com/jasonwilliams/anki Directly send test from markdown to Anki !
 
+
+## Wednesday 08 September 2021
+
+Yay have a look at this one for spaced repetitions
+https://recall.frenya.net/
 
