@@ -2,7 +2,7 @@
 id: AUPz9SrGJPrGmpKhCwiT2
 title: Visualization
 desc: ''
-updated: 1621545903482
+updated: 1631696594499
 created: 1610893898631
 ---
 
@@ -15,3 +15,8 @@ https://observablehq.com/
 https://vega.github.io/voyager/
 
 https://octo.github.com/projects/flat-data
+
+
+https://streamlit.io/
+
+
