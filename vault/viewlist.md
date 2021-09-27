@@ -2,9 +2,73 @@
 id: k7IyxWpd9nYqWlhZ96CAG
 title: Viewlist
 desc: ''
-updated: 1629354931357
+updated: 1632470821878
 created: 1610469913749
 ---
+
+
+Friday 24 September 2021
+
+https://www.youtube.com/watch?v=3wMKoSRbGVs
+
+
+Lex Fridman
+1,28 M d’abonnés
+Douglas Lenat is the founder of Cyc, a 37 year project aiming to solve common-sense knowledge and reasoning in AI. Please support this podcast by checking out our sponsors:
+- Squarespace: https://lexfridman.com/squarespace and use code LEX to get 10% off
+- BiOptimizers: http://www.magbreakthrough.com/lex to get 10% off
+- Stamps.com: https://stamps.com and use code LEX to get free postage & scale
+- LMNT: https://drinkLMNT.com/lex to get free sample pack
+- ExpressVPN: https://expressvpn.com/lexpod and use code LexPod to get 3 months free
+
+EPISODE LINKS:
+Douglas's Twitter: https://twitter.com/cycorpai
+Cyc's Website: https://cyc.com
+
+PODCAST INFO:
+Podcast website: https://lexfridman.com/podcast
+Apple Podcasts: https://apple.co/2lwqZIr
+Spotify: https://spoti.fi/2nEwCF8
+RSS: https://lexfridman.com/feed/podcast/
+Full episodes playlist: https://www.youtube.com/playlist?list...
+Clips playlist: https://www.youtube.com/playlist?list...
+
+OUTLINE:
+0:00 - Introduction
+1:11 - What is Cyc?
+9:17 - How to form a knowledge base of the universe
+19:43 - How to train an AI knowledge base
+24:04 - Global consistency versus local consistency
+48:25 - Automated reasoning
+54:05 - Direct uses of AI and machine learning
+1:06:43 - The semantic web
+1:17:16 - Tools to help Cyc interpret data 
+1:26:26 - The most beautiful idea about Cyc
+1:32:25 - Love and consciousness in AI
+1:39:24 - The greatness of Marvin Minsky 
+1:44:18 - Is Cyc just a beautiful dream?
+1:49:03 - What is OpenCyc and how was it born?
+1:54:53 - The open source community and OpenCyc
+2:05:20 - The inference problem
+2:07:03 - Cyc's programming language
+2:14:37 - Ontological engineering
+2:22:02 - Do machines think?
+2:30:47 - Death and consciousness
+2:40:48 - What would you say to AI?
+2:45:24 - Advice to young people 
+2:47:20 - Mortality
+
+SOCIAL:
+- Twitter: https://twitter.com/lexfridman
+- LinkedIn: https://www.linkedin.com/in/lexfridman
+- Facebook: https://www.facebook.com/lexfridman
+- Instagram: https://www.instagram.com/lexfridman
+- Medium: https://medium.com/@lexfridman
+- Reddit: https://reddit.com/r/lexfridman
+- Support on Patreon
+
+
+
 Jeudi 19 Août 2021
 
 On the EarthBioGenome initiative https://www.youtube.com/watch?v=gptP4FZHZrE&list=PLpCH1XIO3lYtRELTupGHOfrbylNlPhPKR
