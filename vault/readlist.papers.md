@@ -2,7 +2,7 @@
 id: 3PbjxNe7yIn2I9yKJfqXD
 title: Papers
 desc: ''
-updated: 1630830916508
+updated: 1632740772410
 created: 1610194509817
 ---
 
@@ -12,6 +12,11 @@ created: 1610194509817
 
 This is a dump.
 Entries here should be sent to their respective dendron notes when treated.
+
+# Infrastructure and Population of the OpenBiodiv Biodiversity Knowledge Graph
+
+https://bdj.pensoft.net/article/67671/
+
 
 # Reshaping the Academic Self: Connecting Education & Open Science
 
