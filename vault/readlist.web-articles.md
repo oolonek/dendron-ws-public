@@ -2,9 +2,19 @@
 id: 4QMHs8rY4FY7wrtVPljQ6
 title: Web Articles
 desc: ''
-updated: 1629354285007
+updated: 1633627879338
 created: 1610657531129
 ---
+
+
+Thursday 07 October 2021
+
+# Le Macroscope : vers une vision globale, de Joël de Rosnay
+
+https://www.persee.fr/doc/colan_0336-1500_1976_num_29_1_4283
+https://iphylo.blogspot.com/2021/10/reflections-on-macroscope-tool-for-21st.html
+
+
 
 Jeudi 19 Août 2021
 
