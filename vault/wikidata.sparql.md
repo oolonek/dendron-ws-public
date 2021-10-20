@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1633854438027
+updated: 1634480598198
 created: 1611593110381
 ---
 
@@ -198,3 +198,82 @@ https://w.wiki/3YMo
 
 resumed as treemap https://w.wiki/3YMt
 
+
+# molecules found within vegetables
+
+https://w.wiki/4EAh
+
+# molecules found within toxic plants
+
+
+https://w.wiki/4EAw
+
+#  mlecules in IUCN threatned species
+
+https://w.wiki/4EGg
+
+https://w.wiki/4EHQ
+
+
+
+# looking for molecules present in old species according to life span
+
+https://w.wiki/4EH8
+https://w.wiki/4EHB
+
+with preclass
+
+https://w.wiki/4EHD
+
+and prepreclass 
+
+at all levels
+https://w.wiki/4EHH
+
+at a single level
+
+https://w.wiki/4EHJ
+
+
+classed by chem classes
+https://w.wiki/4EHP
+
+
+
+
+# Messing around with patways
+
+https://w.wiki/4EK7
+
+original query 
+
+https://w.wiki/4EK9
+
+
+# highest mountains in Switzerland 
+
+https://w.wiki/4EKE
+
+
+# all biologist with a twitter account
+
+
+https://w.wiki/4EKW
+
+strictly biologists
+https://w.wiki/4EKM
+
+educated in Switzerland 
+
+https://w.wiki/4EKk
+
+# example for prsenattion UniFr
+
+https://w.wiki/4EMf 
+All compounds + ref for S. coelicolor
+
+https://w.wiki/4EMo (bioact listed)
+
+# https://w.wiki/4EMw
+
+Compounds from species wuth given IUCN status and lifespan

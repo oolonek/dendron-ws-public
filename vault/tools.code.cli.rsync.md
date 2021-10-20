@@ -2,7 +2,7 @@
 id: SS0rQYcsKz30tWG5tQVOB
 title: Rsync
 desc: ''
-updated: 1623219490321
+updated: 1634202057278
 created: 1609680294356
 ---
 
@@ -37,13 +37,14 @@ rsync -rvz -e 'ssh' --progress ./ allardp@baobab2.hpc.unige.ch:/home/allardp/dat
 
 rsync -rvz -e 'ssh' --progress ./ allardp@baobab2.hpc.unige.ch:/home/allardp/is_fragmentation/lotus_data/
 
-
-
-
-
 ```
 
--
+# local > beast
+
+```bash
+rsync -rvz -e 'ssh' --progress ./ allardpm@biolpc045600:/home/allardpm/data_to_frag/opennpdb/
+
+```
 
 # x2go > local 
 
