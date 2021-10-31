@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1634480598198
+updated: 1635501024193
 created: 1611593110381
 ---
 
@@ -241,7 +241,7 @@ https://w.wiki/4EHP
 
 
 
-# Messing around with patways
+# Messing around with pathways
 
 https://w.wiki/4EK7
 
@@ -277,3 +277,8 @@ https://w.wiki/4EMo (bioact listed)
 # https://w.wiki/4EMw
 
 Compounds from species wuth given IUCN status and lifespan
+
+# compounds in taxa and children filtered by SMILES pattern regex
+
+https://w.wiki/4JWv
+

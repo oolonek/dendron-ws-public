@@ -2,7 +2,7 @@
 id: 6qK8k4MF0vooncgMJZw5W
 title: Isfrag
 desc: ''
-updated: 1622641264797
+updated: 1635171184446
 created: 1621006125043
 ---
 
@@ -11,6 +11,8 @@ Pasting an old recipee from ZettelKasten
 
 
 Linked to [[202002251433]] in silico fragmentation worflow.
+
+Children workflow on the beast MAPP 
 
 
 Side notes : try to write everything as scripts so that they can be launched without a GUI (ex on X2Go or directly Boabab).
@@ -36,7 +38,19 @@ python frag_list_preparator.py ../open_np_db_data/open_NP_db.tsv ../open_np_db_d
 split -a 5 -l 500 -d ../open_np_db_data/open_NP_db_tofrag.txt ../open_np_db_data/opennpdb_tofrag/opennpdb_
 split -a 5 -l 500 -d ./lotus_data/lotus_data_for_frag.txt ./lotus_data/lotus_data_for_frag/lotus_data_
 
+split -a 5 -l 500 -d ./ ./lotus_data/lotus_data_for_frag/lotus_data_
+split -a 5 -l 500 -d cfm/cfm_input/platinum_tofrag.tsv cfm/cfm_input/splitted/lotus_to_frag_
 
+This one allows to preserve extensions and is build on number of desired chunks without splitting lines
+split -a 5 -n l/199 -d --additional-suffix=.txt  cfm_input/sub_platinum_tofrag.tsv cfm_input/splitted/lotus_to_frag_
+
+### When using the docker cli files need to have an extension (or taken as folder ?)
+
+for f in *; do mv "$f" "$f.txt"; done
+
+if you made a mistacke 
+
+find / -type f -name '*.txt' -exec sh -c 'mv -- "$0" "${0%.txt}"' {} \;
 
 ### Prepare mutilple bash file to launch on baobab
 
