@@ -2,7 +2,7 @@
 id: FbPaFk83tQd6PGWK2zp6U
 title: Plotly
 desc: ''
-updated: 1612550696435
+updated: 1636730576483
 created: 1612380643104
 ---
 
@@ -65,3 +65,20 @@ fig.update_layout(margin=dict(l=50, r=50, t=100, b=50)
 fig.show()
 fig.write_html(sunburst_chem_results_path)
 ```
+
+## On the display via github
+
+https://community.plotly.com/t/how-to-display-plotly-graph-on-github-pages/44398/2
+
+
+https://automating-gis-processes.github.io/2016/Lesson5-share-on-github.html
+
+https://mertbakir.gitlab.io/hugo/plotly-with-hugo/
+
+When displaying iframe in hugo pages be sure to have 
+
+https://stackoverflow.com/a/66741389
+
+
+
+

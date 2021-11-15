@@ -2,7 +2,7 @@
 id: ykyXmoqr752B7Eo1mKkBF
 title: Web
 desc: ''
-updated: 1613732056204
+updated: 1636730653639
 created: 1611825283591
 ---
 
@@ -49,3 +49,10 @@ This is what I did up to now and what I plan to do to tackle this
 ## Object (of the note/paragraph/text/paper/project)
 This is a self contained ctno snippet. It does not aim to introduce anything other than itself.
 That was the object. //TODO Snippets. Work on different and more adapted snippets (self sufficient, introductory etc ...)
+
+
+## Hugo
+
+
+https://www.ctomlinson.net/post/building-a-website-with-hugo-academic/
+

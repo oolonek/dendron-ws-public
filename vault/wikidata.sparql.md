@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1635501024193
+updated: 1636559719937
 created: 1611593110381
 ---
 
@@ -197,6 +197,12 @@ https://w.wiki/4CMg
 https://w.wiki/3YMo
 
 resumed as treemap https://w.wiki/3YMt
+
+for archive on zenodo https://w.wiki/4N8G
+results https://w.wiki/4N8J
+
+
+
 
 
 # molecules found within vegetables

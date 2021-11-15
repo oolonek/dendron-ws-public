@@ -2,7 +2,7 @@
 id: cMOaRh3TUHfw6FtdribBg
 title: Bash
 desc: ''
-updated: 1630411624207
+updated: 1636535972458
 created: 1610975606358
 ---
 
@@ -27,3 +27,17 @@ Then you can `tree` or `tree -lart`
 # List all files and their full path
 
 ls -d -1 "$PWD/"*.*
+
+
+# bash upgrade on mac
+
+https://itnext.io/upgrading-bash-on-macos-7138bd1066ba
+
+Had some problem when running the build.sh script of manubot.
+Because of this error 
+
+build/build.sh: line 50: ${BUILD_PDF,,}: bad substitution
+Turns out that ,, are not 
+
+https://stackoverflow.com/a/47815884
+
