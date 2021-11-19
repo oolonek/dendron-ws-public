@@ -17,7 +17,7 @@ site:
     gh_edit_repository: 'https://github.com/oolonek/dendron-ws-public'
     gh_edit_branch: main
     gh_edit_view_mode: edit
-    assetsPrefix: dendron-ws-public
+    assetsPrefix: /dendron-ws-public
     usePrettyRefs: true
     siteLastModified: true
     title: GrndStt's Dendron
