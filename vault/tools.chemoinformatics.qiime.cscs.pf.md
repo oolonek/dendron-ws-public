@@ -2,7 +2,7 @@
 id: 4q6R0Wq7vq4KwfN3Ok92J
 title: Pf
 desc: ''
-updated: 1616080924669
+updated: 1638278641193
 created: 1615882210535
 ---
 
@@ -77,4 +77,72 @@ To visualize the interactive PCoA type:
 ## Qemistree dataset
 
 https://gnps.ucsd.edu/ProteoSAFe/status.jsp?task=044e981ff0d84246ae5c91ef3db643a8
+
+
+## Update
+
+Monday 29 November 2021
+
+Reiterating qiime-cscs calculations for the MEMO paper.
+Installing qiime on the beast cluster
+
+When trying to install using the latest qiime version (qiime2-2021.11) the qiime2-cscs plugin (https://github.com/madeleineernst/q2-cscs) doesn't appears
+I thus switch back to qiime2-2021.2
+
+I used this script to fetch and format data from switch https://github.com/mandelbrot-project/qiime-empress-formatter/blob/main/src/python/peak_list_formatter_cscs_memo.py
+
+From now restarting with the recipee above (will modify or update when needed)
+
+We then convert using biom 
+
+(Note that BIOM needs to be installed in an env with conda > 3.8)
+
+`biom convert -i feature_table_for_biom.tsv -o biom_feature_table.biom --table-type="OTU table" --to-hdf5`
+
+I get a 
+
+'biom.exception.TableException: Duplicate observation IDs'
+
+Apparently this error came from the fact that the feature-id were kept as index but not exported in the tsv table.
+Make sure they are.
+
+I then activate the qiime2-2021.2 env
+
+`qiime tools import --type 'FeatureTable[Frequency]' --input-path biom_feature_table.biom --output-path feature_table.qza`
+
+We now launch the command and explicitly specify all options
+
+`nohup bash -c 'time qiime cscs cscs --p-css-edges networkedges_selfloop/31a1340378cd46d7b9f5ebf8afbb2565..selfloop --i-features feature_table.qza --p-cosine-threshold 0.7 --p-normalization --p-weighted --p-cpus 40 --o-distance-matrix pf_gnps3_cscs_distance_matrix_weighted.qza'`
+
+
+`nohup bash -c 'time qiime cscs cscs --p-css-edges networkedges_selfloop/31a1340378cd46d7b9f5ebf8afbb2565..selfloop --i-features feature_table.qza --p-cosine-threshold 0.7 --p-normalization --p-no-weighted --p-cpus 40 --o-distance-matrix pf_gnps3_cscs_distance_matrix_unweighted.qza'`
+
+Here I get an error 
+
+
+```
+Plugin error from cscs:
+
+  'function' object has no attribute 'ids'
+
+Debug info has been saved to /tmp/qiime2-q2cli-err-d8fmgz9a.log
+
+real    0m23.731s
+user    0m8.089s
+sys     0m3.754s
+
+```
+
+
+
+And this changed the file 
+
+nano ./anaconda3/envs/qiime2-2021.2/lib/python3.6/site-packages/q2_cscs/q2_cscs.py
+
+by adding () to pa
+
+    if normalization:
+        features = features.norm(axis='sample', inplace=False)
+    if weighted == False:
+        features = features.pa()
 

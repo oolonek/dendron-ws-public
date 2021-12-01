@@ -2,7 +2,7 @@
 id: lXYgpwVweH35j30wEgBhR
 title: Pandas
 desc: ''
-updated: 1613047620747
+updated: 1638204013115
 created: 1609770454495
 ---
 
@@ -98,8 +98,3 @@ df['color'] = np.select(conditions, choices, default='black')
 print(df)
 
 ```
-
-
-pklaceholder
-
-
