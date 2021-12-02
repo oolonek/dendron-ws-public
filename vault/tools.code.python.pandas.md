@@ -2,7 +2,7 @@
 id: lXYgpwVweH35j30wEgBhR
 title: Pandas
 desc: ''
-updated: 1638204013115
+updated: 1638440265972
 created: 1609770454495
 ---
 
@@ -15,11 +15,24 @@ df.loc[:, df.columns.str.startswith('alp')]
 ```python
 df.loc[:, df.columns.str.contains('alp')]
 ```
+## Select a df according to column positions
+
+Here from column seven till the end 
+
+```python
+df.iloc[:, 7:]
+```
+
 
 ## Rename columns
 
 ```python
 df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)
+```
+## Rename columns or index
+
+```python
+df_new = df.rename(columns={'A': 'Col_1'}, index={'ONE': 'Row_1'})
 ```
 ## Rename columns by position
 
@@ -63,6 +76,21 @@ df['Column2'] = df.Column2.str.replace('b,?' , '')
 ```python
 df = df[df.columns.drop(list(df.filter(regex='Test')))]
 ```
+
+# drop columns according to list
+
+
+```python
+# %%
+colsToDrop = [     'BARCODE',            'PLATESET',                'WELL',
+            'SUBSTANCE_NAME',        'Full_Species',               'Genus',
+                  'Sp_alone',             'Species',             'Famille']
+
+df_merged_selected=df_merged.drop(colsToDrop, axis=1)
+df_merged_selected
+
+```
+
 
 # If Na replace with value of the same row but another column
 

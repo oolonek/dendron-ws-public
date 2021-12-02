@@ -2,7 +2,7 @@
 id: wdqnPrErw725XePguupiQ
 title: Shiny
 desc: ''
-updated: 1617029739672
+updated: 1638373464138
 created: 1617018171320
 ---
 
@@ -40,3 +40,10 @@ https://renkulab.shinyapps.io/COVID-19-Epidemic-Forecasting/_w_c80f7467/?tab=jhu
 using shinyproxy.io
 via Apache
 
+## for the price app
+https://oolonek.shinyapps.io/price_app/
+
+cd to price_app folder
+
+library(rsconnect)
+deployApp()
