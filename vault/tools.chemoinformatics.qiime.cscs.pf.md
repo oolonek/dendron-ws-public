@@ -2,7 +2,7 @@
 id: 4q6R0Wq7vq4KwfN3Ok92J
 title: Pf
 desc: ''
-updated: 1638278641193
+updated: 1638516076210
 created: 1615882210535
 ---
 
@@ -146,3 +146,18 @@ by adding () to pa
     if weighted == False:
         features = features.pa()
 
+
+To get the tsv 
+
+The resulting qza artifacts can then be renamed to .zip and extracted to fetch the corresponding distance matrix in tsv format.
+
+qiime diversity pcoa --i-distance-matrix qeemistree_set_cscs_distance_matrix_norm_weighted.qza --o-pcoa PCOA_qeemistree_set_cscs_distance_matrix_norm_weighted.qza
+
+
+qiime emperor plot --i-pcoa PCOA_qeemistree_set_cscs_distance_matrix_norm_weighted.qza --m-metadata-file metadata_table/metadata_table-00000.tsv --p-ignore-missing-samples --o-visualization PCOA_qeemistree_set_cscs_distance_matrix_norm_weighted_viz.qzv
+
+qiime emperor plot --i-pcoa PCOA_qeemistree_set_cscs_distance_matrix_norm_unweighted.qza --m-metadata-file metadata_table-00000.tsv --p-ignore-missing-samples --o-visualization PCOA_qeemistree_set_cscs_distance_matrix_norm_unweighted_viz.qzv
+
+qiime emperor plot --i-pcoa PCOA_qeemistree_set_cscs_distance_matrix_nonorm_weighted.qza --m-metadata-file metadata_table-00000.tsv --p-ignore-missing-samples --o-visualization PCOA_qeemistree_set_cscs_distance_matrix_nonorm_weighted_viz.qzv
+
+qiime emperor plot --i-pcoa PCOA_qeemistree_set_cscs_distance_matrix_nonorm_unweighted.qza --m-metadata-file metadata_table-00000.tsv --p-ignore-missing-samples --o-visualization PCOA_qeemistree_set_cscs_distance_matrix_nonorm_unweighted_viz.qzv

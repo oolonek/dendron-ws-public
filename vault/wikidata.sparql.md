@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1636559719937
+updated: 1638950408009
 created: 1611593110381
 ---
 
@@ -78,7 +78,6 @@ https://w.wiki/32Vd
 ## compare authors by count of compound (structuresimilarity-refinable)
 
 https://w.wiki/32Vg (indolic)
-
 https://w.wiki/32Vj (bubblechart - indolic)
 https://w.wiki/32Vi (bubblechart - tropanic)
 
@@ -147,7 +146,8 @@ https://w.wiki/$SF full monty
 https://idsm.elixir-czech.cz:2443/sachem/#/search
 
 
-## Sachem grand parents https://w.wiki/32Wz
+## Sachem grand parents
+https://w.wiki/32Wz
 
 ## Retrun compound present in invasive species
 
@@ -200,9 +200,6 @@ resumed as treemap https://w.wiki/3YMt
 
 for archive on zenodo https://w.wiki/4N8G
 results https://w.wiki/4N8J
-
-
-
 
 
 # molecules found within vegetables
@@ -280,11 +277,14 @@ All compounds + ref for S. coelicolor
 
 https://w.wiki/4EMo (bioact listed)
 
-# https://w.wiki/4EMw
-
-Compounds from species wuth given IUCN status and lifespan
+#  Compounds from species wuth given IUCN status and lifespan
+https://w.wiki/4EMw
 
 # compounds in taxa and children filtered by SMILES pattern regex
 
 https://w.wiki/4JWv
+
+# Melochia genus query
+
+https://w.wiki/4VYy
 

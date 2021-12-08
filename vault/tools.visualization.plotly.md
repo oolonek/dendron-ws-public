@@ -82,3 +82,7 @@ https://stackoverflow.com/a/66741389
 
 
 
+# Monday 06 December 2021
+
+Getting plotly to work within a jupoyter nb file on github https://binnisb.github.io/blog/datascience/2020/04/02/Plotly-in-lab.html
+
