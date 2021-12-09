@@ -2,7 +2,7 @@
 id: lXYgpwVweH35j30wEgBhR
 title: Pandas
 desc: ''
-updated: 1638440265972
+updated: 1639065976540
 created: 1609770454495
 ---
 
@@ -34,6 +34,11 @@ df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True
 ```python
 df_new = df.rename(columns={'A': 'Col_1'}, index={'ONE': 'Row_1'})
 ```
+
+Didnt work for me
+
+df_merged_selected.index.rename('Row ID', inplace = True)
+ does
 ## Rename columns by position
 
 ```python
