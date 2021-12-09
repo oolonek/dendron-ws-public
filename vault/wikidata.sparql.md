@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1638950408009
+updated: 1638955769723
 created: 1611593110381
 ---
 
