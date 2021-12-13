@@ -2,7 +2,7 @@
 id: FARbP3EQoSJaBTcMcIXle
 title: Creation
 desc: ''
-updated: 1638196629421
+updated: 1639211454862
 created: 1600970442296
 stub: false
 ---
@@ -23,5 +23,5 @@ conda create --name myenv
 With a given python version 
 
 ```bash
-conda create -n "myenv" python=3.6
+conda create -n "chemical_diversity_explorer_dev" python=3.7
 ```
