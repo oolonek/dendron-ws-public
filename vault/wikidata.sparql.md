@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1638955769723
+updated: 1639480433589
 created: 1611593110381
 ---
 
@@ -287,4 +287,47 @@ https://w.wiki/4JWv
 # Melochia genus query
 
 https://w.wiki/4VYy
+
+
+# IDSM queries 
+
+PREFIX sachem: <http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX endpoint: <https://idsm.elixir-czech.cz/sparql/endpoint/>
+
+
+
+#title: Which are the available referenced structure-organism pairs on Wikidata? (example limited to 1000 results)
+SELECT DISTINCT ?structure ?structure_inchikey ?taxon ?taxon_name ?reference ?reference_doi WHERE {
+  ?structure wdt:P235 ?structure_inchikey;       # get the inchikey
+    p:P703[                                      # statement found in taxon
+     ps:P703 ?taxon;                             # get the taxon
+     (prov:wasDerivedFrom/pr:P248) ?reference ]. # get the reference
+  ?taxon wdt:P225 ?taxon_name.                   # get the taxon scientific name
+  ?reference wdt:P356 ?reference_doi.            # get the reference DOI
+}
+LIMIT 10
+
+
+
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sachem: <http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#>
+PREFIX endpoint: <https://idsm.elixir-czech.cz/sparql/endpoint/>
+
+SELECT * WHERE {
+  SERVICE endpoint:chebi {
+    ?COMPOUND sachem:substructureSearch
+        [ sachem:query "CC(=O)Oc1ccccc1C(O)=O" ]
+  }
+  ?COMPOUND rdfs:label ?o
+}
 
