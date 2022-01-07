@@ -6,6 +6,12 @@ updated: 1618941991616
 created: 1617949743114
 ---
 
+# Latour's prod
+
+http://www.bruno-latour.fr/fr/livres_volumes_edites.html
+
+
+
 # Check in Biblioteca Itinerante de Tramonte 
 
 https://fr-fr.facebook.com/BibliotecaTramonte/
