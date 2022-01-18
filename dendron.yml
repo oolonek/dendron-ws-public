@@ -16,7 +16,6 @@ site:
     gh_edit_repository: 'https://github.com/oolonek/dendron-ws-public'
     gh_edit_branch: main
     gh_edit_view_mode: edit
-    assetsPrefix: /dendron-ws-public
     usePrettyRefs: true
     siteLastModified: true
     title: GrndStt's Dendron
@@ -42,7 +41,6 @@ commands:
         enableMarker: false
     randomNote: {}
 workspace:
-    dendronVersion: 0.77.1
     vaults:
         -
             fsPath: vault

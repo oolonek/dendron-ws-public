@@ -2,13 +2,13 @@
 id: Iu50F9KOgYp0CDpwKBlx6
 title: Garage
 desc: ''
-updated: 1611771431220
+updated: 1642449391109
 created: 1609698642888
 stub: false
 ---
 
 
-![](assets/images/2021-01-03-19-44-16.png)
+![](/assets/images/2021-01-03-19-44-16.png)
 
 # Working with the garage door opened
 
@@ -16,7 +16,7 @@ A way of working briefly described by Andy Matuschak here https://notes.andymatu
 
 What is interesting is that in a garage you can peek in and get a sense of the tools, the dirt and a bunch of unrelated stuff and the object crafted in the workshop (furnitures, cars, computers, bombs, strange chemicals). You can see these objects in their final form but most of the time you will see them in their unfinished forms. The fact that people passing by are able to peek at the garage in the very early stages of the projects are of much interest and maybe still not very much adopted in science. I would like to experiment on this concept also. This second note of Andy explains this Anti-marketing concept nicely as https://notes.andymatuschak.org/z4bK6LaSBRetDzuYkeCs3A8mJ8DufTbK4o6FS
 
-
+![](/assets/images/2022-01-17-20-56-15.png)
 
 https://michaelnielsen.org/
 https://quantum.country/qcvc cf [[vault/tools.mnemonics]]
