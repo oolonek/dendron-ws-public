@@ -2,13 +2,13 @@
 id: Iu50F9KOgYp0CDpwKBlx6
 title: Garage
 desc: ''
-updated: 1611771431220
+updated: 1642447804817
 created: 1609698642888
 stub: false
 ---
 
 
-![](assets/images/2021-01-03-19-44-16.png)
+![](/assets/images/2021-01-03-19-44-16.png)
 
 # Working with the garage door opened
 
