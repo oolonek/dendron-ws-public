@@ -2,7 +2,7 @@
 id: gLinvZHBi7hpldyaJWSuD
 title: Vscode
 desc: ''
-updated: 1611741552812
+updated: 1642752421703
 created: 1611225989378
 ---
 
@@ -15,3 +15,9 @@ CTRL+ALT+ ↑ / ↓: Select next/previous line
 ALT-CLICK: Create cursors
 CTRL-U: Undo last cursor operation
 CTRL-SHIFT-L: Select current match
+
+# Fold markdown 
+
+Visual Studio Code now supports code folding for Markdown documents by heading. Folding a header collapses all content and subheadings under that header. 
+CMD + K + CMD + 0/1/2/3 — to fold
+CMD + K + CMD + J — to unfold
