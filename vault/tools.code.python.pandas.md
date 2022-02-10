@@ -2,7 +2,7 @@
 id: lXYgpwVweH35j30wEgBhR
 title: Pandas
 desc: ''
-updated: 1639065976540
+updated: 1643881275864
 created: 1609770454495
 ---
 
@@ -131,3 +131,9 @@ df['color'] = np.select(conditions, choices, default='black')
 print(df)
 
 ```
+# drop duplicates according to multiple coloumns
+
+DataFrame.drop_duplicates(subset=None, keep='first', inplace=False, ignore_index=False)
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html
+
+df.drop_duplicates(subset=['a', 'b'], keep='first', inplace=True, ignore_index=False)

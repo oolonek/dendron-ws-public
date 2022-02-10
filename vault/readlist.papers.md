@@ -2,7 +2,7 @@
 id: 3PbjxNe7yIn2I9yKJfqXD
 title: Papers
 desc: ''
-updated: 1632740772410
+updated: 1643739381213
 created: 1610194509817
 ---
 
@@ -12,6 +12,12 @@ created: 1610194509817
 
 This is a dump.
 Entries here should be sent to their respective dendron notes when treated.
+
+
+# A knowledge graph to interpret clinical proteomics data
+
+
+https://www.nature.com/articles/s41587-021-01145-6
 
 # Infrastructure and Population of the OpenBiodiv Biodiversity Knowledge Graph
 
