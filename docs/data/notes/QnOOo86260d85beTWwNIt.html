@@ -1,0 +1,43 @@
+<h1 id="sed_bash"><a aria-hidden="true" class="anchor-heading" href="#sed_bash"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Sed_bash</h1>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">#oneday (Private)</a>
+automate with a sed script ? the bib cleaning </p>
+<p>Some sed black magic </p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"\{"</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">"s|<span class="token entity" title="\\">\\</span>\{|<span class="token entity" title="\\">\\</span>\'{|"</span>
+</code></pre>
+<p>Double \ to escape the \</p>
+<p>And repeat </p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"\{jhdgjshgjhfsjdhgf\}"</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">"s|<span class="token entity" title="\\">\\</span>\{|<span class="token entity" title="\\">\\</span>\'{|g; s|<span class="token entity" title="\\">\\</span>\}|<span class="token entity" title="\\">\\</span>\'}|g;"</span>
+</code></pre>
+<p>Now add input and outputs </p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">sed</span> <span class="token string">"s|<span class="token entity" title="\\">\\</span>\{|<span class="token entity" title="\\">\\</span>\'{|g; s|<span class="token entity" title="\\">\\</span>\}|<span class="token entity" title="\\">\\</span>\'}|g"</span> library.bib <span class="token operator">></span> library_formatted.bib
+</code></pre>
+<p>We'll try to automatize the process using <a href="https://stackoverflow.com/a/13807906">https://stackoverflow.com/a/13807906</a> fswatch and alternative to inotifywatch on linux <a href="https://linux.die.net/man/1/inotifywatch">https://linux.die.net/man/1/inotifywatch</a></p>
+<p>So here is the small bash script. It will take the command line arg 1 and add the _formatted prefix to it. Could be cleaner and directly extract the filename to accomodate for various type of extension. Not the point here. If any body has an idea, please contribute ! :point_down: </p>
+<pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token function">sed</span> <span class="token string">"s|<span class="token entity" title="\\">\\</span>\{|<span class="token entity" title="\\">\\</span>\'{|g; s|<span class="token entity" title="\\">\\</span>\}|<span class="token entity" title="\\">\\</span>\'}|g"</span> <span class="token string">"<span class="token variable">$1</span>"</span> <span class="token operator">></span> <span class="token string">"<span class="token variable">${1<span class="token operator">%</span>.bib}</span>_formatted.bib"</span>
+</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token comment"># fullfilename="$(basename $1)"</span>
+<span class="token comment"># extension="${fullfilename##*.}"</span>
+<span class="token comment"># filename="${fullfilename%.*}"</span>
+
+<span class="token comment"># echo $fullfilename</span>
+<span class="token comment"># echo $extension</span>
+<span class="token comment"># echo $filename</span>
+
+<span class="token comment">#echo "File added: " "$(basename $1)" "$(basename $1)"</span>
+<span class="token function">sed</span> <span class="token string">"s|<span class="token entity" title="\\">\\</span>\{|<span class="token entity" title="\\">\\</span>\'{|g; s|<span class="token entity" title="\\">\\</span>\}|<span class="token entity" title="\\">\\</span>\'}|g"</span> <span class="token string">"<span class="token variable">$1</span>"</span> <span class="token operator">></span> <span class="token string">"./formatted_bib/<span class="token variable">${filename}</span>_formatted.bib"</span>
+
+</code></pre>
+<p>fswatch has been somehow a nightmare to understand ...</p>
+<p>to trouble shoot use the follwoing line to be sure of what exactly you take as input </p>
+<pre class="language-bash"><code class="language-bash">fswatch -0 ./mendeley_output/ <span class="token operator">|</span> <span class="token function">xargs</span> -0 -n1 -I<span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token builtin class-name">echo</span> <span class="token string">"{}"</span>
+</code></pre>
+<h2 id="quick-replace-in-text-file"><a aria-hidden="true" class="anchor-heading" href="#quick-replace-in-text-file"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>quick replace in text file</h2>
+<p><code>sed -i 's/original/new/g' file.txt</code>ze</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/dendron-ws-public/notes/1zIrSWjXkUv4Lx4VeWLgj">Biblio</a></li>
+</ul>

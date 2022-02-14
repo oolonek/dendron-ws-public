@@ -1,0 +1,76 @@
+<h1 id="mandelbrot"><a aria-hidden="true" class="anchor-heading" href="#mandelbrot"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Mandelbrot</h1>
+<h1 id="a-qiime-recipee-for-empress-display-of-the-pf_project"><a aria-hidden="true" class="anchor-heading" href="#a-qiime-recipee-for-empress-display-of-the-pf_project"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>A Qiime recipee for Empress display of the pf_project</h1>
+<h2 id="required-inputs"><a aria-hidden="true" class="anchor-heading" href="#required-inputs"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Required inputs</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> a feature table (mzmine output)</li>
+<li class="task-list-item"><input type="checkbox" disabled> a sample metadata table</li>
+<li class="task-list-item"><input type="checkbox" disabled> a feature metadata table</li>
+</ul>
+<p>Beware of the confusion between samples and features. In Qiime features refer to OTU and thus have an assigned taxonomy. I our case we have the taxonomy assigned to the samples.</p>
+<h1 id="first-we-deal-with-the-tree-file"><a aria-hidden="true" class="anchor-heading" href="#first-we-deal-with-the-tree-file"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>First we deal with the tree file</h1>
+<p>qiime tools import \
+--input-path otol_tree_rooted.tre \
+--output-path otol_tree_rooted.qza \
+--type 'Phylogeny[Rooted]'</p>
+<h1 id="the-we-deal-with-the-feature-table"><a aria-hidden="true" class="anchor-heading" href="#the-we-deal-with-the-feature-table"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>the we deal with the feature table</h1>
+<h2 id="first-we-use-biom-to-convert-the-tsv-to-the-biom-format"><a aria-hidden="true" class="anchor-heading" href="#first-we-use-biom-to-convert-the-tsv-to-the-biom-format"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>First we use biom to convert the tsv to the biom format</h2>
+<p>biom convert \
+-i feature_table.tsv \
+-o feature_table.biom \
+--table-type="OTU table" \
+--to-hdf5</p>
+<h2 id="conversion-to-qiime-featuretable"><a aria-hidden="true" class="anchor-heading" href="#conversion-to-qiime-featuretable"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Conversion to qiime featureTable</h2>
+<p>qiime tools import \
+--type 'FeatureTable[Frequency]' \
+--input-path feature_table.biom \
+--output-path feature_table.qza</p>
+<h2 id="we-empress-the-whole-shit"><a aria-hidden="true" class="anchor-heading" href="#we-empress-the-whole-shit"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>We EMPRESS the whole shit</h2>
+<p>qiime empress community-plot \
+--i-tree otol_tree_rooted.qza \
+--i-feature-table feature_table.qza \
+--m-sample-metadata-file sample_metadata.tsv \
+--m-feature-metadata-file feature_taxa.tsv \
+--o-visualization empress-tree.qzv \
+--p-filter-missing-features \
+--p-ignore-missing-samples</p>
+<p>Sadly we get the follwoing message</p>
+<p>Plugin error from empress:</p>
+<p>  At least one non-root branch of the tree must have a positive length.</p>
+<p>We thus try to compute branch lenght in R using the ape package</p>
+<h1 id="we-infer-branch-lenght"><a aria-hidden="true" class="anchor-heading" href="#we-infer-branch-lenght"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>we infer branch lenght</h1>
+<p>taxa_tree &#x3C;-compute.brlen(taxa_tree)
+taxa_tree &#x3C;- read.tree('Dropbox/Research_UNIGE/git_repos/qiime-empress-formatter/src/python/otol_tree.tre')</p>
+<h1 id="we-root-the-tree"><a aria-hidden="true" class="anchor-heading" href="#we-root-the-tree"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>we root the tree</h1>
+<h1 id="wd_tree_len_rooted---rootwd_tree_len-outgroup--methanobacterium-resolveroot--true"><a aria-hidden="true" class="anchor-heading" href="#wd_tree_len_rooted---rootwd_tree_len-outgroup--methanobacterium-resolveroot--true"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>wd_tree_len_rooted &#x3C;- root(wd_tree_len, outgroup = "Methanobacterium", resolve.root = TRUE)</h1>
+<p>is.rooted(taxa_tree)</p>
+<p>write.tree(taxa_tree, '~/tmp/empress-tutorial/ecometabo_toyset/ecometabo_taxa_tree_rooted.tree')</p>
+<p>write.tree(taxa_tree, 'Dropbox/Research_UNIGE/git_repos/qiime-empress-formatter/src/python/otol_tree_rooted.tre')</p>
+<h1 id="lets-add-some-metadata-for-the-feature-table-viz"><a aria-hidden="true" class="anchor-heading" href="#lets-add-some-metadata-for-the-feature-table-viz"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Lets add some metadata for the feature table viz</h1>
+<p>qiime feature-table summarize \
+--i-table feature_table.qza \
+--o-visualization feature_table_viz.qzv \
+--m-sample-metadata-file sample_metadata.tsv</p>
+<h2 id="metadata-viz"><a aria-hidden="true" class="anchor-heading" href="#metadata-viz"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>metadata viz</h2>
+<p>qiime metadata tabulate \
+--m-input-file sample_metadata.tsv \
+--o-visualization sample_metadata.qzv</p>
+<h2 id="lets-try-some-metadat-based-filtering-of-the-feature-table"><a aria-hidden="true" class="anchor-heading" href="#lets-try-some-metadat-based-filtering-of-the-feature-table"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>lets try some metadat based filtering of the feature table</h2>
+<p>qiime feature-table filter-samples \
+--i-table feature_table.qza \
+--m-metadata-file sample_metadata.tsv \
+--p-where "[Taxonomical_Score_ISDB]>0" \
+--o-filtered-table taxscore-filtered-feature_table.qza</p>
+<p>qiime feature-table filter-samples \
+--i-table feature-contingency-filtered-table.qza \
+--m-metadata-file sample_metadata.tsv \
+--p-where "[Consensus_class_ci_cf]!='nan'" \
+--o-filtered-table nan-filtered-table.qza</p>
+<p>qiime empress community-plot \
+--i-tree otol_tree_rooted.qza \
+--i-feature-table taxscore-filtered-feature_table.qza \
+--m-sample-metadata-file sample_metadata.tsv \
+--m-feature-metadata-file feature_taxa.tsv \
+--m-feature-metadata-file metadata_otoled.tsv \
+--o-visualization empress-tree.qzv \
+--p-filter-missing-features \
+--p-ignore-missing-samples</p>

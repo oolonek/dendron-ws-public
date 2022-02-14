@@ -1,0 +1,9 @@
+<h1 id="update"><a aria-hidden="true" class="anchor-heading" href="#update"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Update</h1>
+<p>To update a conda environment given a .yml file</p>
+<p><a href="https://stackoverflow.com/a/43873901">https://stackoverflow.com/a/43873901</a></p>
+<pre class="language-bash"><code class="language-bash">conda activate myenv
+conda <span class="token function">env</span> update --file environment.yml
+</code></pre>
+<p>Or without the need to activate the environment (thanks <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@NumesSanguis (Private)</a>):</p>
+<pre class="language-bash"><code class="language-bash">conda <span class="token function">env</span> update --name myenv --file environment.yml
+</code></pre>

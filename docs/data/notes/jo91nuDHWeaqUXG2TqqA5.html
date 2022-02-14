@@ -1,0 +1,32 @@
+<h1 id="meetings"><a aria-hidden="true" class="anchor-heading" href="#meetings"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Meetings</h1>
+<h1 id="meeting-notes"><a aria-hidden="true" class="anchor-heading" href="#meeting-notes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Meeting Notes</h1>
+<p>This is a video of keeping meeting notes in Dendron. Meeting notes are kept as <strong>journal notes</strong> on a per-project basis. </p>
+<p><a href="https://www.loom.com/share/c04dd4b3c82a412b82b1f9f75e2291bd">  <img style="" src="https://cdn.loom.com/sessions/thumbnails/c04dd4b3c82a412b82b1f9f75e2291bd-with-play.gif"> </a></p>
+<h2 id="resources"><a aria-hidden="true" class="anchor-heading" href="#resources"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Resources</h2>
+<p>Settings and files used for the above video. </p>
+<ul>
+<li>project schema</li>
+</ul>
+<pre class="language-yml"><code class="language-yml"><span class="token punctuation">-</span> <span class="token key atrule">id</span><span class="token punctuation">:</span> pro
+  <span class="token key atrule">title</span><span class="token punctuation">:</span> pro
+  <span class="token key atrule">desc</span><span class="token punctuation">:</span> <span class="token string">""</span>
+  <span class="token key atrule">parent</span><span class="token punctuation">:</span> root
+  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">children</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> people
+    <span class="token punctuation">-</span> meet
+    <span class="token punctuation">-</span> todo
+    <span class="token punctuation">-</span> retrospective
+<span class="token punctuation">-</span> <span class="token key atrule">id</span><span class="token punctuation">:</span> people
+<span class="token punctuation">-</span> <span class="token key atrule">id</span><span class="token punctuation">:</span> meet
+<span class="token punctuation">-</span> <span class="token key atrule">id</span><span class="token punctuation">:</span> todo
+<span class="token punctuation">-</span> <span class="token key atrule">id</span><span class="token punctuation">:</span> retrospective
+</code></pre>
+<ul>
+<li>journal specific settings</li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"dendron.defaultJournalAddBehavior"</span><span class="token operator">:</span> <span class="token string">"childOfDomainNamespace"</span><span class="token punctuation">,</span>
+    <span class="token property">"dendron.defaultJournalDateFormat"</span><span class="token operator">:</span> <span class="token string">"Y.MM.DD"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre>

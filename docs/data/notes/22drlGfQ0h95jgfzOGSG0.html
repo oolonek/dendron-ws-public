@@ -1,0 +1,177 @@
+<h1 id="time"><a aria-hidden="true" class="anchor-heading" href="#time"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Time</h1>
+<p>Tuesday 03 August 2021</p>
+<blockquote>
+<p>Most of us use our calendars all wrong: we don't schedule work; we schedule interruptions. Meetings get scheduled. Phone calls get scheduled. Doctor appointments get scheduled. You know what often doesn't get scheduled? Real work. All those other things are distractions. Often, they're other people's work. But they get dedicated blocks of time, and your real work becomes an orphan.</p>
+</blockquote>
+<p>Peek into time blocking.</p>
+<p>As Roman Stoic philosopher Seneca once wrote:</p>
+<blockquote>
+<p>“People are frugal in guarding their personal property; but as soon as it comes to squandering time, they are most wasteful of the one thing in which it is right to be stingy.”</p>
+</blockquote>
+<hr>
+<p>Having a look at the MyTime plugin (<a href="https://github.com/codicelq/mytime">https://github.com/codicelq/mytime</a>) because I wanted a time tracking solution and that this is currectly lacking from the excellent Todo+ plugin.</p>
+<p>Created a snippet to directyl add current time </p>
+<pre class="language-bash"><code class="language-bash">    <span class="token string">"now"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"prefix"</span><span class="token builtin class-name">:</span> <span class="token string">"now"</span>,
+        <span class="token string">"scope"</span><span class="token builtin class-name">:</span> <span class="token string">"markdown,yaml"</span>,
+        <span class="token string">"body"</span><span class="token builtin class-name">:</span> <span class="token string">"- <span class="token variable"><span class="token variable">`</span>$CURRENT_HOUR:$CURRENT_MINUTE<span class="token variable">`</span></span> "</span>,
+        <span class="token string">"description"</span><span class="token builtin class-name">:</span> <span class="token string">"now in hour:min"</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li><code>20:00</code> Started work on machine A</li>
+<li><code>20:29</code> // Went to have a piss</li>
+<li><code>21:26</code> Started work on machine A</li>
+<li><code>23:26</code> // Went to have a piss</li>
+<li><code>23:45</code> Started work on machine B</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="right">Time span</th><th>Task</th></tr></thead><tbody><tr><td align="right"><code>01:00</code></td><td>Started work on machine A</td></tr><tr><td align="right"><code>00:15</code></td><td>Started work on machine B</td></tr><tr><td align="right"><strong><code>01:15</code></strong></td><td><strong>Total</strong></td></tr></tbody></table>
+<blockquote>
+<p><em>Last update 20:29</em> / Lines [valid:3, comments:2, invalid:0]</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="right">Time span</th><th>Task</th></tr></thead><tbody><tr><td align="right"><code>01:00</code></td><td>Started work on machine A</td></tr><tr><td align="right"><code>00:15</code></td><td>Started work on machine B</td></tr><tr><td align="right"><code>02:30</code></td><td>Went to have a piss</td></tr><tr><td align="right"><strong><code>03:45</code></strong></td><td><strong>Total</strong></td></tr></tbody></table>
+<blockquote>
+<p><em>Last update 20:28</em> / Lines [valid:5, comments:0, invalid:0]</p>
+</blockquote>
+<hr>
+<p>Let's see if this work with intricated sentences or objects </p>
+<ul>
+<li><code>20:00</code> Started work on machine A</li>
+</ul>
+<p>And this is the code I used for this time machine </p>
+<pre class="language-bash"><code class="language-bash">    <span class="token string">"now"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"prefix"</span><span class="token builtin class-name">:</span> <span class="token string">"now"</span>,
+        <span class="token string">"scope"</span><span class="token builtin class-name">:</span> <span class="token string">"markdown,yaml"</span>,
+        <span class="token string">"body"</span><span class="token builtin class-name">:</span> <span class="token string">"- <span class="token variable"><span class="token variable">`</span>$CURRENT_HOUR:$CURRENT_MINUTE<span class="token variable">`</span></span> "</span>,
+        <span class="token string">"description"</span><span class="token builtin class-name">:</span> <span class="token string">"now in hour:min"</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li><code>20:29</code> // Went to have a piss</li>
+</ul>
+<p>In my amazing bathroom</p>
+<ul>
+<li><code>21:26</code> Started work on machine A</li>
+</ul>
+<p>Blah</p>
+<ul>
+<li><code>23:26</code> // Went to have a piss</li>
+</ul>
+<p>Outside </p>
+<ul>
+<li><code>23:45</code> Started work on machine B</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="right">Time span</th><th>Task</th></tr></thead><tbody><tr><td align="right"><code>01:00</code></td><td>Started work on machine A</td></tr><tr><td align="right"><code>00:15</code></td><td>Started work on machine B</td></tr><tr><td align="right"><strong><code>01:15</code></strong></td><td><strong>Total</strong></td></tr></tbody></table>
+<blockquote>
+<p><em>Last update 20:34</em> / Lines [valid:3, comments:2, invalid:12]</p>
+</blockquote>
+<p>Working !!! That looks like a very nice option
+Its not working in the todo+ files</p>
+<p>  Luis_Molina seeds metabo:
+✔ grab back latest Mzmine project <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@started (Private)</a>(21-01-03 13:40) <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@done (Private)</a>(21-01-03 13:42) <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@lasted (Private)</a>(2m26s)</p>
+<pre><code>- make MN:
+  ✔ make MN metadata file @started(21-01-03 13:42) @done(21-01-03 13:47) @lasted(5m16s)
+  ✔ upload stuff to GNPS @started(21-01-03 13:47) @done(21-01-03 15:06) @lasted(1h19m56s)
+  ✔ briefly check MN in cytoscape @15m @started(21-01-03 15:56) @done(21-01-03 16:06) @lasted(10m11s)
+  ✔ Run ISDB @1h @done(21-01-03 18:05)
+    ✔ upload mgf and attributes to x2go @15m @started(21-01-03 16:06) @done(21-01-03 16:37) @lasted(31m29s)
+    ssh allardp@x2go.epgl-geneve.org
+    cd Desktop/FARMAnetwork/RECHERCHE/COMMON\ FASIE-FATHO/PMA/Ubuntu_VM_img/ISDB_DNP/results/
+    ✔ run isdb via command line (x2go not working)  @30m @started(21-01-03 16:37) @done(21-01-03 16:42) @lasted(5m50s)
+    ✔ get back top 50 locally @10m @started(21-01-03 16:42) @done(21-01-03 16:46) @lasted(4m31s)
+✔ run taxo reponderation using Arabidopsis @1h @1h @started(21-01-03 17:47) @done(21-01-03 18:05) @lasted(18m24s)
+    ✔ download latest version @started(21-01-03 14:30) @done(21-01-03 15:06) @lasted(36m54s)
+  ☐ script a metadata formatter that take a sample metadata and feature table and generates a sample metadat grouped feature table (for cytoscape display) @4h
+  stope here  /Users/pma/Dropbox/Research_UNIGE/git_repos/pf_project/src/peaklist_formatter.py
+☐ make report @1h
+☐ send it @10m
+</code></pre>
+<hr>
+<p>What if it runned over various days ??
+Doesn't seem to take days shifts into account.</p>
+<h2 id="sunday-03-january"><a aria-hidden="true" class="anchor-heading" href="#sunday-03-january"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Sunday 03 January</h2>
+<ul>
+<li><code>20:38</code> //<em>Good morning</em></li>
+<li><code>20:39</code> Bricole_2</li>
+<li><code>22:00</code> Bricole_1</li>
+</ul>
+<h2 id="monday-04-january"><a aria-hidden="true" class="anchor-heading" href="#monday-04-january"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Monday 04 January</h2>
+<ul>
+<li><code>07:45</code> //<em>Let's start</em></li>
+<li><code>08:39</code> Bricole_2</li>
+<li><code>09:43</code> Bricole_3</li>
+<li><code>21:39</code> Bricole_1</li>
+</ul>
+<ul>
+<li><code>21:03</code> Mail</li>
+</ul>
+<h2 id="timeis"><a aria-hidden="true" class="anchor-heading" href="#timeis"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Timeis</h2>
+<p><a href="https://time.is/fr/">https://time.is/fr/</a></p>
+<p>s</p>

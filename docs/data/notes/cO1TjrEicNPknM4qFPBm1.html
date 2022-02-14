@@ -1,0 +1,230 @@
+<h1 id="cscs"><a aria-hidden="true" class="anchor-heading" href="#cscs"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Cscs</h1>
+<h1 id="qiime-cscs-cookbook"><a aria-hidden="true" class="anchor-heading" href="#qiime-cscs-cookbook"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>qiime CSCS cookbook</h1>
+<h1 id="bioinfo_qiime2_cscs_workflow"><a aria-hidden="true" class="anchor-heading" href="#bioinfo_qiime2_cscs_workflow"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>bioinfo_qiime2_cscs_workflow</h1>
+<p>tags = <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">#bioinfo (Private)</a> <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">#recipee (Private)</a> <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">#tutorial (Private)</a> <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">#qiime (Private)</a></p>
+<p>List of commands and recippe for a qiime2 cscs project</p>
+<p>qiime2
+<a href="https://docs.qiime2.org/2020.2/getting-started/">https://docs.qiime2.org/2020.2/getting-started/</a></p>
+<p>qiime cscs
+<a href="https://github.com/madeleineernst/q2-cscs#2-compute-the-chemical-structural-and-compositional-dissimilarity-for-a-real-world-dataset">https://github.com/madeleineernst/q2-cscs#2-compute-the-chemical-structural-and-compositional-dissimilarity-for-a-real-world-dataset</a></p>
+<p>download the GNPS job</p>
+<p>Mind the DownloadResult?task= string !!!</p>
+<p><code>curl -d "" 'https://gnps.ucsd.edu/ProteoSAFe/DownloadResult?task=5729dd0f7a47475abc879e164c237f56&#x26;view=download_cluster_buckettable' -o GNPS_output.zip</code></p>
+<p>fetch the metadata table :</p>
+<p><code>cp GNPS_output/quantification_table_reformatted/d6548148e7e040bb8d573bc6d4954d4b.csv GNPS_buckettable.csv</code></p>
+<p>eventually remove some columns see <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">20200611160123 (Private)</a> terminal_directly_cut_csv_column</p>
+<p><code>cut --complement -f 2,3 -d, GNPS_buckettable.csv > GNPS_buckettable_tomod.csv</code></p>
+<p>then convert from csv to tsv see <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">20200611161504 (Private)</a> terminal_convert_csv_to_tsv</p>
+<p><code>cat GNPS_buckettable_tomod.csv | tr "," "\\t" > GNPS_buckettable.tsv</code></p>
+<p>you can now convert to BIOM format </p>
+<p>`biom convert -i GNPS_buckettable.tsv -o GNPS_buckettable.biom --table-type="OTU table" --to-hdf5</p>
+<p>run using cpus </p>
+<p>time qiime cscs cscs --p-css-edges GNPS_edges.tsv --i-features GNPS_buckettable.qza --p-cosine-threshold 0.7 --p-normalization --p-cpus 40 --o-distance-matrix cscs_distance_matrix.qza</p>
+<p>###########
+Brutal command line history</p>
+<p>2664  source activate qiime2-2020.2
+2665  qiime cscs cscs --p-css-edges small_GNPS_edges.tsv --i-features small_GNPS_buckettable.qza --p-cosine-threshold 0.5 --p-normalization --o-distance-matrix small_cscs_distance_matrix.qza
+2666  ls
+2667  wget <a href="https://raw.githubusercontent.com/madeleineernst/q2-cscs/master/tests/data/small_GNPS_buckettable.qza">https://raw.githubusercontent.com/madeleineernst/q2-cscs/master/tests/data/small_GNPS_buckettable.qza</a>
+2668  wget <a href="https://raw.githubusercontent.com/madeleineernst/q2-cscs/master/tests/data/small_GNPS_edges.tsv">https://raw.githubusercontent.com/madeleineernst/q2-cscs/master/tests/data/small_GNPS_edges.tsv</a>
+2669  qiime cscs cscs --p-css-edges small_GNPS_edges.tsv --i-features small_GNPS_buckettable.qza --p-cosine-threshold 0.5 --p-normalization --o-distance-matrix small_cscs_distance_matrix.qza
+2670  qiime tools view cscs_PCoA.qzv
+2671  qiime tools view cscs_PCoA.qza
+2672  ls -larts
+2673  biom convert -i GNPS_buckettable.tsv -o GNPS_buckettable.biom --table-type="OTU table" --to-hdf5
+2674  qiime tools import --type 'FeatureTable[Frequency]' --input-path GNPS_buckettable.biom --output-path GNPS_buckettable.qza
+2675  qiime cscs cscs --p-css-edges GNPS_edges.tsv --i-features GNPS_buckettable.qza --p-cosine-threshold 0.5 --p-normalization --o-distance-matrix cscs_distance_matrix.qza
+2676  qiime cscs cscs
+2677  qiime cscs cscs --p-css-edges GNPS_edges.tsv --i-features GNPS_buckettable.qza --p-cosine-threshold 0.5 --p-normalization --p-cpus 4 --o-distance-matrix cscs_distance_matrix.qza
+2678  htop
+2679  qiime diversity pcoa --i-distance-matrix cscs_distance_matrix.qza --o-pcoa cscs_PCoA.qza
+2680  qiime emperor plot --i-pcoa cscs_PCoA.qza --m-metadata-file MappingFile_UrineSamples.txt --o-visualization cscs_PCoA.qzv
+2681  qiime tools view cscs_PCoA.qzv
+2682  qiime diversity beta --i-table GNPS_buckettable.qza  --p-metric braycurtis --o-distance-matrix braycurtis_GNPS_buckettable.qza
+2683  qiime diversity pcoa --i-distance-matrix braycurtis_GNPS_buckettable.qza --o-pcoa braycurtis_PCoA.qza
+2684  qiime emperor plot --i-pcoa braycurtis_PCoA.qza --m-metadata-file MappingFile_UrineSamples.txt --o-visualization braycurtis_PCoA.qzv
+2685  qiime tools view braycurtis_PCoA.qzv
+2686  qiime diversity mantel --i-dm1 cscs_distance_matrix.qza --i-dm2 braycurtis_GNPS_buckettable.qza --o-visualization mantel.qzv
+2687  qiime diversity procrustes-analysis --i-reference braycurtis_PCoA.qza --i-other cscs_PCoA.qza --output-dir ./procrustes-out
+2688  qiime emperor procrustes-plot --i-reference-pcoa procrustes-out/transformed_reference.qza --i-other-pcoa procrustes-out/transformed_other.qza --m-metadata-file MappingFile_UrineSamples.txt --o-visualization procrustes-out/plot.qzv
+2689  qiime tools view procrustes-out/plot.qzv
+2690  ls -lart
+2691  cd erythroxylum
+2692  ls
+2693  biom convert -i GNPS_buckettable.tsv -o GNPS_buckettable.biom --table-type="OTU table" --to-hdf5
+2694  qiime tools import --type 'FeatureTable[Frequency]' --input-path GNPS_buckettable.biom --output-path GNPS_buckettable.qza
+2695  qiime cscs cscs --p-css-edges GNPS_edges.tsv --i-features GNPS_buckettable.qza --p-cosine-threshold 0.7 --p-normalization -p-cpus 6 --o-distance-matrix cscs_distance_matrix.qza
+2696  qiime cscs cscs --p-css-edges GNPS_edges.tsv --i-features GNPS_buckettable.qza --p-cosine-threshold 0.7 --p-normalization --p-cpus 6 --o-distance-matrix cscs_distance_matrix.qza
+2697  ssh x2go.epgl-geneve.org -p 80
+2698  ssh <a href="mailto:allardp@x2go.epgl-geneve.org">allardp@x2go.epgl-geneve.org</a> -p 80
+2699  cd Dropbox/Research_UNIGE/git_repos
+2700  git clone <a href="https://github.com/madeleineernst/pyMolNetEnhancer.git">https://github.com/madeleineernst/pyMolNetEnhancer.git</a>
+2701  qiime diversity pcoa --i-distance-matrix cscs_distance_matrix.qza --o-pcoa cscs_PCoA.qza
+2702  ls
+2703  cd GNPS_output
+2704  ls
+2705  cd metadata_table
+2706  ls
+2707  nano metadata_table-00000.txt
+2708  cd ..
+2709  qiime emperor plot --i-pcoa cscs_PCoA.qza --m-metadata-file GNPS_output/metadata_table/metadata_table-00000.txt --o-visualization cscs_PCoA.qzv
+2710  nano GNPS_output/metadata_table/metadata_table-00000.txt
+2711  qiime emperor plot --i-pcoa cscs_PCoA.qza --m-metadata-file GNPS_output/metadata_table/metadata_table-00000.txt --o-visualization cscs_PCoA.qzv
+2712  ls
+2713  nano GNPS_output/metadata_table/metadata_table-00000.txt
+2714  qiime emperor plot --i-pcoa cscs_PCoA.qza --m-metadata-file GNPS_output/metadata_table/metadata_table-00000.txt --o-visualization cscs_PCoA.qzv
+2715  nano GNPS_output/metadata_table/metadata_table-00000.txt
+2716  qiime emperor plot --i-pcoa cscs_PCoA.qza --m-metadata-file GNPS_output/metadata_table/metadata_table-00000.txt --o-visualization cscs_PCoA.qzv
+2717  qiime emperor plot
+2718  qiime emperor plot --i-pcoa cscs_PCoA.qza --m-metadata-file GNPS_output/metadata_table/metadata_table-00000.txt --p-ignore-missing-samples --o-visualization cscs_PCoA.qzv
+2719  qiime tools view cscs_PCoA.qzv
+2720  qiime diversity beta --i-table GNPS_buckettable.qza  --p-metric braycurtis --o-distance-matrix braycurtis_GNPS_buckettable.qza
+2721  qiime diversity pcoa --i-distance-matrix braycurtis_GNPS_buckettable.qza --o-pcoa braycurtis_PCoA.qza
+2722  qiime emperor plot --i-pcoa braycurtis_PCoA.qza --m-metadata-file MappingFile_UrineSamples.txt --o-visualization braycurtis_PCoA.qzv
+2723  qiime emperor plot --i-pcoa braycurtis_PCoA.qza --m-metadata-file GNPS_output/metadata_table/metadata_table-00000.txt --o-visualization braycurtis_PCoA.qzv
+2724  qiime emperor plot --i-pcoa braycurtis_PCoA.qza --m-metadata-file GNPS_output/metadata_table/metadata_table-00000.txt --p-ignore-missing-samples --o-visualization braycurtis_PCoA.qzv
+2725  qiime diversity mantel --i-dm1 cscs_distance_matrix.qza --i-dm2 braycurtis_GNPS_buckettable.qza --o-visualization mantel.qzv
+2726  qiime diversity procrustes-analysis --i-reference braycurtis_PCoA.qza --i-other cscs_PCoA.qza --output-dir ./procrustes-out
+2727  qiime emperor procrustes-plot --i-reference-pcoa procrustes-out/transformed_reference.qza --i-other-pcoa procrustes-out/transformed_other.qza --m-metadata-file GNPS_output/metadata_table/metadata_table-00000.txt --p-ignore-missing-samples --o-visualization procrustes-out/plot.qzv
+2728  qiime tools view procrustes-out/plot.qzv
+2729  ssh <a href="mailto:allardp@x2go.epgl-geneve.org">allardp@x2go.epgl-geneve.org</a> -p 80
+2730  ls -lkart
+2731  ls -lart
+2732  qiime diversity
+2733  qiime diversity beta-rarefaction
+2734  ls
+2735  qiime tools view cscs_PCoA.qza
+2736  qiime tools view cscs_PCoA.qzv
+2737  qiime tools view procrustes-out/plot.qzv
+2738<em> ls
+2739</em> rsync -rvz -e 'ssh -p 80' --progress ./<em>.mp4 <a href="mailto:allardp@x2go.epgl-geneve.org">allardp@x2go.epgl-geneve.org</a>:/home/EPGL.UNIGE.LOCAL/allardp/
+2740</em> htop
+2741<em> rsync -rvz -e 'ssh -p 80' --progress ./</em>.mp4 <a href="mailto:allardp@x2go.epgl-geneve.org">allardp@x2go.epgl-geneve.org</a>:/home/EPGL.UNIGE.LOCAL/allardp/</p>
+<p> ###################################################################################
+###################################################################################</p>
+<h1 id="clean-recipee-pfproject"><a aria-hidden="true" class="anchor-heading" href="#clean-recipee-pfproject"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Clean Recipee PFproject</h1>
+<p> ###################################################################################
+###################################################################################</p>
+<p>We need three inputs
+1 - a feature table
+2 - a edges table
+3 - a metadata table</p>
+<p>See qiime2 website for specification of the files. <a href="https://docs.qiime2.org/2020.2/tutorials/metadata/">https://docs.qiime2.org/2020.2/tutorials/metadata/</a></p>
+<p>After installing enter the dedicated env</p>
+<p>source activate qiime2-2020.2</p>
+<p>On x2go you might need to resolve your issue by exporting the
+following environment variables:</p>
+<pre><code>export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+</code></pre>
+<h2 id="convert-your-mass-spectral-feature-table-to-the-qza-format"><a aria-hidden="true" class="anchor-heading" href="#convert-your-mass-spectral-feature-table-to-the-qza-format"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Convert your mass spectral feature table to the .qza format</h2>
+<p>First, convert the .tsv feature table (GNPS_buckettable.tsv) to a .biom feature table (GNPS_buckettable.biom):</p>
+<p><code>biom convert -i PF_selected_feature_table.tsv -o PF_selected_feature_table.biom --table-type="OTU table" --to-hdf5</code></p>
+<p>Then convert the .biom feature table (GNPS_buckettable.biom) to a .qza feature table (GNPS_buckettable.qza):</p>
+<p><code>qiime tools import --type 'FeatureTable[Frequency]' --input-path PF_selected_feature_table.biom --output-path PF_selected_feature_table.qza</code></p>
+<h2 id="compute-the-chemical-structural-and-compositional-dissimilarity-metric-for-all-pairs-of-samples-in-your-feature-table"><a aria-hidden="true" class="anchor-heading" href="#compute-the-chemical-structural-and-compositional-dissimilarity-metric-for-all-pairs-of-samples-in-your-feature-table"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Compute the chemical structural and compositional dissimilarity metric for all pairs of samples in your feature table</h2>
+<p>To compute the chemical structural and compositional dissimilarity metric for all pairs of samples in your feature table type:</p>
+<p>Note : here we had an extra columns in the tsv so we can drop it directly form the command line
+by
+cut --complement -f 1 PF_selected_edeges.tsv > PF_selected_edeges_ready.tsv</p>
+<p><code>nohup time qiime cscs cscs --p-css-edges PF_selected_edeges.tsv --i-features PF_selected_feature_table.qza --p-cosine-threshold 0.7 --p-normalization --p-cpus 40 --o-distance-matrix cscs_distance_matrix.qza</code></p>
+<h2 id="update-on-dec-2020"><a aria-hidden="true" class="anchor-heading" href="#update-on-dec-2020"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Update on Dec 2020</h2>
+<p>Messing around with qiime but keeping the recipe</p>
+<h3 id="feature-table-creation"><a aria-hidden="true" class="anchor-heading" href="#feature-table-creation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Feature table creation</h3>
+<p><code>biom convert \-i /Users/pma/Dropbox/Research_UNIGE/git_repos/pf_project/data/output/PF_selected_feature_table.tsv  -o PF_selected_feature_table.biom --table-type="OTU table" --to-hdf5</code></p>
+<h3 id="if-you-need-to-go-from-biom-to-tsv"><a aria-hidden="true" class="anchor-heading" href="#if-you-need-to-go-from-biom-to-tsv"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>if you need to go from biom to tsv</h3>
+<p>biom convert -i table.biom -o table.from_biom.txt --to-tsv</p>
+<h3 id="conversion-to-qiime-featuretable"><a aria-hidden="true" class="anchor-heading" href="#conversion-to-qiime-featuretable"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Conversion to qiime featureTable</h3>
+<p>qiime tools import --type 'FeatureTable[Frequency]' --input-path PF_selected_feature_table.biom --output-path PF_selected_feature_table.qza</p>
+<h3 id="summarizing"><a aria-hidden="true" class="anchor-heading" href="#summarizing"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Summarizing</h3>
+<p>qiime feature-table summarize \
+--i-table PF_selected_feature_table.qza \
+--o-visualization table_summarized.qzv</p>
+<h3 id="and-having-a-look-at-the-results"><a aria-hidden="true" class="anchor-heading" href="#and-having-a-look-at-the-results"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>and having a look at the results</h3>
+<p>qiime tools view table_summarized.qzv</p>
+<h3 id="now-well-filter-for-features-present-in-too-many-samples"><a aria-hidden="true" class="anchor-heading" href="#now-well-filter-for-features-present-in-too-many-samples"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Now we'll filter for features present in too many samples</h3>
+<p>qiime feature-table filter-features \
+--i-table PF_selected_feature_table.qza \
+--p-max-frequency 500 \
+--o-filtered-table feature-frequency-filtered-table.qza</p>
+<h3 id="in-fact-here-e-would-rather-like-a-contingency-filtered-table"><a aria-hidden="true" class="anchor-heading" href="#in-fact-here-e-would-rather-like-a-contingency-filtered-table"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>In fact here e would rather like a contingency filtered table</h3>
+<p>qiime feature-table filter-features \
+--i-table PF_selected_feature_table.qza \
+--p-max-samples 500 \
+--o-filtered-table sample-contingency-filtered-table.qza</p>
+<h2 id="lets-try-to-make-a-heatmap-out-of-the-previous-filtered-table"><a aria-hidden="true" class="anchor-heading" href="#lets-try-to-make-a-heatmap-out-of-the-previous-filtered-table"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>lets try to make a heatmap out of the previous filtered table</h2>
+<p>qiime feature-table heatmap \
+--i-table sample-contingency-filtered-table.qza \
+--o-visualization heatmap.qzv</p>
+<h2 id="lets-work-on-phylogeny-import"><a aria-hidden="true" class="anchor-heading" href="#lets-work-on-phylogeny-import"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>lets work on phylogeny import</h2>
+<p>qiime tools import \
+--input-path pf_collec_newick.tre \
+--output-path pf_collec_newick.qza \
+--type 'Phylogeny[Unrooted]'</p>
+<h1 id="lets-add-some-metadata-for-the-feature-table-viz"><a aria-hidden="true" class="anchor-heading" href="#lets-add-some-metadata-for-the-feature-table-viz"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Lets add some metadata for the feature table viz</h1>
+<p>qiime feature-table summarize \
+--i-table PF_selected_feature_table.qza \
+--o-visualization table.qzv \
+--m-sample-metadata-file pf_metatable_qiimed.tsv</p>
+<h1 id="alpha-rarefaction"><a aria-hidden="true" class="anchor-heading" href="#alpha-rarefaction"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>alpha rarefaction</h1>
+<p>qiime diversity alpha-rarefaction \
+--i-table PF_selected_feature_table.qza \
+--i-phylogeny pf_collec_newick.qza \
+--p-max-depth 4000 \
+--m-metadata-file pf_metatable_qiimed.tsv \
+--o-visualization alpha-rarefaction.qzv</p>
+<p>#<a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">#metadata (Private)</a> viz</p>
+<p>qiime metadata tabulate \
+--m-input-file pf_collec_newick_rooted.qza \
+--o-visualization tabulated-feature-metadata.qzv</p>
+<h2 id="empress"><a aria-hidden="true" class="anchor-heading" href="#empress"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>EMPRESS</h2>
+<p>ecometabo_toyset qiime empress community-plot \
+--i-tree phylogeny.qza \
+--i-feature-table feature_table.qza \
+--m-sample-metadata-file feature_metadata.tsv \
+--m-feature-metadata-file feature_taxa.tsv \
+--o-visualization empress-tree2.qzv \
+--p-filter-missing-features \
+--p-ignore-missing-samples</p>
+<h2 id="qemistree"><a aria-hidden="true" class="anchor-heading" href="#qemistree"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>QEMISTREE</h2>
+<p>biom convert -i mzmine_local_quant_formatted.tsv  -o mzmine_local_feature_table.biom --table-type="OTU table" --to-hdf5</p>
+<p>qiime tools import --input-path mzmine_local_feature_table.biom --output-path feature-table.qza --type "FeatureTable[Frequency]"</p>
+<p>qiime tools import --input-path sirius_local.mgf --output-path sirius.mgf.qza --type MassSpectrometryFeatures</p>
+<p>qiime qemistree compute-fragmentation-trees --p-sirius-path 'sirius-osx64-headless-4.0.1/bin/' \
+--i-features sirius.mgf.qza \
+--p-ppm-max 15 \
+--p-profile orbitrap \
+--p-ionization-mode positive \
+--p-java-flags "-Djava.io.tmpdir=~/tmp/ -Xms16G -Xmx32G" \
+--o-fragmentation-trees fragmentation_trees.qza</p>
+<p>  qiime qemistree rerank-molecular-formulas --p-sirius-path 'sirius-osx64-headless-4.0.1/bin/' \
+--i-features sirius.mgf.qza \
+--i-fragmentation-trees fragmentation_trees.qza \
+--p-zodiac-threshold 0.95 \
+--p-java-flags "-Djava.io.tmpdir=~/tmp/ -Xms16G -Xmx32G" \
+--o-molecular-formulas molecular_formulas.qza</p>
+<p>qiime qemistree predict-fingerprints --p-sirius-path 'sirius-osx64-headless-4.0.1/bin/' \
+--i-molecular-formulas molecular_formulas.qza \
+--p-ppm-max 20 \
+--p-java-flags "-Djava.io.tmpdir=~/tmp/ -Xms16G -Xmx32G" \
+--o-predicted-fingerprints fingerprints.qza</p>
+<p>qiime qemistree make-hierarchy \
+--i-csi-results fingerprints.qza \
+--i-feature-tables feature-table.qza \
+--o-tree qemistree.qza \
+--o-feature-table feature-table-hashed.qza \
+--o-feature-data feature-data.qza</p>
+<p>qiime qemistree get-classyfire-taxonomy \
+--i-feature-data feature-data.qza \
+--o-classified-feature-data classified-merged-feature-data.qza</p>
+<p>qiime empress community-plot \
+--i-tree qemistree-tree.qza \
+--i-feature-table feature-table-hashed.qza \
+--m-sample-metadata-file sample-metadata.tsv \
+--m-feature-metadata-file feature-data.qza \
+--o-visualization empress-tree.qzv</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/dendron-ws-public/notes/4q6R0Wq7vq4KwfN3Ok92J">Pf</a></li>
+</ol>

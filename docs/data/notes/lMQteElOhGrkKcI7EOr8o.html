@@ -1,0 +1,166 @@
+<h1 id="multivault"><a aria-hidden="true" class="anchor-heading" href="#multivault"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Multivault</h1>
+<h1 id="what-are-we-talking-about-"><a aria-hidden="true" class="anchor-heading" href="#what-are-we-talking-about-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>What are we talking about ?</h1>
+<p>Multivault configuration is a way to put your Dendron notes into compartements.
+Multiple reason can lead you to head towards a multivaults setup.
+Here are some of them <a href="https://wiki.dendron.so/notes/24b176f1-685d-44e1-a1b0-1704b1a92ca0.html#use-cases">https://wiki.dendron.so/notes/24b176f1-685d-44e1-a1b0-1704b1a92ca0.html#use-cases</a></p>
+<p>However they are multiple ways of setting up a multivault configuration.
+In my case I have been wanting to set this up for a long time and tried at least 3 times with no success. </p>
+<h1 id="why-this-note-"><a aria-hidden="true" class="anchor-heading" href="#why-this-note-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Why this note ?</h1>
+<p>So I will write a note regarding the recipe I followed for what seems to be (up to now) a convenient solution for me. This is a note for my future self but also for people how have been having difficulties to setup up a multivault configurations.</p>
+<h1 id="what-do-i-want-"><a aria-hidden="true" class="anchor-heading" href="#what-do-i-want-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>What do I want ?</h1>
+<p>My requirements were the following ones:</p>
+<ul>
+<li>at least two vaults but possibility to accomodate more if needed</li>
+<li>all vaults should be git versioned and have a remote repo (github)</li>
+<li>the vaults should be git versioned on a private or public git repo </li>
+<li>all vaults should be possibly publishable as github pages</li>
+</ul>
+<p>One thing that confounded me at first was the distinction between vaults and workspace.
+After enough trial an error the setup I adopted is the following one.</p>
+<h1 id="what-do-i-have-now-"><a aria-hidden="true" class="anchor-heading" href="#what-do-i-have-now-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>What do I have now ?</h1>
+<p>I have 3 dendron <strong>workspaces</strong>. </p>
+<ul>
+<li><strong>dendron-global</strong></li>
+<li><strong>dendron-ws-private</strong></li>
+<li><strong>dendron-ws-public</strong></li>
+</ul>
+<p><strong>dendron-global</strong> and <strong>dendron-ws-private</strong> are git-versioned on a private github repos (<a href="https://github.com/oolonek/dendron-global">https://github.com/oolonek/dendron-global</a> and <a href="https://github.com/oolonek/dendron-ws-private">https://github.com/oolonek/dendron-ws-private</a>, respectively) while <strong>dendron-ws-public</strong> is versioned on a public repo (<a href="https://github.com/oolonek/dendron-ws-public">https://github.com/oolonek/dendron-ws-public</a>). </p>
+<p>I did a 'Dendron: Vault add' command from the <strong>dendron-global</strong> vault to incorporate <strong>dendron-ws-private</strong> and <strong>dendron-ws-public</strong>.</p>
+<p>As a result I have three websites:</p>
+<p><a href="https://oolonek.github.io/dendron-global/">https://oolonek.github.io/dendron-global/</a>
+<a href="https://oolonek.github.io/dendron-ws-private/">https://oolonek.github.io/dendron-ws-private/</a>
+<a href="https://oolonek.github.io/dendron-ws-public/">https://oolonek.github.io/dendron-ws-public/</a></p>
+<p>These reflect their own vaults (<strong>dendron-ws-private</strong> and <strong>dendron-ws-public</strong>) or the totality (dendron-global). </p>
+<p>See flowchart below : </p>
+<div class="mermaid">
+   flowchart TB
+   subgraph dendron-global-workspace
+     dendron-global-workspace-vault.dendron-global-workspace[dendron-global-workspace-vault]
+   subgraph dendron-ws-private-workspace
+     dendron-ws-private-vault.dendron-ws-private-workspace[dendron-ws-private-vault]
+   end
+   subgraph dendron-ws-public-workspace
+     dendron-ws-public-vault.dendron-ws-public-workspace[dendron-ws-public-vault]
+   end
+   end
+   dendron-global-workspace --> dendron-global.git
+   dendron-ws-private-workspace --> dendron-ws-private.git
+   dendron-ws-public-workspace --> dendron-ws-public.git
+   dendron-global.git --> dendron-global.gitpage
+   dendron-ws-private.git --> dendron-ws-private.gitpage
+   dendron-ws-public.git --> dendron-ws-public.gitpage
+</div>
+<p>Where : </p>
+<ul>
+<li>dendron-global.git is <a href="https://github.com/oolonek/dendron-global">https://github.com/oolonek/dendron-global</a> </li>
+<li>dendron-ws-private.git is <a href="https://github.com/oolonek/dendron-ws-private">https://github.com/oolonek/dendron-ws-private</a></li>
+<li>dendron-ws-public.git is <a href="https://github.com/oolonek/dendron-ws-public">https://github.com/oolonek/dendron-ws-public</a></li>
+</ul>
+<p>and</p>
+<ul>
+<li>dendron-global.gitpage is <a href="https://oolonek.github.io/dendron-global/">https://oolonek.github.io/dendron-global/</a></li>
+<li>dendron-ws-private.gitpage is <a href="https://oolonek.github.io/dendron-ws-private/">https://oolonek.github.io/dendron-ws-private/</a></li>
+<li>dendron-ws-public.gitpage is <a href="https://oolonek.github.io/dendron-ws-public/">https://oolonek.github.io/dendron-ws-public/</a></li>
+</ul>
+<h1 id="recipe"><a aria-hidden="true" class="anchor-heading" href="#recipe"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Recipe</h1>
+<ul>
+<li>
+<p>Initialize a new workspace by cmd+shit+p Dendron:Initialize Workspace
+Name it as you want but let the default vault name as vault</p>
+</li>
+<li>
+<p>Go to Github and create new private or public repo as you wish</p>
+</li>
+<li>
+<p>Open VSCode at the workspace level (not at the vault level) and in terminal:</p>
+</li>
+</ul>
+<pre><code>git init
+git add . 
+git commit -m 'initial commit'
+git remote add origin https://github.com/oolonek/dendron-global.git
+git push -u origin main
+(complains)
+git pull origin main  
+git config pull.rebase true
+git pull origin main  
+git push -u origin main
+</code></pre>
+<ul>
+<li>
+<p>repeat the previous steps for the two other workspaces</p>
+</li>
+<li>
+<p>We set up the repo so that they are publish automatically using the gh actions</p>
+</li>
+</ul>
+<p><a href="https://wiki.dendron.so/notes/230d0ccf-5758-4a8f-b39b-3b68e1482e2b.html">https://wiki.dendron.so/notes/230d0ccf-5758-4a8f-b39b-3b68e1482e2b.html</a>
+and
+<a href="https://wiki.dendron.so/notes/877f4347-f013-43ba-aec4-87412b2e1bec.html">https://wiki.dendron.so/notes/877f4347-f013-43ba-aec4-87412b2e1bec.html</a></p>
+<p>But follow only the steps required for gh action triggered publishing (no need for local publishing first)
+So just change your dendron.yml  by adding</p>
+<pre><code>    siteUrl: https://oolonek.github.io
+    assetsPrefix: dendron-ws-public
+</code></pre>
+<ul>
+<li>To create the package.json at the ws roots we run from the terminal</li>
+</ul>
+<pre><code>npm init -y
+npm install @dendronhq/dendron-cli@latest
+npm install @dendronhq/dendron-11ty@latest
+</code></pre>
+<ul>
+<li>We modify the dendron.yml to have the gh edit link</li>
+</ul>
+<pre><code>    gh_edit_link: true
+    gh_edit_link_text: Click here to edit this page on Github !
+    gh_edit_repository: 'https://github.com/oolonek/dendron-ws-public'
+    gh_edit_branch: main
+    gh_edit_view_mode: edit
+    assetsPrefix: dendron-ws-public
+</code></pre>
+<ul>
+<li>
+<p>Repeat for all repos. </p>
+</li>
+<li>
+<p>Check that all websites publish correctly when you push a new note.</p>
+</li>
+<li>
+<p>Now at the vault level (not workspace level) of your global workspace (here called dendron-global in the previous schema) you cmd+shit+p Dendron: Vault Add/remote and paste the github adress of the repos you want to integrate.
+This should automatically upgrade the dendron.yml of the global workspace.</p>
+</li>
+<li>
+<p>The last step is important else you will not be able to publish from the global repo. You need to add checkout actions to the .github/workflows/dendron-actions.yml See example below to checkout a publi and a private repo:</p>
+</li>
+</ul>
+<pre><code>            - name: Checkout source
+              uses: actions/checkout@v2
+
+            - name: Checkout public repo
+              uses: actions/checkout@v2
+              with:
+                repository: oolonek/dendron-ws-public
+                path: dendron-ws-public
+
+            - name: Checkout private repo
+              uses: actions/checkout@v2
+              with:
+                repository: oolonek/dendron-ws-private
+                token: ${{ secrets.BUILD_ACCESS_SECRET }} # `GitHub_PAT` is a secret that contains your PAT
+                path: dendron-ws-private
+
+</code></pre>
+<p>Note that you will need to prepare a PAT if you pull from a private repo.</p>
+<h1 id="questions-or-editions"><a aria-hidden="true" class="anchor-heading" href="#questions-or-editions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Questions or editions</h1>
+<p>Please comment directly on github by clicking the link below 👇</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/dendron-ws-public/notes/0HNwN2BVtZRCgGI1AE0uD">New_recipee</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/dendron-ws-public/notes/K2YZfA8sRComdK4Deuxz7">Multivault</a></li>
+</ul>

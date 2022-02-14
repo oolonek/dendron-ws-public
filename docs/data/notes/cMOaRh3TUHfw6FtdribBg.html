@@ -1,0 +1,20 @@
+<h1 id="bash"><a aria-hidden="true" class="anchor-heading" href="#bash"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Bash</h1>
+<h1 id="rename-files"><a aria-hidden="true" class="anchor-heading" href="#rename-files"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Rename files</h1>
+<pre class="language-bash"><code class="language-bash"><span class="token keyword">for</span> <span class="token for-or-select variable">f</span> <span class="token keyword">in</span> *.png<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token builtin class-name">echo</span> <span class="token function">mv</span> <span class="token string">"<span class="token variable">$f</span>"</span> <span class="token string">"<span class="token variable">${f<span class="token operator">/</span>_*_<span class="token operator">/</span>_}</span>"</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
+</code></pre>
+<p>Remove echo </p>
+<p><a href="https://stackoverflow.com/a/24103055">https://stackoverflow.com/a/24103055</a></p>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">#tremendous (Private)</a></p>
+<h1 id="list-all-files-and-folder-in-a-graphical-tree-in-terminal"><a aria-hidden="true" class="anchor-heading" href="#list-all-files-and-folder-in-a-graphical-tree-in-terminal"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>List all files and folder in a graphical tree in terminal</h1>
+<p>You need to
+<code>brew install tree</code></p>
+<p>Then you can <code>tree</code> or <code>tree -lart</code></p>
+<h1 id="list-all-files-and-their-full-path"><a aria-hidden="true" class="anchor-heading" href="#list-all-files-and-their-full-path"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>List all files and their full path</h1>
+<p>ls -d -1 "$PWD/"<em>.</em></p>
+<h1 id="bash-upgrade-on-mac"><a aria-hidden="true" class="anchor-heading" href="#bash-upgrade-on-mac"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>bash upgrade on mac</h1>
+<p><a href="https://itnext.io/upgrading-bash-on-macos-7138bd1066ba">https://itnext.io/upgrading-bash-on-macos-7138bd1066ba</a></p>
+<p>Had some problem when running the build.sh script of manubot.
+Because of this error </p>
+<p>build/build.sh: line 50: ${BUILD_PDF,,}: bad substitution
+Turns out that ,, are not </p>
+<p><a href="https://stackoverflow.com/a/47815884">https://stackoverflow.com/a/47815884</a></p>
