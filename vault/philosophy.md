@@ -2,7 +2,7 @@
 id: HMvEFZAnQOxD77TnbVwGV
 title: Philosophy
 desc: ''
-updated: 1610893475043
+updated: 1645194878677
 created: 1610876019394
 ---
 ## Gaston Bachelard
@@ -64,3 +64,17 @@ https://www.franceculture.fr/emissions/les-chemins-de-la-philosophie/profession-
 * travail vers la non-hégémonie d'un des modes / aux autres 
 * les cahiers de doléances
 * recupération des concepts de Gaia de Lovelock
+
+
+## Emergence, Reduction, and Theoretical Principles: Rethinking Fundamentalism
+
+Philosophy of Science
+Vol. 73, No. 5, Proceedings of the 2004 Biennial Meeting of The Philosophy of Science AssociationPart II: Symposia PapersEdited by Miriam Solomon (December 2006), pp. 876-887 (12 pages)
+
+https://shibbolethsp.jstor.org/start?entityID=https%3A%2F%2Faai.unifr.ch%2Fidp%2Fshibboleth&dest=https://www.jstor.org/stable/10.1086/518746&site=jstor
+
+[emergentism](https://en.wikipedia.org/wiki/Emergentism "In philosophy, emergentism is the belief in emergence, particularly as it involves consciousness and the philosophy of mind. A property of a system is said to be emergent if it is a new outcome of some other properties of the system and their interaction, while it is itself different from them. Within the philosophy of science, emergentism is analyzed both as it contrasts with, and parallels reductionism.Emergent properties, laws and principles, appear when a system is studied at a higher level of organization \(holistic instead of atomic level\). They often show a high level of complexity, despite the fundamental principles that regulate the components of the system being simple. For example, in emergentism, the laws of chemistry are believed to emerge only from a few fundamental laws of physics \(some still not discovered\), biology from chemistry, and psychology from biology, although we still have not been able to fully deduce these holistic relations from the atomic level because of their complexity. Consciousness is believed to appear in certain large neural networks, but is not an attribute of a single neuron. In emergentism, no mystic principles are believed to be added at higher level, but emergentism is naturalistic.
+Emergent properties are not identical with, reducible to, or deducible from the other properties. The different ways in which this independence requirement can be satisfied lead to variant types of emergence.")
+
+https://en.wikipedia.org/wiki/Thomas_Nagel
+
