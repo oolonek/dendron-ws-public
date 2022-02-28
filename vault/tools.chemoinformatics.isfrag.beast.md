@@ -2,7 +2,7 @@
 id: Mlb5F1TDswu1OkB4yKCXI
 title: Beast
 desc: ''
-updated: 1635414266944
+updated: 1646061947037
 created: 1634965352373
 ---
 
@@ -66,3 +66,21 @@ find Programs/cfm-id-code/cfm/bin/cfm_output/ \
 
 
 find ./cfm_output -name '*.log' -exec mv {} . \;
+
+
+## Monday 28 February 2022
+
+Taking over 
+last bash files looked like 
+
+```
+#!/bin/sh
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/home/allardpm/Programs/lp_solve_5.5/lpsolve55/bin/ux64
+cd /home/allardpm/Programs/cfm-id-code/cfm/bin
+./cfm-predict /home/allardpm/cfm/cfm_input/splitted/lotus_to_frag_00097.txt 0.001 /home/allardpm/Programs/cfm-id-code/cfm-pretrained-models/[M+H]+/param_output.log /home/allardpm/Programs/cfm-id-code/cfm-pretrained-models/[M+H]+/param_config.txt 1 cfm_output/ & >/dev/nul
+```
+We move every body to a subfolder
+
+find ./ -name '*.log' -exec mv {} ./all_log \;
+
