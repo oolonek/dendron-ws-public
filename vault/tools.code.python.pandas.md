@@ -2,7 +2,7 @@
 id: lXYgpwVweH35j30wEgBhR
 title: Pandas
 desc: ''
-updated: 1643881275864
+updated: 1646040645353
 created: 1609770454495
 ---
 
@@ -29,6 +29,8 @@ df.iloc[:, 7:]
 ```python
 df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True)
 ```
+
+
 ## Rename columns or index
 
 ```python
