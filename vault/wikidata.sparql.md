@@ -2,11 +2,33 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1639480433589
+updated: 1646292468156
 created: 1611593110381
 ---
 
 # SPARQL queries
+
+
+
+# all compounds produced by a given taxon or group of taxa (including children taxa) : 
+
+https://w.wiki/4CMd
+
+with ref
+
+https://w.wiki/4CMg
+
+
+
+# all compounds produced by a given taxon or group of taxa (including children taxa) which have a described bioactivity : 
+
+https://w.wiki/3YMo
+
+resumed as treemap https://w.wiki/3YMt
+
+for archive on zenodo https://w.wiki/4N8G
+results https://w.wiki/4N8J
+
 
 
 ## All organisms containing compound for which a given MeSh id has been reported.
@@ -181,25 +203,6 @@ https://w.wiki/33WG
 All the biological taxa where the chemical compound erysodine is found in.
 https://w.wiki/33WA
 
-
-# all compounds produced by a given taxon or group of taxa (including children taxa) : 
-
-https://w.wiki/4CMd
-
-with ref
-
-https://w.wiki/4CMg
-
-
-
-# all compounds produced by a given taxon or group of taxa (including children taxa) which have a described bioactivity : 
-
-https://w.wiki/3YMo
-
-resumed as treemap https://w.wiki/3YMt
-
-for archive on zenodo https://w.wiki/4N8G
-results https://w.wiki/4N8J
 
 
 # molecules found within vegetables
