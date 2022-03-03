@@ -2,7 +2,7 @@
 id: lXYgpwVweH35j30wEgBhR
 title: Pandas
 desc: ''
-updated: 1646040645353
+updated: 1646301779812
 created: 1609770454495
 ---
 
@@ -72,11 +72,24 @@ pd.cut(df.Age,bins=[0,2,17,65,99],labels=['Toddler/Baby','Child','Adult','Elderl
 pd.merge(df1, df2, left_index=True, right_index=True)
 ```
 
+# Merge two df based on columns
+
+
+pd.merge(student_df, staff_df, how='left', left_on='Name', right_on='Name')
+
+
+
 # replace specific string in values
 
 ```python
 df['Column2'] = df.Column2.str.replace('b,?' , '')
 ```
+
+# Replace string by Nan
+
+metadata_lat_lon_df = metadata_lat_lon_df.replace('nd', np.nan)
+
+
 
 # drop column according to regex
 
