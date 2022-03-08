@@ -2,7 +2,7 @@
 id: lXYgpwVweH35j30wEgBhR
 title: Pandas
 desc: ''
-updated: 1646301779812
+updated: 1646722780814
 created: 1609770454495
 ---
 
@@ -88,6 +88,12 @@ df['Column2'] = df.Column2.str.replace('b,?' , '')
 # Replace string by Nan
 
 metadata_lat_lon_df = metadata_lat_lon_df.replace('nd', np.nan)
+
+# Here we observe full NANA rows and full NAN columns in the latest df. We drop them
+
+selected_samples.dropna(how='all', inplace = True) 
+selected_samples.dropna(how='all', axis = 1, inplace = True) 
+
 
 
 
