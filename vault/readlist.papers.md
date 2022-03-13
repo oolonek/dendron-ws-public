@@ -2,7 +2,7 @@
 id: 3PbjxNe7yIn2I9yKJfqXD
 title: Papers
 desc: ''
-updated: 1643739381213
+updated: 1647168289614
 created: 1610194509817
 ---
 
@@ -12,6 +12,11 @@ created: 1610194509817
 
 This is a dump.
 Entries here should be sent to their respective dendron notes when treated.
+
+
+# Crossroads in the evolution of plant specialized metabolism
+
+https://www.sciencedirect.com/science/article/pii/S1084952122000738
 
 
 # A knowledge graph to interpret clinical proteomics data

@@ -2,7 +2,7 @@
 id: lXYgpwVweH35j30wEgBhR
 title: Pandas
 desc: ''
-updated: 1646722780814
+updated: 1646985342234
 created: 1609770454495
 ---
 
@@ -46,6 +46,12 @@ df_merged_selected.index.rename('Row ID', inplace = True)
 ```python
 df.rename(columns={ df.columns[1]: "your value" }, inplace = True)
 ```
+
+## Add prefix (or suffix) to colnames
+
+DataFrame.add_prefix(prefix)
+
+
 
 ## Check df datatype
 

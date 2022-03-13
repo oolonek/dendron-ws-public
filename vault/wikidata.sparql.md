@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1646292468156
+updated: 1647078574084
 created: 1611593110381
 ---
 
@@ -333,4 +333,11 @@ SELECT * WHERE {
   }
   ?COMPOUND rdfs:label ?o
 }
+
+
+
+
+# title: Compounds of the Melochia genus bearing the quinoline substructure
+
+https://w.wiki/4wbY
 
