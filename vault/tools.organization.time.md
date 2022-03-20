@@ -2,7 +2,7 @@
 id: 22drlGfQ0h95jgfzOGSG0
 title: Time
 desc: ''
-updated: 1628004600601
+updated: 1647770565029
 created: 1609702188544
 ---
 
@@ -148,5 +148,3 @@ Doesn't seem to take days shifts into account.
 ## Timeis
 
 https://time.is/fr/
-
-s

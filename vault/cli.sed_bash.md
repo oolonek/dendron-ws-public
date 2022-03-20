@@ -2,7 +2,7 @@
 id: QnOOo86260d85beTWwNIt
 title: Sed_bash
 desc: ''
-updated: 1616339054310
+updated: 1647276960142
 created: 1609604978319
 ---
 
@@ -66,4 +66,4 @@ fswatch -0 ./mendeley_output/ | xargs -0 -n1 -I{} echo "{}"
 
 ## quick replace in text file
 
-`sed -i 's/original/new/g' file.txt`ze
+`sed -i 's/original/new/g' file.txt`
