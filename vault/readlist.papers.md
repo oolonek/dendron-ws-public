@@ -2,7 +2,7 @@
 id: 3PbjxNe7yIn2I9yKJfqXD
 title: Papers
 desc: ''
-updated: 1647168289614
+updated: 1647777821106
 created: 1610194509817
 ---
 
@@ -13,6 +13,14 @@ created: 1610194509817
 This is a dump.
 Entries here should be sent to their respective dendron notes when treated.
 
+
+# To Embed or Not: Network Embedding as a Paradigm in Computational Biology
+
+REVIEW article
+Front. Genet., 01 May 2019 | https://doi.org/10.3389/fgene.2019.00381
+
+
+https://www.frontiersin.org/articles/10.3389/fgene.2019.00381/full
 
 # Crossroads in the evolution of plant specialized metabolism
 
