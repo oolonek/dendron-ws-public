@@ -341,3 +341,8 @@ SELECT * WHERE {
 
 https://w.wiki/4wbY
 
+
+# all articles documenting found in taxonn Prop by authors of a given country 
+
+https://w.wiki/4z7M
+

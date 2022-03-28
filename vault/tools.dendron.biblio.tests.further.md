@@ -9,11 +9,6 @@ created: 1629590799055
 @Brown2012a
 
 
-
-
-
-
-
 @article{allard2020comparative,
   title = {Comparative Molecular Networking Analysis of a {{Rauwolfia}} Plant Powder and Biological Matrices in a Fatal Ingestion Case},
   author = {Allard, Sophie and Le Daré, Brendan and Allard, Pierre-Marie and Morel, Isabelle and Gicquel, Thomas},
@@ -25,6 +20,9 @@ created: 1629590799055
   publisher = {{Springer Singapore}}
 }
 ```
+
+
+
 @article{allard2020comparative, title = {Comparative Molecular
 Networking Analysis of a {{Rauwolfia}} Plant Powder and Biological
 Matrices in a Fatal Ingestion Case}, author = {Allard, Sophie and Le
@@ -71,5 +69,3 @@ Singapore}} }
 
 
 Testing referenccite + https://ctroupin.github.io/posts/2019-12-19-bibtex-markdown/
-
-

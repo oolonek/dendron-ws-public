@@ -6,11 +6,32 @@ updated: 1644842092065
 created: 1610469913749
 ---
 
+# Sunday 27 March 2022
+
+https://www.youtube.com/watch?v=WAGNhtB_6bc
+(great intro to biosemiotics
+)
+Notes : 
+- Percian definition of signs (tryptic) sign-object-interpreter 
+
+- Biosemiotics as a part of semiotics considers the manners in which meaning arises through various forms of mediations such as signs, indices, indexes, symbols and the //www.linkedin.com/in/lexfridman
+
+- Complex in the sense that it cannot be understood at only one level or through one theory (maybe the difference with complicated)
+
+To understand complex phenomena we should have complex theories
+
+Kropotkin : as a critic to Darwin. Nature is not one unique and giant battlefield.
+K. Marx viewed Darwin theory as Adam's Smith (linberal economist) views applied to nature and evolution. < Theory within a field can be influenced by theories external to the field.
+
+
+
+------
+
 https://www.youtube.com/watch?v=eOmUqvbUleo
 
 
 
-Friday 24 September 2021
+# Friday 24 September 2021
 
 https://www.youtube.com/watch?v=3wMKoSRbGVs
 
@@ -106,7 +127,8 @@ https://www.buzzsprout.com/1244474/7197082
 - check what is "feminist economists" not clear
 - 2nd taught experiment "the speed of a car" by Ivan Illitch >> 16 km/h
 
-[[#idea|tag.idea]] should we advocate and work toward a degrowth approach in academics. publish less.
+[[#idea|tag.idea]] should we advocate and work toward a degrowth approach in academics. **publish less.**
+
 
 
 2021-01-18 22:43
