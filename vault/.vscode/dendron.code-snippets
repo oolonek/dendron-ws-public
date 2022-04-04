@@ -92,5 +92,11 @@
         "scope": "markdown,yaml",
         "body": "# ${1:Title} \ntime\n## Context\nFirst, provide some context to orient you/readers/your grandma who are less familiar with your topic and to establish the importance of this note/paragraph/text/paper/project.\n## Need\nSecond, state the need for your note/paragraph/text/paper/project, as an opposition between what you/others/the scientific community/your grandma currently has and what it wants.\n## Task (of the note/paragraph/text/paper/project)\nThird, indicate what you have done in an effort to address the need (this is the task).\n- [ ] did this\n- [ ] did that\n- [ ] oh and this also\n## Object (of the note/paragraph/text/paper/project)\nFinally, preview the remainder of the paper to mentally prepare you/readers for its structure, in the object of the document.",
         "description": "ctno"
+    },
+    "python": {
+        "prefix": "iframe",
+        "scope": "markdown,yaml",
+        "body": "[Direct link](${1})\n<html>\n<body>\n<iframe src=\"${1}\"\nwidth=\"800\" height=\"400\" frameborder=\"0\" allowfullscreen></iframe>\n</body>\n</html>\n",
+        "description": "an iframe preceded by a direct link"
     }
 }
