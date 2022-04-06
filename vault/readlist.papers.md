@@ -13,6 +13,11 @@ created: 1610194509817
 This is a dump.
 Entries here should be sent to their respective dendron notes when treated.
 
+# Welcome to the New Era of Scientific Publishing
+
+https://gist.github.com/tkuhn/1a99ce119d248f53689d52239512ec1f
+https://www.tkuhn.org/sempub-ios-talk/
+
 
 # To Embed or Not: Network Embedding as a Paradigm in Computational Biology
 

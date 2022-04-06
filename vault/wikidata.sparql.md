@@ -346,3 +346,119 @@ https://w.wiki/4wbY
 
 https://w.wiki/4z7M
 
+
+
+-----
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX jlw: <https://www.sinergiawolfender.org/jlw/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdraw: <http://www.wikidata.org/>
+PREFIX vit: <https://www.sinergiawolfender.org/vit/>
+
+SELECT ?chemical_compound ?compoundLabel ?queried_taxa  ?queried_taxaLabel ?queried_taxall ?queried_taxallLabel ?pfcode WHERE {
+       
+SERVICE <https://query.wikidata.org/sparql> {
+  VALUES ?queried_taxa {
+    wd:Q310915
+  }
+  {
+    ?chemical_compound p:P703 ?stmt.# We selecte chemical classes having the found in taxon statement
+    ?queried_taxall wdt:P171* ?queried_taxa.
+    ?stmt ps:P703 ?queried_taxall. # and the restrict the found in taxon statement to match our queried taxa
+  }
+ ?chemical_compound rdfs:label ?compoundLabel.
+ ?queried_taxa rdfs:label ?queried_taxaLabel.
+ ?queried_taxall rdfs:label ?queried_taxallLabel.
+        
+ FILTER (LANG(?compoundLabel) = "en") . # filter for English
+ FILTER (LANG(?queried_taxaLabel) = "en") .
+ FILTER (LANG(?queried_taxallLabel) = "en") .
+}
+    
+?pfcode       jlw:is_from_plant_part               ?plant_part;
+              vit:has_taxon ?taxon.
+    
+?taxon jlw:has_wd_QID ?queried_taxall. 
+    
+}
+
+
+
+
+
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX jlw: <https://www.sinergiawolfender.org/jlw/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdraw: <http://www.wikidata.org/>
+PREFIX vit: <https://www.sinergiawolfender.org/vit/>
+
+SELECT ?chemical_compound ?mf ?mf_formatted ?compoundLabel ?queried_taxa  ?queried_taxaLabel ?queried_taxall ?queried_taxallLabel ?pfcode ?labprocess ?feature ?sirius_formula ?sirius_formula_string WHERE {
+       
+SERVICE <https://query.wikidata.org/sparql> {
+  VALUES ?queried_taxa {
+    wd:Q310915
+  }
+  {
+    ?chemical_compound p:P703 ?stmt.# We selecte chemical classes having the found in taxon statement
+  OPTIONAL { ?chemical_compound wdt:P231 ?cas. }
+  OPTIONAL { ?chemical_compound wdt:P233 ?smiles_canonical. }
+  OPTIONAL { ?chemical_compound wdt:P234 ?inchi. }
+  OPTIONAL { ?chemical_compound wdt:P592 ?chembl. }
+  OPTIONAL { ?chemical_compound wdt:P662 ?pubchem. }
+  OPTIONAL { ?chemical_compound wdt:P683 ?chebi. }
+  OPTIONAL { ?chemical_compound wdt:P2017 ?smiles_isomeric. }
+  OPTIONAL { ?chemical_compound wdt:P274 ?mf. }
+  OPTIONAL { ?chemical_compound wdt:P2067 ?mass. }
+            #BIND(LCASE(STR(?mf)) as ?lowmf)
+            #BIND(REPLACE(STR(?mf),"₀₁₂₃₄₅₆₇₈₉","B") AS ?mf_b) .
+            BIND(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(STR(?mf),"₀","0"),"₁","1"),"₂","2"),"₃","3"),"₄","4"),"₅","5"),"₆","6"),"₇","7"),"₈","8"),"₉","9") AS ?mf_formatted) .
+
+
+            
+    ?queried_taxall wdt:P171* ?queried_taxa.
+    ?stmt ps:P703 ?queried_taxall. # and the restrict the found in taxon statement to match our queried taxa
+  }
+ ?chemical_compound rdfs:label ?compoundLabel.
+ ?queried_taxa rdfs:label ?queried_taxaLabel.
+ ?queried_taxall rdfs:label ?queried_taxallLabel.
+        
+ FILTER (LANG(?compoundLabel) = "en") . # filter for English
+ FILTER (LANG(?queried_taxaLabel) = "en") .
+ FILTER (LANG(?queried_taxallLabel) = "en") .
+}
+    
+?pfcode       jlw:is_from_plant_part               ?plant_part;
+              jlw:has_lab_process ?labprocess;
+              vit:has_taxon ?taxon.
+?labprocess jlw:has_MZmine_chromatogram ?mzmine_chromatogram .
+    
+?mzmine_chromatogram jlw:has_MZmine_feature ?feature .
+
+?feature jlw:has_SIRIUS_formula ?sirius_formula.
+    
+?sirius_formula jlw:has_SIRIUS_formula_string ?sirius_formula_string.
+    
+?taxon jlw:has_wd_QID ?queried_taxall. 
+    
+FILTER(?mf_formatted = ?sirius_formula_string)
+}
