@@ -2,7 +2,7 @@
 id: 3PbjxNe7yIn2I9yKJfqXD
 title: Papers
 desc: ''
-updated: 1647777821106
+updated: 1649697106778
 created: 1610194509817
 ---
 
@@ -12,6 +12,21 @@ created: 1610194509817
 
 This is a dump.
 Entries here should be sent to their respective dendron notes when treated.
+
+
+# Learning chemistry: exploring the suitability of machine learning for the task of structure-based chemical ontology classification
+
+https://jcheminf.biomedcentral.com/articles/10.1186/s13321-021-00500-8
+
+# Making the collective knowledge of chemistry open and machine actionable
+
+https://www.nature.com/articles/s41557-022-00910-7
+
+
+# On Creating a Tree of Knowledge
+
+
+https://kyletscheer.medium.com/on-creating-a-tree-of-knowledge-f099c1028bf6
 
 # Welcome to the New Era of Scientific Publishing
 
