@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1647078574084
+updated: 1651470885126
 created: 1611593110381
 ---
 
@@ -462,3 +462,11 @@ SERVICE <https://query.wikidata.org/sparql> {
     
 FILTER(?mf_formatted = ?sirius_formula_string)
 }
+
+# Coumpounds produced by plants endemic to New caledonia
+
+https://w.wiki/57ap
+
+cleaner with mass and mf
+
+https://w.wiki/57hN
