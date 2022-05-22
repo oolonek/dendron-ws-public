@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1652686519159
+updated: 1653144154655
 created: 1611593110381
 ---
 
@@ -471,3 +471,10 @@ cleaner with mass and mf
 
 https://w.wiki/57hN
 
+
+# listing compounds in meals
+
+https://w.wiki/5Bs7
+
+
+https://w.wiki/5Bs9
