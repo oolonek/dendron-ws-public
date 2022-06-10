@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1653144154655
+updated: 1653998823741
 created: 1611593110381
 ---
 
@@ -478,3 +478,8 @@ https://w.wiki/5Bs7
 
 
 https://w.wiki/5Bs9
+
+# Compounds of the Arachnida class
+
+https://w.wiki/5Doy
+
