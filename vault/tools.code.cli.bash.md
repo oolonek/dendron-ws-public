@@ -2,7 +2,7 @@
 id: cMOaRh3TUHfw6FtdribBg
 title: Bash
 desc: ''
-updated: 1636535972458
+updated: 1657099836955
 created: 1610975606358
 ---
 
@@ -41,3 +41,12 @@ Turns out that ,, are not
 
 https://stackoverflow.com/a/47815884
 
+
+# create a folder architecture
+
+mkdir -p adria-leboeuf-group/{docs/MAPP_project_00014/MAPP_batch_00019/{metadata,results},src/MAPP_project_00014/MAPP_batch_00019/}
+
+
+mkdir -p {metadata,results/{cytoscape,met_annot_enhancer,metaboanalyst,mzmine,stats,sirius,tmp}}
+
+mkdir -p results/{cytoscape,met_annot_enhancer,metaboanalyst,mzmine,stats,sirius,tmp} && touch results/{cytoscape/.gitignore,met_annot_enhancer/.gitignore,metaboanalyst/.gitignore,mzmine/.gitignore,stats/.gitignore,sirius/.gitignore,tmp/.gitignore}
