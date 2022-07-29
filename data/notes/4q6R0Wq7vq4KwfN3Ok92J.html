@@ -1,0 +1,83 @@
+<h1 id="pf"><a aria-hidden="true" class="anchor-heading" href="#pf"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Pf</h1>
+<p>Tuesday 16 March 2021</p>
+<p>Recipee for the PF MN CSCS calculations</p>
+<p>First it appears that conda is not present</p>
+<p>This <a href="https://askubuntu.com/a/1062621">https://askubuntu.com/a/1062621</a> solved the problem
+export PATH=~/anaconda3/bin:$PATH</p>
+<p>Need to reinstall the latest qiime version sudo wget <a href="https://data.qiime2.org/distro/core/qiime2-2021.2-py36-linux-conda.yml">https://data.qiime2.org/distro/core/qiime2-2021.2-py36-linux-conda.yml</a></p>
+<p>source activate qiime2-2021.2</p>
+<p>wget / curl not working (proxy reason most likely on x2go)</p>
+<p>We use the peak_list_formatter_cscs.py to get GNPS job and propelry format the quantification tables</p>
+<p><code>biom convert -i for_biom.tsv -o for_biom.biom --table-type="OTU table" --to-hdf5</code></p>
+<p>Then convert the .biom feature table to a .qza feature table :</p>
+<p><code>qiime tools import --type 'FeatureTable[Frequency]' --input-path for_biom.biom --output-path feature_table.qza</code></p>
+<p>To compute the chemical structural and compositional dissimilarity metric for all pairs of samples in your feature table type:</p>
+<p><code>nohup time qiime cscs cscs --p-css-edges networkedges_selfloop --i-features quantification_table --p-cosine-threshold 0.7 --p-normalization --p-cpus 40 --o-distance-matrix cscs_distance_matrix.qza</code></p>
+<p>'time qiime cscs cscs --p-css-edges networkedges_selfloop/31a1340378cd46d7b9f5ebf8afbb2565..selfloop --i-features feature_table.qza --p-cosine-threshold 0.7 --p-normalization --p-cpus 40 --o-distance-matrix cscs_distance_matrix.qza'</p>
+<p>'nohup bash -c 'time qiime cscs cscs --p-css-edges networkedges_selfloop/31a1340378cd46d7b9f5ebf8afbb2565..selfloop --i-features feature_table.qza --p-cosine-threshold 0.7 --p-normalization --p-cpus 40 --o-distance-matrix cscs_distance_matrix.qza''</p>
+<p>'nohup bash -c 'time qiime cscs cscs --p-css-edges networkedges_selfloop/31a1340378cd46d7b9f5ebf8afbb2565..selfloop --i-features feature_table.qza --p-cosine-threshold 0.7 --p-normalization --p-no-weighted --p-cpus 40 --o-distance-matrix cscs_distance_matrix_unweighed.qza''</p>
+<p>nohup bash -c 'time qiime cscs cscs --p-css-edges networkedges_selfloop/3466497461974198a9ab8c9463d05b53..selfloop --i-features feature_table.qza --p-cosine-threshold 0.7 --p-normalization --p-no-weighted --p-cpus 40 --o-distance-matrix cscs_distance_matrix_unweighed.qza'</p>
+<p>nohup bash -c 'time qiime cscs cscs --p-css-edges networkedges_selfloop/3466497461974198a9ab8c9463d05b53..selfloop --i-features feature_table.qza --p-cosine-threshold 0.7 --p-normalization --p-cpus 40 --o-distance-matrix cscs_distance_matrix.qza'</p>
+<p>Visualize the chemical structural and compositional dissimilarity in interactive PCoA space
+To create PCos from the chemical structural and compositional dissimilarity matrix type:</p>
+<p><code>qiime diversity pcoa --i-distance-matrix cscs_distance_matrix.qza --o-pcoa cscs_PCoA.qza</code></p>
+<p>To create an interactive ordination plot of the above created PCoA with integrated sample metadata, prepare a metadata file. You can find a metadata file for this example dataset within the Example folder. Make sure that the Sample IDs provided in the metadata file correspond to the Sample IDs in your distance_matrix.qza file. Then type:</p>
+<p>Uploading previously generated metadata
+rsync -rvz -e 'ssh' --progress ./PF_metadata_qiime.tsv <a href="mailto:allardp@x2go.epgl-geneve.org">allardp@x2go.epgl-geneve.org</a>:</p>
+<p><code>qiime emperor plot --i-pcoa cscs_PCoA.qza --m-metadata-file PF_metadata_qiime.tsv --o-visualization cscs_PCoA.qzv</code></p>
+<p>To visualize the interactive PCoA type:</p>
+<p><code>qiime tools view cscs_PCoA.qzv</code></p>
+<p>  --p-normalization / --p-no-normalization
+Perform Total Ion Current Normalization (TIC) on the
+feature table                         [default: True]
+--p-weighted / --p-no-weighted
+Weight CSCS by feature intensity      [default: True]</p>
+<h2 id="qemistree-dataset"><a aria-hidden="true" class="anchor-heading" href="#qemistree-dataset"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Qemistree dataset</h2>
+<p><a href="https://gnps.ucsd.edu/ProteoSAFe/status.jsp?task=044e981ff0d84246ae5c91ef3db643a8">https://gnps.ucsd.edu/ProteoSAFe/status.jsp?task=044e981ff0d84246ae5c91ef3db643a8</a></p>
+<h2 id="update"><a aria-hidden="true" class="anchor-heading" href="#update"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Update</h2>
+<p>Monday 29 November 2021</p>
+<p>Reiterating qiime-cscs calculations for the MEMO paper.
+Installing qiime on the beast cluster</p>
+<p>When trying to install using the latest qiime version (qiime2-2021.11) the qiime2-cscs plugin (<a href="https://github.com/madeleineernst/q2-cscs">https://github.com/madeleineernst/q2-cscs</a>) doesn't appears
+I thus switch back to qiime2-2021.2</p>
+<p>I used this script to fetch and format data from switch <a href="https://github.com/mandelbrot-project/qiime-empress-formatter/blob/main/src/python/peak_list_formatter_cscs_memo.py">https://github.com/mandelbrot-project/qiime-empress-formatter/blob/main/src/python/peak_list_formatter_cscs_memo.py</a></p>
+<p>From now restarting with the recipee above (will modify or update when needed)</p>
+<p>We then convert using biom </p>
+<p>(Note that BIOM needs to be installed in an env with conda > 3.8)</p>
+<p><code>biom convert -i feature_table_for_biom.tsv -o biom_feature_table.biom --table-type="OTU table" --to-hdf5</code></p>
+<p>I get a </p>
+<p>'biom.exception.TableException: Duplicate observation IDs'</p>
+<p>Apparently this error came from the fact that the feature-id were kept as index but not exported in the tsv table.
+Make sure they are.</p>
+<p>I then activate the qiime2-2021.2 env</p>
+<p><code>qiime tools import --type 'FeatureTable[Frequency]' --input-path biom_feature_table.biom --output-path feature_table.qza</code></p>
+<p>We now launch the command and explicitly specify all options</p>
+<p><code>nohup bash -c 'time qiime cscs cscs --p-css-edges networkedges_selfloop/31a1340378cd46d7b9f5ebf8afbb2565..selfloop --i-features feature_table.qza --p-cosine-threshold 0.7 --p-normalization --p-weighted --p-cpus 40 --o-distance-matrix pf_gnps3_cscs_distance_matrix_weighted.qza'</code></p>
+<p><code>nohup bash -c 'time qiime cscs cscs --p-css-edges networkedges_selfloop/31a1340378cd46d7b9f5ebf8afbb2565..selfloop --i-features feature_table.qza --p-cosine-threshold 0.7 --p-normalization --p-no-weighted --p-cpus 40 --o-distance-matrix pf_gnps3_cscs_distance_matrix_unweighted.qza'</code></p>
+<p>Here I get an error </p>
+<pre><code>Plugin error from cscs:
+
+  'function' object has no attribute 'ids'
+
+Debug info has been saved to /tmp/qiime2-q2cli-err-d8fmgz9a.log
+
+real    0m23.731s
+user    0m8.089s
+sys     0m3.754s
+
+</code></pre>
+<p>And this changed the file </p>
+<p>nano ./anaconda3/envs/qiime2-2021.2/lib/python3.6/site-packages/q2_cscs/q2_cscs.py</p>
+<p>by adding () to pa</p>
+<pre><code>if normalization:
+    features = features.norm(axis='sample', inplace=False)
+if weighted == False:
+    features = features.pa()
+</code></pre>
+<p>To get the tsv </p>
+<p>The resulting qza artifacts can then be renamed to .zip and extracted to fetch the corresponding distance matrix in tsv format.</p>
+<p>qiime diversity pcoa --i-distance-matrix qeemistree_set_cscs_distance_matrix_norm_weighted.qza --o-pcoa PCOA_qeemistree_set_cscs_distance_matrix_norm_weighted.qza</p>
+<p>qiime emperor plot --i-pcoa PCOA_qeemistree_set_cscs_distance_matrix_norm_weighted.qza --m-metadata-file metadata_table/metadata_table-00000.tsv --p-ignore-missing-samples --o-visualization PCOA_qeemistree_set_cscs_distance_matrix_norm_weighted_viz.qzv</p>
+<p>qiime emperor plot --i-pcoa PCOA_qeemistree_set_cscs_distance_matrix_norm_unweighted.qza --m-metadata-file metadata_table-00000.tsv --p-ignore-missing-samples --o-visualization PCOA_qeemistree_set_cscs_distance_matrix_norm_unweighted_viz.qzv</p>
+<p>qiime emperor plot --i-pcoa PCOA_qeemistree_set_cscs_distance_matrix_nonorm_weighted.qza --m-metadata-file metadata_table-00000.tsv --p-ignore-missing-samples --o-visualization PCOA_qeemistree_set_cscs_distance_matrix_nonorm_weighted_viz.qzv</p>
+<p>qiime emperor plot --i-pcoa PCOA_qeemistree_set_cscs_distance_matrix_nonorm_unweighted.qza --m-metadata-file metadata_table-00000.tsv --p-ignore-missing-samples --o-visualization PCOA_qeemistree_set_cscs_distance_matrix_nonorm_unweighted_viz.qzv</p>

@@ -1,0 +1,31 @@
+<h1 id="mol2name"><a aria-hidden="true" class="anchor-heading" href="#mol2name"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Mol2name</h1>
+<p><a href="http://infochim.u-strasbg.fr/webserv/marvin/help/calculations/s2n.html">http://infochim.u-strasbg.fr/webserv/marvin/help/calculations/s2n.html</a></p>
+<h2 id="individual-molecules"><a aria-hidden="true" class="anchor-heading" href="#individual-molecules"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Individual molecules</h2>
+<p>You can name molecules by using the Naming menu entry of Tools menu in MarvinView, or Structure > Structure to Name > Generate Name in MarvinSketch.
+In MarvinSketch, the name can be added to the canvas by using the Structure to Name > Place IUPAC Name entry in the Structure menu. The name will be displayed below the molecule, and updated in real-time when the molecule is modified.</p>
+<h2 id="batch-naming"><a aria-hidden="true" class="anchor-heading" href="#batch-naming"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Batch naming</h2>
+<p>Naming of a large number of molecules contained in a file can be achieved in two ways: with MarvinView, and on the command line, with molconvert. In both cases, all formats supported by Marvin are acceptable as input.
+With MarvinView, open the file containing the structures to be names. Then select the menu File/Save As, and choose "IUPAC Name files" in the "Files of type" drop-down box. Choose a name for the file, and click on the Save button. The file will contain the names of the structures, one per line.</p>
+<p>Alternatively, on the command line, you can use the following command:</p>
+<p><code>molconvert name inputs.mol -o names.txt</code></p>
+<p>The file names.txt will contain the names of the molecules in the input file, with one name per line.</p>
+<p>It is possible to use a format option to chose a nomenclature style:</p>
+<p>i (default) uses the IUPAC rules for preferred names;
+t uses a more traditional style.</p>
+<p>For instance, to generate traditional names, use the following:</p>
+<p><code>molconvert name:t inputs.mol -o names.txt</code></p>
+<p>Generate all common names for a structure:</p>
+<p><code>molconvert "name:common,all" -s tylenol</code></p>
+<p>Generate the most popular common name for a structure (It fails if none is known.):</p>
+<p><code>molconvert name:common -s viagra</code></p>
+<p>Adding names as an additional field to a SDfile can be achieved with the cxcalc tool.</p>
+<p><code>cxcalc -S name input.sdf -o named.sdf</code></p>
+<h2 id="api"><a aria-hidden="true" class="anchor-heading" href="#api"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>API</h2>
+<p>For information about how names can be generated from Java programs, see the developer documentation.</p>
+<h2 id="references"><a aria-hidden="true" class="anchor-heading" href="#references"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>References</h2>
+<p>IUPAC Provisional Recommendations for the Nomenclature of Organic Chemistry</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/dendron-ws-public/notes/3qcjidzC0tkyobYKlrWYc">Sand</a></li>
+</ul>

@@ -1,0 +1,178 @@
+<h1 id="create_item"><a aria-hidden="true" class="anchor-heading" href="#create_item"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Create_item</h1>
+<p>[TOC]</p>
+<h1 id="manual-addition-of-a-documented-structure-organism-pair-to-wikidata"><a aria-hidden="true" class="anchor-heading" href="#manual-addition-of-a-documented-structure-organism-pair-to-wikidata"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Manual addition of a documented structure-organism pair to Wikidata</h1>
+<h2 id="select-a-documented-structure-organism-pair"><a aria-hidden="true" class="anchor-heading" href="#select-a-documented-structure-organism-pair"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Select a documented structure-organism pair</h2>
+<p>Throughout this demonstration, we are going to use the following example:</p>
+<blockquote>
+<p><a href="https://pubchem.ncbi.nlm.nih.gov/compound/101556657">trigocherrin A</a> is found in <a href="http://gni.globalnames.org/name_strings?search_term=trigonostemon+cherrieri&#x26;commit=Search"><em>Trigonostemon cherrieri</em></a>, as stated in <a href="https://doi.org/10.1021/OL2030907">Trigocherrin A, the first natural chlorinated daphnane diterpene orthoester from Trigonostemon cherrieri</a>.</p>
+</blockquote>
+<h2 id="fetch-the-information-for-the-documented-structure-organism-pair"><a aria-hidden="true" class="anchor-heading" href="#fetch-the-information-for-the-documented-structure-organism-pair"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Fetch the information for the documented structure-organism pair</h2>
+<h3 id="structure"><a aria-hidden="true" class="anchor-heading" href="#structure"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Structure</h3>
+<p>Search PubChem for your compound, here <a href="https://pubchem.ncbi.nlm.nih.gov/#query=%22trigocherrin%20A%22">trigocherrin A</a>. This leads to <a href="https://pubchem.ncbi.nlm.nih.gov/compound/101556657">https://pubchem.ncbi.nlm.nih.gov/compound/101556657</a>.</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-15-54.png"></p>
+<p>From there, you can fetch the compound's name, InChIKey and InChI as well as its Canonical and Isomeric SMILES.
+Here we keep, respectively:</p>
+<pre><code>* trigocherrin A
+* QOVGHDRCAGYGEB-FFZYJECLSA-N
+* InChI=1S/C38H36Cl2O12/c1-18(2)35(44)27-19(3)37-25-16-24(31(39)40)28(48-32(43)22-12-8-6-9-13-22)36(25,45)33(47-21(5)42)34(17-46-20(4)41)29(49-34)26(37)30(35)51-38(50-27,52-37)23-14-10-7-11-15-23/h6-16,19,26-30,33,44-45H,1,17H2,2-5H3/t19-,26+,27?,28+,29+,30-,33-,34+,35+,36-,37+,38?/m1/s1
+* CC1C2C(C3C4C1(C5=CC(=C(Cl)Cl)C(C5(C(C6(C4O6)COC(=O)C)OC(=O)C)O)OC(=O)C7=CC=CC=C7)OC(O2)(O3)C8=CC=CC=C8)(C(=C)C)O
+* C[C@@H]1C2[C@]([C@H]3[C@H]4[C@]1(C5=CC(=C(Cl)Cl)[C@@H]([C@]5([C@@H]([C@@]6([C@H]4O6)COC(=O)C)OC(=O)C)O)OC(=O)C7=CC=CC=C7)OC(O3)(O2)C8=CC=CC=C8)(C(=C)C)O
+</code></pre>
+<h3 id="organism"><a aria-hidden="true" class="anchor-heading" href="#organism"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Organism</h3>
+<p>You can check if your organism name is correctly spelled using the Global Names resolver service: <a href="http://gni.globalnames.org/name_strings?search_term=trigonostemon+cherrieri&#x26;commit=Search">http://gni.globalnames.org/name_strings?search_term=trigonostemon+cherrieri&#x26;commit=Search</a>.</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-27-18-40-20.png"></p>
+<p>Alternatively, you can use <a href="https://github.com/gnames/gnfinder">gnfinder</a> in your command line interface to check for the spelling of your organism string.</p>
+<pre><code>echo "Trigonostemion cherrieri" | gnfinder find -c -l eng
+
+{
+  "metadata": {
+    "date": "2021-02-27T18:44:41.640982+01:00",
+    "gnfinderVersion": "v0.11.1",
+    "withBayes": true,
+    "tokensAround": 0,
+    "language": "eng",
+    "detectLanguage": false,
+    "totalWords": 2,
+    "totalCandidates": 1,
+    "totalNames": 1
+  },
+  "names": [
+    {
+      "cardinality": 2,
+      "verbatim": "Trigonostemion cherrieri",
+      "name": "Trigonostemion cherrieri",
+      "odds": 77581.46698350731,
+      "start": 0,
+      "end": 24,
+      "annotationNomenType": "NO_ANNOT",
+      "annotation": "",
+      "verification": {
+        "bestResult": {
+          "dataSourceId": 1,
+          "dataSourceTitle": "Catalogue of Life",
+          "taxonId": "1575885",
+          "matchedName": "Trigonostemon cherrieri Veillon",
+          "matchedCardinality": 2,
+          "matchedCanonicalSimple": "Trigonostemon cherrieri",
+          "matchedCanonicalFull": "Trigonostemon cherrieri",
+          "classificationPath": "Plantae|Tracheophyta|Magnoliopsida|Malpighiales|Euphorbiaceae|Trigonostemon|Trigonostemon cherrieri",
+          "classificationRank": "kingdom|phylum|class|order|family|genus|species",
+          "classificationIds": "3939764|3942634|3942724|3942777|3942795|4210752|1575885",
+          "editDistance": 1,
+          "stemEditDistance": 1,
+          "matchType": "FuzzyCanonicalMatch"
+        },
+        "dataSourcesNum": 13,
+        "dataSourceQuality": "HasCuratedSources",
+        "retries": 1
+      }
+    }
+  ]
+}
+</code></pre>
+<p>For misspellings like <em>Trigonstemion cherrieri</em>, gnfinder can help resolve them, in this case to <em>Trigonostemon cherrieri</em>.</p>
+<h3 id="reference"><a aria-hidden="true" class="anchor-heading" href="#reference"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Reference</h3>
+<p>Make sure that you have the correct <a href="https://www.doi.org/doi_handbook/Glossary.html#doi">Digital Object Identifier (DOI)</a> for it.
+For "<a href="https://doi.org/10.1021/OL2030907">Trigocherrin A, the first natural chlorinated daphnane diterpene orthoester from Trigonostemon cherrieri</a>", this is  <strong>10.1021/ol2030907</strong>. Note that DOIs are uppercase-normalized in Wikidata.</p>
+<h2 id="check-for-the-presence-of-your-compound-in-wikidata-"><a aria-hidden="true" class="anchor-heading" href="#check-for-the-presence-of-your-compound-in-wikidata-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Check for the presence of your compound in Wikidata <a name="check_compound"></a></h2>
+<p>Using the compound's InChIKey (i.e. <code>QOVGHDRCAGYGEB-FFZYJECLSA-N</code> for trigocherrin A), run a SPARQL query to check if your compound is present in Wikidata or not:</p>
+<pre class="language-sparql"><code class="language-SPARQL"><span class="token keyword">SELECT</span> <span class="token variable">?item</span> <span class="token variable">?itemLabel</span> <span class="token keyword">WHERE</span> <span class="token punctuation">{</span>
+  <span class="token keyword">VALUES</span> <span class="token variable">?classes</span> <span class="token punctuation">{</span>
+    <span class="token function"><span class="token prefix">wd<span class="token punctuation">:</span></span><span class="token local-name">Q11173</span></span> <span class="token comment"># chemical compound</span>
+    <span class="token function"><span class="token prefix">wd<span class="token punctuation">:</span></span><span class="token local-name">Q59199015</span></span> <span class="token comment"># group of stereoisomers</span>
+    <span class="token function"><span class="token prefix">wd<span class="token punctuation">:</span></span><span class="token local-name">Q79529</span></span> <span class="token comment"># chemical substance</span>
+    <span class="token function"><span class="token prefix">wd<span class="token punctuation">:</span></span><span class="token local-name">Q17339814</span></span> <span class="token comment"># group of chemical substances</span>
+    <span class="token function"><span class="token prefix">wd<span class="token punctuation">:</span></span><span class="token local-name">Q47154513</span></span> <span class="token comment"># structural class of chemical compounds</span>
+  <span class="token punctuation">}</span>
+  <span class="token variable">?item</span> <span class="token function"><span class="token prefix">wdt<span class="token punctuation">:</span></span><span class="token local-name">P31</span></span> <span class="token variable">?classes</span><span class="token punctuation">.</span> <span class="token comment"># instance of</span>
+  <span class="token variable">?item</span> <span class="token function"><span class="token prefix">wdt<span class="token punctuation">:</span></span><span class="token local-name">P235</span></span> <span class="token string">'QOVGHDRCAGYGEB-FFZYJECLSA-N'</span>
+  <span class="token keyword">SERVICE</span> <span class="token function"><span class="token prefix">wikibase<span class="token punctuation">:</span></span><span class="token local-name">label</span></span> <span class="token punctuation">{</span> <span class="token function"><span class="token prefix">bd<span class="token punctuation">:</span></span><span class="token local-name">serviceParam</span></span> <span class="token function"><span class="token prefix">wikibase<span class="token punctuation">:</span></span><span class="token local-name">language</span></span> <span class="token string">"[AUTO_LANGUAGE],en"</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><a href="https://w.wiki/32zU">Try this query</a>. You can adapt it by replacing the InChIKey with the one for your compound.</p>
+<p>Alternatively you can use the following Scholia link (replace by your compounds InChIKey) <a href="https://scholia.toolforge.org/inchikey/QOVGHDRCAGYGEB-FFZYJECLSA-N">https://scholia.toolforge.org/inchikey/QOVGHDRCAGYGEB-FFZYJECLSA-N</a> </p>
+<p>If your compound is already present on Wikidata, you can directly skip to the <a href="#add_bio">Add the biological source information</a> section below.</p>
+<h2 id="add-your-data-manually-to-wikidata-"><a aria-hidden="true" class="anchor-heading" href="#add-your-data-manually-to-wikidata-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Add your data manually to Wikidata <a name="add_your_data_manually"></a></h2>
+<p>First, if you do not have a Wikidata account already, it is advisable that you create one via <a href="https://www.wikidata.org/wiki/Special:CreateAccount">https://www.wikidata.org/wiki/Special:CreateAccount</a>. While an account is not strictly required for manual edits, having one will be useful if you want to contribute more than once, and it helps in getting your contributions recognized. Note that Wikidata accounts are integrated with accounts across the Wikimedia ecosystem, so if you already have an account on, say, any Wikipedia or on Wikispecies, then you can use the same credentials on Wikidata.</p>
+<p>If you are unfamiliar with how Wikidata works, you can start by reading the Wikidata introduction page <a href="https://www.wikidata.org/wiki/Wikidata:Introduction">https://www.wikidata.org/wiki/Wikidata:Introduction</a> and have a look at the Wikidata Tours page <a href="https://www.wikidata.org/wiki/Wikidata:Tours">https://www.wikidata.org/wiki/Wikidata:Tours</a>.</p>
+<p>Now that you are all set up, you can go to Wikidata's page for creating new items, <a href="https://www.wikidata.org/wiki/Special:NewItem">https://www.wikidata.org/wiki/Special:NewItem</a>:</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-18-03.png"></p>
+<p>An empty page with a new Wikidata identifier is created </p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-18-50.png"></p>
+<h3 id="add-the-chemical-compound-information-"><a aria-hidden="true" class="anchor-heading" href="#add-the-chemical-compound-information-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Add the chemical compound information <a name="add_chemical"></a></h3>
+<p>Create a new statement for <code>is an instance of</code></p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-20-08.png"></p>
+<p>and select chemical compound (i.e. <a href="https://www.wikidata.org/wiki/Q11173">Q11173</a>):</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-20-58.png"></p>
+<p>Click <code>publish</code> to save your changes and make them public.</p>
+<p>Since you created a new item about an instance of a chemical compound, the user interface will automatically propose to you a set of additional statements commonly found on items about chemical compounds.</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-22-44.png"></p>
+<p>You can then go on and fill these in.</p>
+<p>Here, we start with the InChIKey.
+Note the little flag which will automatically tell you if you have some problems with the recently created statements.</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-24-34.png"></p>
+<p>Here, Wikidata tells us that if we add an InChiKey, we will need to also add an InChI. Logical, but good to have a reminder !</p>
+<p>Let's go ahead and add the InChI string.</p>
+<p>Likewise, the addition of an isomeric SMILES string will require us to add a Canonical SMILES.</p>
+<p>Note that you might have to copy and paste the SMILES string from PubChem to a plain text editor and then back to Wikidata because of some formatting issues when copy pasting directly from PubChem.</p>
+<pre><code>C[C@@H]1C2[C@]([C@H]3[C@H]4[C@]1(C5=CC(=C(Cl)Cl)[C@@H]([C@]5([C@@H]([C@@]6([C@H]4O6)COC(=O)C)OC(=O)C)O)OC(=O)C7=CC=CC=C7)OC(O3)(O2)C8=CC=CC=C8)(C(=C)C)O
+
+CC1C2C(C3C4C1(C5=CC(=C(Cl)Cl)C(C5(C(C6(C4O6)COC(=O)C)OC(=O)C)O)OC(=O)C7=CC=CC=C7)OC(O2)(O3)C8=CC=CC=C8)(C(=C)C)O
+</code></pre>
+<h3 id="add-the-biological-source-information-"><a aria-hidden="true" class="anchor-heading" href="#add-the-biological-source-information-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Add the biological source information <a name="add_bio"></a></h3>
+<p>Now let's add the <code>found in taxon</code> property (<a href="https://www.wikidata.org/wiki/Property:P703">P703</a>).</p>
+<p>Just click on <code>Add a new statement</code> and type in the first letters of the property you want to add:</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-31-56.png"></p>
+<p>Again, type in the first letters of the taxon, and if the organism is present, it will autocomplete. Here is how this looks like for <em>Trigonostemon cherrieri</em>:</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-33-14.png"></p>
+<p>Click <code>publish</code> to save your changes and make them public.</p>
+<p>If your target taxon is not yet present on Wikidata and you are sure you have a valid taxon name that is spelled correctly, then you can go to <a href="https://www.wikidata.org/wiki/Special:NewItem">https://www.wikidata.org/wiki/Special:NewItem</a>, as described in the <a href="#add_your_data_manually">Add your data manually to Wikidata</a> section. For items about taxa, the <code>instance of</code> statement should have a value <code>taxon</code> (i.e. <a href="https://www.wikidata.org/wiki/Q16521">Q16521</a>). As for chemical compounds, the user interface will then suggest to you further statements to add. For taxa, these include taxon name, parent taxon and taxon rank.</p>
+<h3 id="add-the-reference-documenting-the-structure-organism-pair-"><a aria-hidden="true" class="anchor-heading" href="#add-the-reference-documenting-the-structure-organism-pair-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Add the reference documenting the structure-organism pair <a name="add_ref"></a></h3>
+<p>Finally, since we report documented structure-organisms pairs, we need to add the reference for this newly created <code>compound found in taxon</code> relationship.
+This happens on the item about the compound, just below the <code>found in taxon</code> statement. Click on the <code>0 references</code> link and then on <code>add reference</code>:</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-35-33.png"></p>
+<p>Here, we use the <code>stated in</code> property (<a href="https://www.wikidata.org/wiki/Property:P248">P248</a>):</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-36-33.png"></p>
+<p>Now, type in the first letters or word of the scientific publication documenting the natural product occurence, autocompletion happens again. Note that multiple publications might have the same title, and that there could be minor differences in punctuation or special characters between the information you and Wikidata have about the same reference. If you are not sure whether your target reference is already in Wikidata, you can use its DOI to check, as outlined in the <a href="#check_ref">Check whether your target reference is already on Wikidata</a> section.</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-38-54.png"></p>
+<p>Click <code>publish</code> to save your changes and make them public.</p>
+<p><img src="/dendron-ws-public/assets/images/2021-02-25-14-39-48.png"></p>
+<h3 id="check-whether-your-target-reference-is-already-on-wikidata-"><a aria-hidden="true" class="anchor-heading" href="#check-whether-your-target-reference-is-already-on-wikidata-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Check whether your target reference is already on Wikidata <a name="check_ref"></a></h3>
+<p>If you are not sure whether your target reference is already in Wikidata, you can use its DOI to check. For our DOI <code>10.1021/ol2030907</code>, the URL <a href="https://scholia.toolforge.org/doi/10.1021/ol2030907">https://scholia.toolforge.org/doi/<strong><em>10.1021/ol2030907</em></strong></a> will lead you to a <a href="https://www.wikidata.org/wiki/Wikidata:Scholia">Scholia</a> page about this publication: <a href="https://scholia.toolforge.org/work/Q83059010">https://scholia.toolforge.org/work/Q83059010</a>. Scholia visualizes information from Wikidata, so if it has an entry for your target reference, then so does Wikidata, and both of them will use the same identifier (in this case <a href="https://www.wikidata.org/wiki/Q83059010">Q83059010</a>). If you prefer to resolve your DOI to Wikidata directly, you can do so by using the uppercase-normalized DOI in the following URL pattern: <a href="https://hub.toolforge.org/P356:10.1021/OL2030907">https://hub.toolforge.org/P356:<strong>10.1021/OL2030907</strong></a>, which will lead you to the respective Wikidata page, in this case <a href="https://www.wikidata.org/wiki/Q83059010">Q83059010</a>.</p>
+<p>If you think that no Wikidata entry exists for your target reference, you can use the DOI in the URL pattern <a href="https://sourcemd.toolforge.org/index_old.php?id=10.1021/ol2030907&#x26;doit=Check+source">https://sourcemd.toolforge.org/index_old.php?id=<strong>10.1021/ol2030907</strong>&#x26;doit=Check+source</a>, which will trigger a check with both Crossref and Wikidata, and if no Wikidata entry can be found, the metadata from Crossref will be fetched and presented to you for creating the respective Wikidata item semi-automatically. Using such semi-automated workflows does require and account that is a minimum number of days old and has made a minimum number of edits on Wikidata.</p>
+<p>If you are interested the annotation of article with topics in Scholia here is a tutorial <a href="https://laurendupuis.github.io/Scholia_tutorial/">https://laurendupuis.github.io/Scholia_tutorial/</a></p>
+<h2 id="voila-"><a aria-hidden="true" class="anchor-heading" href="#voila-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Voila !</h2>
+<p>You have added your first documented structure-organism relationship to Wikidata and made a valuable contribution to the community.
+You can add further statements, e.g. <code>molecular formula</code>, or <code>SPLASH code</code> for linking to spectral data.</p>
+<p>The Wikidata entry <a href="https://www.wikidata.org/wiki/Q105674316">https://www.wikidata.org/wiki/Q105674316</a> has been started using these instructions.</p>
+<p>You can run a SPARQL query and check that everything went smoothly by modifying the InChiKey line in the following <a href="https://w.wiki/32zb">SPARQL query</a>:</p>
+<pre class="language-sparql"><code class="language-SPARQL"><span class="token keyword">SELECT</span> <span class="token variable">?item</span> <span class="token variable">?itemLabel</span> <span class="token variable">?taxonLabel</span> <span class="token variable">?artLabel</span> <span class="token keyword">WHERE</span> <span class="token punctuation">{</span>
+  <span class="token keyword">VALUES</span> <span class="token variable">?classes</span> <span class="token punctuation">{</span>
+    <span class="token function"><span class="token prefix">wd<span class="token punctuation">:</span></span><span class="token local-name">Q11173</span></span> <span class="token comment"># chemical compound</span>
+    <span class="token function"><span class="token prefix">wd<span class="token punctuation">:</span></span><span class="token local-name">Q59199015</span></span> <span class="token comment"># group of stereoisomers</span>
+    <span class="token function"><span class="token prefix">wd<span class="token punctuation">:</span></span><span class="token local-name">Q79529</span></span> <span class="token comment"># chemical substance</span>
+    <span class="token function"><span class="token prefix">wd<span class="token punctuation">:</span></span><span class="token local-name">Q17339814</span></span> <span class="token comment"># group of chemical substances</span>
+    <span class="token function"><span class="token prefix">wd<span class="token punctuation">:</span></span><span class="token local-name">Q47154513</span></span> <span class="token comment"># structural class of chemical compounds</span>
+  <span class="token punctuation">}</span>
+  <span class="token variable">?item</span> <span class="token function"><span class="token prefix">wdt<span class="token punctuation">:</span></span><span class="token local-name">P31</span></span> <span class="token variable">?classes</span><span class="token punctuation">.</span> <span class="token comment"># instance of</span>
+  <span class="token variable">?item</span> <span class="token function"><span class="token prefix">wdt<span class="token punctuation">:</span></span><span class="token local-name">P235</span></span> <span class="token string">'QOVGHDRCAGYGEB-FFZYJECLSA-N'</span> <span class="token comment"># InChiKey</span>
+  <span class="token punctuation">{</span>
+    <span class="token variable">?item</span> <span class="token function"><span class="token prefix">p<span class="token punctuation">:</span></span><span class="token local-name">P1582</span></span> <span class="token variable">?stmt</span><span class="token punctuation">.</span> <span class="token comment"># natural product of taxon</span>
+    <span class="token variable">?stmt</span> <span class="token function"><span class="token prefix">ps<span class="token punctuation">:</span></span><span class="token local-name">P1582</span></span> <span class="token variable">?taxon</span><span class="token punctuation">.</span> <span class="token comment"># natural product of taxon</span>
+    <span class="token keyword">OPTIONAL</span> <span class="token punctuation">{</span>
+      <span class="token variable">?stmt</span> <span class="token function"><span class="token prefix">prov<span class="token punctuation">:</span></span><span class="token local-name">wasDerivedFrom</span></span> <span class="token variable">?ref</span><span class="token punctuation">.</span> 
+      <span class="token variable">?ref</span> <span class="token function"><span class="token prefix">pr<span class="token punctuation">:</span></span><span class="token local-name">P248</span></span> <span class="token variable">?art</span><span class="token punctuation">.</span> <span class="token comment"># stated in</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">UNION</span>
+  <span class="token punctuation">{</span>
+    <span class="token variable">?item</span> <span class="token function"><span class="token prefix">p<span class="token punctuation">:</span></span><span class="token local-name">P703</span></span> <span class="token variable">?stmt</span><span class="token punctuation">.</span> <span class="token comment"># found in taxon</span>
+    <span class="token variable">?stmt</span> <span class="token function"><span class="token prefix">ps<span class="token punctuation">:</span></span><span class="token local-name">P703</span></span> <span class="token variable">?taxon</span><span class="token punctuation">.</span> <span class="token comment"># found in taxon</span>
+    <span class="token keyword">OPTIONAL</span> <span class="token punctuation">{</span>
+      <span class="token variable">?stmt</span> <span class="token function"><span class="token prefix">prov<span class="token punctuation">:</span></span><span class="token local-name">wasDerivedFrom</span></span> <span class="token variable">?ref</span><span class="token punctuation">.</span>
+      <span class="token variable">?ref</span> <span class="token function"><span class="token prefix">pr<span class="token punctuation">:</span></span><span class="token local-name">P248</span></span> <span class="token variable">?art</span><span class="token punctuation">.</span> <span class="token comment"># stated in</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">SERVICE</span> <span class="token function"><span class="token prefix">wikibase<span class="token punctuation">:</span></span><span class="token local-name">label</span></span> <span class="token punctuation">{</span> <span class="token function"><span class="token prefix">bd<span class="token punctuation">:</span></span><span class="token local-name">serviceParam</span></span> <span class="token function"><span class="token prefix">wikibase<span class="token punctuation">:</span></span><span class="token local-name">language</span></span> <span class="token string">"[AUTO_LANGUAGE],en"</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>

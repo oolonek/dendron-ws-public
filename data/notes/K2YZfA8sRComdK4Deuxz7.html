@@ -1,0 +1,78 @@
+<h1 id="multivault"><a aria-hidden="true" class="anchor-heading" href="#multivault"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Multivault</h1>
+<p>Trying to implement a multivault setup after all because I would like to mange publishing and keep specific research project private or at least controled by pwd. For acces to specific collaborators wile other should be public.</p>
+<p>Let's try this.</p>
+<p>Starting here ... fell in a rabit hole.
+The whole multivault and selective publication looks really tough ... for me at least.
+I remember now why I turned away from it several times.</p>
+<p><a href="https://github.com/matteobrusa/Password-protection-for-static-pages">https://github.com/matteobrusa/Password-protection-for-static-pages</a></p>
+<p>Sample multivault by kenvin</p>
+<p><a href="https://github.com/dendronhq/sample-multivault-workspace">https://github.com/dendronhq/sample-multivault-workspace</a></p>
+<p>Tuesday 29 June 2021</p>
+<p>Digging this again.</p>
+<p>Following <a href="https://wiki.dendron.so/notes/45cfb9f2-46cf-4f67-a41e-834818fbd06e.html">https://wiki.dendron.so/notes/45cfb9f2-46cf-4f67-a41e-834818fbd06e.html</a></p>
+<p>The <code>Dendorn: Initialize MultiVault Workspace</code> is not available
+So apparently this command is not existing anymore <a href="https://discord.com/channels/717965437182410783/735365126227493004/790801646581055508">https://discord.com/channels/717965437182410783/735365126227493004/790801646581055508</a></p>
+<p>So in fact its Vault add  from a preexisting vault</p>
+<p>testing croos vault links</p>
+<p><a href="https://wiki.dendron.so/notes/3472226a-ff3c-432d-bf5d-10926f39f6c2.html#cross-vault-links">https://wiki.dendron.so/notes/3472226a-ff3c-432d-bf5d-10926f39f6c2.html#cross-vault-links</a></p>
+<p>Apparently they do not work when published</p>
+<p>Samedi 21 Août 2021</p>
+<p>the multivault folder lives here '~/multivault_dendron/'</p>
+<p>Dimanche 22 Août 2021</p>
+<p>new vscode window
+cmd+shit+p
+dendron new workspace
+/Users/pma/dendron-ws-private
+blank
+the default vault name is vault</p>
+<!-- we rename it directly to make things clear ^pXHF3aqJs96A
+https://wiki.dendron.so/notes/401c5889-20ae-4b3a-8468-269def4b4865.html#renaming-a-vault -->
+<p>go to github a create a new private repo
+<a href="https://github.com/oolonek/dendron-ws-private.git">https://github.com/oolonek/dendron-ws-private.git</a></p>
+<p>at the ws level
+git init
+git add .
+git commit -m 'initial commit'
+git remote add origin <a href="https://github.com/oolonek/dendron-ws-private.git">https://github.com/oolonek/dendron-ws-private.git</a>
+git push -u origin main
+(complains)
+git pull origin main<br>
+git config pull.rebase true
+git pull origin main<br>
+git push -u origin main</p>
+<p>repeat steps for ws-public
+<a href="https://github.com/oolonek/dendron-ws-public">https://github.com/oolonek/dendron-ws-public</a></p>
+<p>now we publish both dendron
+<a href="https://wiki.dendron.so/notes/230d0ccf-5758-4a8f-b39b-3b68e1482e2b.html">https://wiki.dendron.so/notes/230d0ccf-5758-4a8f-b39b-3b68e1482e2b.html</a></p>
+<p>Actually dont follow all the steps.
+We head directly for github action powered publication.</p>
+<p>So just change your dendron.yml  by adding</p>
+<pre><code>siteUrl: https://oolonek.github.io
+assetsPrefix: dendron-ws-public
+</code></pre>
+<p>Then we follow</p>
+<p><a href="https://wiki.dendron.so/notes/877f4347-f013-43ba-aec4-87412b2e1bec.html">https://wiki.dendron.so/notes/877f4347-f013-43ba-aec4-87412b2e1bec.html</a></p>
+<p>to create the package.json at the ws roots we follow this.</p>
+<p>Create a package.json at the root of your workspace</p>
+<p>npm init -y
+npm install <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@dendronhq/dendron-cli (Private)</a><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@latest (Private)</a>
+npm install <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@dendronhq/dendron-11ty (Private)</a><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@latest (Private)</a></p>
+<p>We modify the dendron.yml to have the gh edit link</p>
+<pre><code>gh_edit_link: true
+gh_edit_link_text: Click here to edit this page on Github !
+gh_edit_repository: 'https://github.com/oolonek/dendron-ws-public'
+gh_edit_branch: main
+gh_edit_view_mode: edit
+assetsPrefix: dendron-ws-public
+</code></pre>
+<p>We repeat for the private repo </p>
+<p>All seems to be set up correctly
+[[</p>
+<p>|mapp.fundings.swissbiodata]]
+Now we will vault add the dendron-ws-public as a remote vault in the private ws</p>
+<p>this should be done at the vault level (in the dendron-private-vault)
+We cmd+shit+p vault add and enter <a href="https://github.com/oolonek/dendron-ws-public.git">https://github.com/oolonek/dendron-ws-public.git</a>
+and two time enter this allows us to have the vault name changed to dendron-ws-public</p>
+<p>Saturday 28 August 2021</p>
+<p>test duplicated note and multivault handlinh of duplicated content.</p>
+<p><a href="/dendron-ws-public/notes/lMQteElOhGrkKcI7EOr8o">Multivault</a></p>

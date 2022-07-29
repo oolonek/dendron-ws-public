@@ -1,0 +1,54 @@
+<h1 id="plotly"><a aria-hidden="true" class="anchor-heading" href="#plotly"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Plotly</h1>
+<h1 id="plotly-html-integration"><a aria-hidden="true" class="anchor-heading" href="#plotly-html-integration"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>plotly html integration</h1>
+<p><a href="https://ig248.gitlab.io/post/2018-11-05-plotly-sample/">https://ig248.gitlab.io/post/2018-11-05-plotly-sample/</a>  (merci Jo)</p>
+<p>after a bunch of slightly outdate tutorial I found this one wich worked in my case</p>
+<p><a href="https://medium.com/analytics-vidhya/how-to-export-a-plotly-chart-as-html-3b5df568df4a">https://medium.com/analytics-vidhya/how-to-export-a-plotly-chart-as-html-3b5df568df4a</a></p>
+<p> just embbed like this</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container-fluid<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">margin-top</span><span class="token punctuation">:</span><span class="token number">40</span><span class="token unit">px</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>iframe</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sariette_pos_pos_organisms_sunburst.html<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>600<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">border</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>iframe</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<h1 id="customization-of-fig-margintitles-and-other-nasty-stuff"><a aria-hidden="true" class="anchor-heading" href="#customization-of-fig-margintitles-and-other-nasty-stuff"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>customization of fig (margin/titles and other nasty stuff)</h1>
+<pre class="language-python"><code class="language-python"><span class="token comment"># %%</span>
+<span class="token comment"># using px express to plot some quick and dirty sunbursts (https://plotly.com/python/sunburst-charts/)</span>
+<span class="token comment"># customize fonts in titles following https://stackoverflow.com/a/57926862</span>
+<span class="token comment"># customize margins following https://stackoverflow.com/a/63162535</span>
+
+<span class="token keyword">import</span> plotly<span class="token punctuation">.</span>express <span class="token keyword">as</span> px
+
+
+fig <span class="token operator">=</span> px<span class="token punctuation">.</span>sunburst<span class="token punctuation">(</span>df4cyto_flat<span class="token punctuation">,</span> path<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'Superclass_cf_DNP_consensus'</span><span class="token punctuation">,</span> <span class="token string">'Class_cf_DNP_consensus'</span><span class="token punctuation">,</span> <span class="token string">'Subclass_cf_DNP_consensus'</span><span class="token punctuation">,</span> <span class="token string">'Parent_Level_1_cf_DNP_consensus'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">)</span>
+fig<span class="token punctuation">.</span>update_layout<span class="token punctuation">(</span>
+    <span class="token comment">#font_family="Courier New",</span>
+    title_font_family<span class="token operator">=</span><span class="token string">"Courier New"</span><span class="token punctuation">,</span>
+    title_font_color<span class="token operator">=</span><span class="token string">"black"</span><span class="token punctuation">,</span>
+    title_font_size<span class="token operator">=</span><span class="token number">14</span><span class="token punctuation">,</span>
+    legend_title_font_color<span class="token operator">=</span><span class="token string">"black"</span><span class="token punctuation">,</span>
+    title_text<span class="token operator">=</span><span class="token string">"&#x3C;b> Overview of the consensus chemical annotions &#x3C;br> as the superclass, class, subclass and parent_1 level for &#x3C;br>"</span> <span class="token operator">+</span> project_name <span class="token operator">+</span> <span class="token string">"&#x3C;/b>"</span><span class="token punctuation">,</span>
+    title_x<span class="token operator">=</span><span class="token number">0.5</span>
+<span class="token punctuation">)</span>
+
+fig<span class="token punctuation">.</span>update_layout<span class="token punctuation">(</span>
+    title<span class="token operator">=</span><span class="token punctuation">{</span>
+        <span class="token string">'text'</span><span class="token punctuation">:</span> <span class="token string">"&#x3C;b> Overview of the consensus chemical annotions &#x3C;br> as the superclass, class, subclass and parent_1 level for &#x3C;br>"</span> <span class="token operator">+</span> <span class="token string">'&#x3C;span style="font-size: 20px;">'</span> <span class="token operator">+</span> project_name <span class="token operator">+</span> <span class="token string">'&#x3C;/span>'</span> <span class="token operator">+</span> <span class="token string">"&#x3C;/b>"</span><span class="token punctuation">,</span>
+        <span class="token string">'y'</span><span class="token punctuation">:</span><span class="token number">0.96</span><span class="token punctuation">,</span>
+        <span class="token string">'x'</span><span class="token punctuation">:</span><span class="token number">0.5</span><span class="token punctuation">,</span>
+        <span class="token string">'xanchor'</span><span class="token punctuation">:</span> <span class="token string">'center'</span><span class="token punctuation">,</span>
+        <span class="token string">'yanchor'</span><span class="token punctuation">:</span> <span class="token string">'top'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+fig<span class="token punctuation">.</span>update_layout<span class="token punctuation">(</span>margin<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">(</span>l<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span> r<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span> t<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token comment">#,paper_bgcolor="Black"</span>
+<span class="token punctuation">)</span>
+
+fig<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+fig<span class="token punctuation">.</span>write_html<span class="token punctuation">(</span>sunburst_chem_results_path<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="on-the-display-via-github"><a aria-hidden="true" class="anchor-heading" href="#on-the-display-via-github"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>On the display via github</h2>
+<p><a href="https://community.plotly.com/t/how-to-display-plotly-graph-on-github-pages/44398/2">https://community.plotly.com/t/how-to-display-plotly-graph-on-github-pages/44398/2</a></p>
+<p><a href="https://automating-gis-processes.github.io/2016/Lesson5-share-on-github.html">https://automating-gis-processes.github.io/2016/Lesson5-share-on-github.html</a></p>
+<p><a href="https://mertbakir.gitlab.io/hugo/plotly-with-hugo/">https://mertbakir.gitlab.io/hugo/plotly-with-hugo/</a></p>
+<p>When displaying iframe in hugo pages be sure to have </p>
+<p><a href="https://stackoverflow.com/a/66741389">https://stackoverflow.com/a/66741389</a></p>
+<h1 id="monday-06-december-2021"><a aria-hidden="true" class="anchor-heading" href="#monday-06-december-2021"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Monday 06 December 2021</h1>
+<p>Getting plotly to work within a jupoyter nb file on github <a href="https://binnisb.github.io/blog/datascience/2020/04/02/Plotly-in-lab.html">https://binnisb.github.io/blog/datascience/2020/04/02/Plotly-in-lab.html</a></p>

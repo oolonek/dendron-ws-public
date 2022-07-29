@@ -1,0 +1,160 @@
+<h1 id="isfrag"><a aria-hidden="true" class="anchor-heading" href="#isfrag"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Isfrag</h1>
+<p>Pasting an old recipee from ZettelKasten</p>
+<p>Linked to <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">202002251433 (Private)</a> in silico fragmentation worflow.</p>
+<p>Children workflow on the beast MAPP </p>
+<p>Side notes : try to write everything as scripts so that they can be launched without a GUI (ex on X2Go or directly Boabab).</p>
+<h1 id="tutorial-for-npatlas-in-silico-fragmentation-data-treatment"><a aria-hidden="true" class="anchor-heading" href="#tutorial-for-npatlas-in-silico-fragmentation-data-treatment"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Tutorial for NPatlas in silico fragmentation data treatment</h1>
+<h2 id="prior-to-fragmentation"><a aria-hidden="true" class="anchor-heading" href="#prior-to-fragmentation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Prior to fragmentation</h2>
+<h3 id="prepare-space-delimited-input-file"><a aria-hidden="true" class="anchor-heading" href="#prepare-space-delimited-input-file"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Prepare space delimited input file</h3>
+<p>Complete metadate file is converted to list of Unique ID and smiles space separated (for cfm id input)</p>
+<p>python frag_list_preparator.py ../npatlas_data/np_atlas_2019_12.tsv ../npatlas_data/np_atlas_2019_12_for_frag.tsv NPAID SMILES</p>
+<p>python frag_list_preparator.py ../open_np_db_data/open_NP_db.tsv ../open_np_db_data/open_NP_db_tofrag.txt shortinchikey shortinchikey smiles</p>
+<h3 id="split-the-file"><a aria-hidden="true" class="anchor-heading" href="#split-the-file"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Split the file</h3>
+<p>(Works on Linux based shells)</p>
+<p>split -a 5 -l 500 -d ../open<em>np_db_data/open_NP_db_tofrag.txt ../open_np_db_data/opennpdb_tofrag/opennpdb</em>
+split -a 5 -l 500 -d ./lotus<em>data/lotus_data_for_frag.txt ./lotus_data/lotus_data_for_frag/lotus_data</em></p>
+<p>split -a 5 -l 500 -d ./ ./lotus<em>data/lotus_data_for_frag/lotus_data</em>
+split -a 5 -l 500 -d cfm/cfm<em>input/platinum_tofrag.tsv cfm/cfm_input/splitted/lotus_to_frag</em></p>
+<p>This one allows to preserve extensions and is build on number of desired chunks without splitting lines
+split -a 5 -n l/199 -d --additional-suffix=.txt  cfm<em>input/sub_platinum_tofrag.tsv cfm_input/splitted/lotus_to_frag</em></p>
+<h3 id="when-using-the-docker-cli-files-need-to-have-an-extension-or-taken-as-folder-"><a aria-hidden="true" class="anchor-heading" href="#when-using-the-docker-cli-files-need-to-have-an-extension-or-taken-as-folder-"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>When using the docker cli files need to have an extension (or taken as folder ?)</h3>
+<p>for f in *; do mv "<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi mathvariant="normal">"</mi><mi mathvariant="normal">"</mi></mrow><annotation encoding="application/x-tex">f" "</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord">""</span></span></span></span></span>f.txt"; done</p>
+<p>if you made a mistacke </p>
+<p>find / -type f -name '*.txt' -exec sh -c 'mv -- "<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi mathvariant="normal">"</mi><mi mathvariant="normal">"</mi></mrow><annotation encoding="application/x-tex">0" "</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">0""</span></span></span></span></span>{0%.txt}"' {} \;</p>
+<h3 id="prepare-mutilple-bash-file-to-launch-on-baobab"><a aria-hidden="true" class="anchor-heading" href="#prepare-mutilple-bash-file-to-launch-on-baobab"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Prepare mutilple bash file to launch on baobab</h3>
+<p>(strangely enough the .sh incrementer script return an error on Linux, runned OK on MacOS command line )</p>
+<p>Note: apparently sbatch as been replaced by srun on the boabab server side. Be sure to update the scripts accordingly</p>
+<h2 id="fetching-cfm-predict-results"><a aria-hidden="true" class="anchor-heading" href="#fetching-cfm-predict-results"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Fetching cfm-predict results</h2>
+<p>Download cfm-predict fragmentation results from the baob server using rsync command</p>
+<p>rsync -rvz -e 'ssh' --progress <a href="mailto:allardp@baobab2.unige.ch">allardp@baobab2.unige.ch</a>:/home/allardp/CFM_results/npatlas ./results
+rsync -rvz -e 'ssh' --progress <a href="mailto:allardp@baobab2.unige.ch">allardp@baobab2.unige.ch</a>:/home/allardp/CFM_results/coconut/ .</p>
+<p>find ./ -type f -name '*.mgf' | wc  </p>
+<p>allows to count all file in a folder
+Here 25090 files for NPatalas</p>
+<p>Coconut 384222 .log files</p>
+<p> 384150 mgf files</p>
+<h2 id="we-might-eventually-need-to-move-all-files-from-subfolders-recursively-to-a-superior-folder"><a aria-hidden="true" class="anchor-heading" href="#we-might-eventually-need-to-move-all-files-from-subfolders-recursively-to-a-superior-folder"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>We might eventually need to move all files from subfolders recursively to a superior folder</h2>
+<p>find ./bacasable -type f -print0 | xargs -0 mv -t ./bacasable</p>
+<p>find ./results_coconut -type f -print0 | xargs -0 mv -t ./results_coconut</p>
+<h2 id="pruning-the-raw-log-files"><a aria-hidden="true" class="anchor-heading" href="#pruning-the-raw-log-files"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Pruning the raw log files</h2>
+<p>The output of cfm-predict consist of .log file containing mass spectra, where each fragments are individually labelled and eventually linked to a substrcture. Such information might be usefull later but for now we only want to keep the raw ms data</p>
+<p>(need to define a help function here)</p>
+<p>python raw_log_treater_npatlas.py ../npatlas_data/results_npatlas/npatlas/ .log
+python raw_log_treater.py ../coconut_data/results_coconut/ .log</p>
+<p>At this step .log file should be pruned and contains only digits (m/z and intensities)</p>
+<p>for coconut Parsing directory../coconut_data/results_coconut/ with file extension :.log</p>
+<p>'mass' ../coconut_data/results_coconut/CNP0402147.log
+'mass' ../coconut_data/results_coconut/CNP0153817.log
+'mass' ../coconut_data/results_coconut/CNP0155980.log
+'mass' ../coconut_data/results_coconut/CNP0086807.log
+'mass' ../coconut_data/results_coconut/CNP0199206.log
+'mass' ../coconut_data/results_coconut/CNP0334817.log
+'mass' ../coconut_data/results_coconut/CNP0366374.log
+'mass' ../coconut_data/results_coconut/CNP0232712.log
+'mass' ../coconut_data/results_coconut/CNP0370068.log
+'mass' ../coconut_data/results_coconut/CNP0055178.log
+'mass' ../coconut_data/results_coconut/CNP0228597.log
+'mass' ../coconut_data/results_coconut/CNP0119974.log
+'mass' ../coconut_data/results_coconut/CNP0132139.log
+'mass' ../coconut_data/results_coconut/CNP0145457.log
+'mass' ../coconut_data/results_coconut/CNP0230801.log
+'mass' ../coconut_data/results_coconut/CNP0310370.log
+'mass' ../coconut_data/results_coconut/CNP0149436.log
+'mass' ../coconut_data/results_coconut/CNP0396848.log
+'mass' ../coconut_data/results_coconut/CNP0401434.log
+'mass' ../coconut_data/results_coconut/CNP0101561.log
+'mass' ../coconut_data/results_coconut/CNP0390928.log
+'mass' ../coconut_data/results_coconut/CNP0405256.log
+'mass' ../coconut_data/results_coconut/CNP0395006.log
+'mass' ../coconut_data/results_coconut/CNP0159145.log
+'mass' ../coconut_data/results_coconut/CNP0131085.log
+'mass' ../coconut_data/results_coconut/CNP0230696.log
+'mass' ../coconut_data/results_coconut/CNP0014450.log
+'mass' ../coconut_data/results_coconut/CNP0214739.log
+'mass' ../coconut_data/results_coconut/CNP0302005.log
+'mass' ../coconut_data/results_coconut/CNP0279314.log
+'mass' ../coconut_data/results_coconut/CNP0177036.log
+'mass' ../coconut_data/results_coconut/CNP0274256.log
+'mass' ../coconut_data/results_coconut/CNP0403745.log
+'mass' ../coconut_data/results_coconut/CNP0039287.log
+'mass' ../coconut_data/results_coconut/CNP0238803.log
+'mass' ../coconut_data/results_coconut/CNP0014261.log
+'mass' ../coconut_data/results_coconut/CNP0077076.log
+'mass' ../coconut_data/results_coconut/CNP0125300.log
+'mass' ../coconut_data/results_coconut/CNP0228582.log
+'mass' ../coconut_data/results_coconut/CNP0393136.log
+'mass' ../coconut_data/results_coconut/CNP0338003.log
+'mass' ../coconut_data/results_coconut/CNP0070182.log
+'mass' ../coconut_data/results_coconut/CNP0230961.log
+'mass' ../coconut_data/results_coconut/CNP0001326.log
+'mass' ../coconut_data/results_coconut/CNP0088652.log
+'mass' ../coconut_data/results_coconut/CNP0045797.log
+'mass' ../coconut_data/results_coconut/CNP0175458.log
+'mass' ../coconut_data/results_coconut/CNP0300969.log
+'mass' ../coconut_data/results_coconut/CNP0030335.log
+'mass' ../coconut_data/results_coconut/CNP0126194.log
+'mass' ../coconut_data/results_coconut/CNP0334816.log
+'mass' ../coconut_data/results_coconut/CNP0290616.log
+'mass' ../coconut_data/results_coconut/CNP0386127.log
+'mass' ../coconut_data/results_coconut/CNP0406328.log
+'mass' ../coconut_data/results_coconut/CNP0127289.log
+'mass' ../coconut_data/results_coconut/CNP0032755.log
+'mass' ../coconut_data/results_coconut/CNP0258640.log
+'mass' ../coconut_data/results_coconut/CNP0199475.log
+'mass' ../coconut_data/results_coconut/CNP0350989.log
+'mass' ../coconut_data/results_coconut/CNP0333350.log
+'mass' ../coconut_data/results_coconut/CNP0213544.log
+'mass' ../coconut_data/results_coconut/CNP0204567.log
+'mass' ../coconut_data/results_coconut/CNP0148525.log
+'mass' ../coconut_data/results_coconut/CNP0053639.log
+'mass' ../coconut_data/results_coconut/CNP0118368.log
+'mass' ../coconut_data/results_coconut/CNP0226584.log
+'mass' ../coconut_data/results_coconut/CNP0254221.log
+'mass' ../coconut_data/results_coconut/CNP0241364.log
+'mass' ../coconut_data/results_coconut/CNP0348684.log
+'mass' ../coconut_data/results_coconut/CNP0053255.log
+'mass' ../coconut_data/results_coconut/CNP0167909.log
+'mass' ../coconut_data/results_coconut/CNP0142603.log
+Treated 384150 files, skipped 72</p>
+<h2 id="populating-the-mgf-headers"><a aria-hidden="true" class="anchor-heading" href="#populating-the-mgf-headers"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Populating the mgf headers</h2>
+<h3 id="preparation-of-the-adducted-metadata-table"><a aria-hidden="true" class="anchor-heading" href="#preparation-of-the-adducted-metadata-table"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Preparation of the adducted metadata table</h3>
+<p>We need to prepare and adducted dataframe containing the protonated and deprotonated masses</p>
+<p>This script recquire rdkit so we build a environment.yml file from a dedicated conda env</p>
+<p>conda env export -n conda-env -f /path/to/environment.yml</p>
+<p>Eventually you need to fetch the file from the internet (use wget )</p>
+<p>wget <a href="https://zenodo.org/record/3547718/files/COCONUT4MetFrag.csv?download=1">https://zenodo.org/record/3547718/files/COCONUT4MetFrag.csv?download=1</a></p>
+<p>Sometimes since SMILES or INchi can yield error and since there is a MF field, the emass can be calculated directly form the MF as described here
+<a href="https://bioinformatics.stackexchange.com/a/9273">https://bioinformatics.stackexchange.com/a/9273</a>. Noooop actually not working since the GetMass() function yield a molecular weight and not and exact mass ....</p>
+<p>Script table_adducter_script.py is adapted to cope with different delimiters ... beware and note that $ is mandatory to input the tab delim</p>
+<p>python table_adducter_npatlas_script.py ../npatlas_data/np_atlas_2019_12.tsv ../npatlas_data/np_atlas_2019_12_adducted.tsv</p>
+<p>python table_adducter_script.py ../coconut_data/COCONUT4MetFrag.csv ',' ../coconut_data/COCONUT4MetFrag_adducted.csv $'\t'</p>
+<h3 id="addition-of-the-metadata-to-the-individual-mgf-headers"><a aria-hidden="true" class="anchor-heading" href="#addition-of-the-metadata-to-the-individual-mgf-headers"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Addition of the metadata to the individual mgf headers</h3>
+<p>We can now populate each raw mgf with its corresponding metadata. For this we use the treat_npatlas.py script</p>
+<p>python treat_npatlas.py ../npatlas_data/np_atlas_2019_12_adducted.tsv ../npatlas_data/results_npatlas/npatlas/</p>
+<p>python mgf_header_populater.py ../coconut_data/COCONUT4MetFrag_adducted.csv ../coconut_data/results_coconut/ Identifier</p>
+<p>on coconut </p>
+<p>Treated 384150 files, skipped 28161.</p>
+<h2 id="generating-the-final-spectral-file"><a aria-hidden="true" class="anchor-heading" href="#generating-the-final-spectral-file"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Generating the final spectral file</h2>
+<p>We concatenate each documented mgf files to a single spectral mgf file.</p>
+<p>find ./ -type f -name '<em>.mgf' | while read F; do cat ${F} >> ../../npatlas_ISDB_pos.mgf; done
+find ./ -type f -name '</em>.mgf' | while read F; do cat ${F} >> ../../coconut_ISDB_pos.mgf; done</p>
+<h2 id="outputting-non-fragmented-entries"><a aria-hidden="true" class="anchor-heading" href="#outputting-non-fragmented-entries"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Outputting non-fragmented entries</h2>
+<p>For several reasons (charged compounds, some tautomers, structures too heavy to be fragmented in a reasonable amount of time) some entries might not have been fragmented. </p>
+<p>To find them we will first list all correctly converted mgf</p>
+<p>find ./ -type f -name '<em>.mgf' | sed 's!.</em>/!!' | sed 's!^!!' >  list_mgf.txt</p>
+<p>%%here eventually without the extension</p>
+<p>find ./ -type f -name '<em>.mgf' | sed 's!.</em>/!!' | sed 's!.mgf!!' >  ../../list_mgf.txt</p>
+<p>And then the list is compared to the initial input using the table_comparator.py </p>
+<p>python table_comparator.py ../npatlas_data/npatlas_for_frag.txt ../npatlas_data/list_mgf.txt ../npatlas_data/unfragged_list.txt</p>
+<h3 id="check-molvs-for-structure-standardization"><a aria-hidden="true" class="anchor-heading" href="#check-molvs-for-structure-standardization"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>check molVS for structure standardization</h3>
+<p><a href="https://molvs.readthedocs.io/en/latest/index.html">https://molvs.readthedocs.io/en/latest/index.html</a></p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/dendron-ws-public/notes/Mlb5F1TDswu1OkB4yKCXI">Beast</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/dendron-ws-public/notes/Mlb5F1TDswu1OkB4yKCXI">Beast</a></li>
+</ul>
