@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1658992556840
+updated: 1659182479518
 created: 1611593110381
 ---
 
@@ -492,5 +492,10 @@ https://w.wiki/5LJf
 # References and occurences of Alstonine 
 
 https://w.wiki/5WXP
+
+# compare occurences in WD of entries with a given taxon id  (OTL versus WFO)
+
+https://w.wiki/5WYx
+
 
 

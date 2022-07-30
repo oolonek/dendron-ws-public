@@ -2,7 +2,7 @@
 id: lXYgpwVweH35j30wEgBhR
 title: Pandas
 desc: ''
-updated: 1646985342234
+updated: 1659182623646
 created: 1609770454495
 ---
 
@@ -164,3 +164,18 @@ DataFrame.drop_duplicates(subset=None, keep='first', inplace=False, ignore_index
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html
 
 df.drop_duplicates(subset=['a', 'b'], keep='first', inplace=True, ignore_index=False)
+
+# append df created in a for loop 
+https://stackoverflow.com/a/28670223
+
+
+appended_data = []
+for infile in glob.glob("*.xlsx"):
+    data = pandas.read_excel(infile)
+    # store DataFrame in list
+    appended_data.append(data)
+# see pd.concat documentation for more info
+appended_data = pd.concat(appended_data)
+# write DataFrame to an excel sheet 
+appended_data.to_excel('appended.xlsx')
+
