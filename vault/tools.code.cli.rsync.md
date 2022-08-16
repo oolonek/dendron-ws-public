@@ -2,7 +2,7 @@
 id: SS0rQYcsKz30tWG5tQVOB
 title: Rsync
 desc: ''
-updated: 1638515353997
+updated: 1660461449058
 created: 1609680294356
 ---
 
@@ -52,6 +52,9 @@ rsync -rvz -e 'ssh' --progress ./ allardpm@biolpc045600:/home/allardpm/cfm/bash_
 
 ```bash
 rsync -rvz -e 'ssh' --progress allardpm@biolpc045600:/home/allardpm/sandbox/GNPS_output_Qemistree_set/*.qza ./ 
+
+rsync -rvz -e 'ssh' --progress allardpm@biolpc045600:/home/allardpm/sandbox/GNPS_output_Qemistree_set/*.qza ./ 
+
 
 # to fetch all file with a given extension. See https://stackoverflow.com/a/11111793 for details
 

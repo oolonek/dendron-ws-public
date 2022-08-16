@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1659182479518
+updated: 1660499391391
 created: 1611593110381
 ---
 
@@ -499,3 +499,280 @@ https://w.wiki/5WYx
 
 
 
+## endpoints
+
+https://www.wikidata.org/wiki/Wikidata:Lists/SPARQL_endpoints
+
+
+
+#### quest query mod from Mietchen to compounds (not working)
+
+# Pay attention to edge cases
+SELECT DISTINCT ?n_formatted
+(CONCAT(
+REPLACE(STR(?i), ".*Q", "Q"), "|P921|", REPLACE(STR(?ta), ".*Q", "Q"), "|P1932|", (CONCAT("\"", ?a, "\"")), "|S887|Q69652283") AS ?QuickStatements)
+WITH {
+SELECT DISTINCT ?ta WHERE {
+SERVICE bd:sample { ?ta wdt:P31 wd:Q11173 . bd:serviceParam bd:sample.limit 5 }
+}
+LIMIT 2
+}
+AS %t
+WITH
+{ SELECT ?i ?n ?ta ?ti WHERE {
+INCLUDE %t
+        
+?ta rdfs:label ?n.
+FILTER (LANG(?n) = "en") .
+BIND(REPLACE(STR(?n),"@en","") AS ?n_formatted) .
+                                         
+
+SERVICE wikibase:mwapi
+{
+bd:serviceParam wikibase:endpoint "www.wikidata.org";
+wikibase:api "Generator";
+mwapi:generator "search";
+mwapi:gsrsearch ?n_formatted ;
+mwapi:gsrlimit "max".
+?i wikibase:apiOutputItem mwapi:title.
+}
+?i wdt:P1476 ?ti .
+#MINUS {?i wdt:P921 ?ta }
+#MINUS {?i wdt:P921 [wdt:P171* ?ta ] } 
+FILTER (REGEX(LCASE(?ti), LCASE(CONCAT( "\\", "b", ?n_formatted ,"\\", "b"))))
+FILTER (!REGEX(LCASE(?ti), LCASE(CONCAT( ?n_formatted ,"-"))))
+FILTER (!REGEX(LCASE(?ti), LCASE(CONCAT( ?n_formatted ,"(.)virus"))))
+FILTER (!REGEX(LCASE(?ti), LCASE(CONCAT( "pseudo(.?)", ?n_formatted))))
+}
+}
+AS %i
+WHERE {
+INCLUDE %i
+INCLUDE %t
+BIND (SUBSTR(?ti, STRLEN(STRBEFORE(REPLACE(?ti, ?n, "=HELP=", "i"), "=HELP=")) +1, STRLEN(?n_formatted)) AS ?a)
+}       
+
+
+-----
+No error but no results neither 
+
+SELECT DISTINCT ?n_formatted
+(CONCAT(
+REPLACE(STR(?i), ".*Q", "Q"), "|P921|", REPLACE(STR(?ta), ".*Q", "Q"), "|P1932|", (CONCAT("\"", ?a, "\"")), "|S887|Q69652283") AS ?QuickStatements)
+WITH {
+SELECT DISTINCT ?ta ?n_formatted WHERE {
+SERVICE bd:sample { ?ta wdt:P31 wd:Q11173 . bd:serviceParam bd:sample.limit 5000 }
+
+?ta rdfs:label ?n.
+FILTER (LANG(?n) = "en") .
+BIND(REPLACE(STR(?n),"@en","") AS ?n_formatted) .
+     
+
+}
+LIMIT 100
+}
+AS %t
+WITH
+{ SELECT ?i ?n_formatted ?ta ?ti WHERE {
+INCLUDE %t
+        
+                                    
+
+SERVICE wikibase:mwapi
+{
+bd:serviceParam wikibase:endpoint "www.wikidata.org";
+wikibase:api "Generator";
+mwapi:generator "search";
+mwapi:gsrsearch ?n_formatted ;
+mwapi:gsrlimit "max".
+?i wikibase:apiOutputItem mwapi:title.
+}
+?i wdt:P1476 ?ti .
+#MINUS {?i wdt:P921 ?ta }
+#MINUS {?i wdt:P921 [wdt:P171* ?ta ] } 
+FILTER (REGEX(LCASE(?ti), LCASE(CONCAT( "\\", "b", ?n_formatted ,"\\", "b"))))
+FILTER (!REGEX(LCASE(?ti), LCASE(CONCAT( ?n_formatted ,"-"))))
+FILTER (!REGEX(LCASE(?ti), LCASE(CONCAT( ?n_formatted ,"(.)virus"))))
+FILTER (!REGEX(LCASE(?ti), LCASE(CONCAT( "pseudo(.?)", ?n))))
+}
+}
+AS %i
+WHERE {
+INCLUDE %i
+INCLUDE %t
+BIND (SUBSTR(?ti, STRLEN(STRBEFORE(REPLACE(?ti, ?n_formatted, "=HELP=", "i"), "=HELP=")) +1, STRLEN(?n_formatted)) AS ?a)
+}
+
+
+
+-----
+
+Works !!!
+
+# adapted from Daniel Mietchen https://w.wiki/5a7K
+SELECT DISTINCT ?n_formatted
+(CONCAT(
+REPLACE(STR(?i), ".*Q", "Q"), "|P921|", REPLACE(STR(?ta), ".*Q", "Q"), "|P1932|", (CONCAT("\"", ?a, "\"")), "|S887|Q69652283") AS ?QuickStatements)
+WITH {
+SELECT DISTINCT ?ta ?n_formatted WHERE {
+SERVICE bd:sample { ?ta wdt:P31 wd:Q11173 . bd:serviceParam bd:sample.limit 5000 }
+?ta p:P703 ?stmt.
+?stmt ps:P703 ?taxa.
+?ta rdfs:label ?n.
+FILTER (LANG(?n) = "en") .
+BIND(REPLACE(STR(?n),"@en","") AS ?n_formatted) .
+}
+LIMIT 25
+}
+AS %t
+WITH
+{ SELECT ?i ?n_formatted ?ta ?ti WHERE {
+INCLUDE %t
+SERVICE wikibase:mwapi
+{
+bd:serviceParam wikibase:endpoint "www.wikidata.org";
+wikibase:api "Generator";
+mwapi:generator "search";
+mwapi:gsrsearch ?n_formatted ;
+mwapi:gsrlimit "max".
+?i wikibase:apiOutputItem mwapi:title.
+}
+?i wdt:P1476 ?ti .
+MINUS {?i wdt:P921 ?ta }
+#MINUS {?i wdt:P921 [wdt:P171* ?ta ] } 
+#FILTER (REGEX(LCASE(?ti), LCASE(CONCAT( "\\", "b", ?n_formatted ,"\\", "b"))))
+#FILTER (!REGEX(LCASE(?ti), LCASE(CONCAT( ?n_formatted ,"-"))))
+#FILTER (!REGEX(LCASE(?ti), LCASE(CONCAT( ?n_formatted ,"(.)virus"))))
+#FILTER (!REGEX(LCASE(?ti), LCASE(CONCAT( "pseudo(.?)", ?n))))
+}
+}
+AS %i
+WHERE {
+INCLUDE %i
+INCLUDE %t
+BIND (SUBSTR(?ti, STRLEN(STRBEFORE(REPLACE(?ti, ?n_formatted, "=HELP=", "i"), "=HELP=")) +1, STRLEN(?n_formatted)) AS ?a)
+}
+
+
+https://w.wiki/5a8b
+
+escaping dangling meta chracters https://w.wiki/5a8g
+
+----- 
+
+with taxa and compound
+
+# Adapted from Daniel Mietchen https://w.wiki/5a7K
+SELECT DISTINCT
+(CONCAT(
+REPLACE(STR(?i), ".*Q", "Q"), "|P921|", REPLACE(STR(?ta), ".*Q", "Q"), "|P1932|", (CONCAT("\"", ?a, "\"")), "|S887|Q69652283") AS ?QuickStatements)
+WITH {
+SELECT DISTINCT ?ta ?n_formatted WHERE {
+SERVICE bd:sample { ?ta wdt:P31 wd:Q11173 . bd:serviceParam bd:sample.limit 5000 }
+?ta p:P703 ?stmt.
+?stmt ps:P703 ?taxa.
+?ta rdfs:label ?n.
+FILTER (LANG(?n) = "en") .
+BIND(REPLACE(REPLACE(REPLACE(STR(?n),"@en",""),"\\+",""),"\\-","") AS ?n_formatted) .
+}
+LIMIT 25
+}
+AS %t
+WITH
+{ SELECT ?i ?n_formatted ?ta ?ti WHERE {
+INCLUDE %t
+SERVICE wikibase:mwapi
+{
+bd:serviceParam wikibase:endpoint "www.wikidata.org";
+wikibase:api "Generator";
+mwapi:generator "search";
+mwapi:gsrsearch ?n_formatted;
+mwapi:gsrlimit "max".
+?i wikibase:apiOutputItem mwapi:title.
+}
+?i wdt:P1476 ?ti .
+MINUS {?i wdt:P921 ?ta }
+}
+}
+AS %i
+WITH
+{ SELECT ?j ?taxa ?ta ?ti WHERE {
+INCLUDE %t
+SERVICE wikibase:mwapi
+{
+bd:serviceParam wikibase:endpoint "www.wikidata.org";
+wikibase:api "Generator";
+mwapi:generator "search";
+mwapi:gsrsearch ?taxa;
+mwapi:gsrlimit "max".
+?j wikibase:apiOutputItem mwapi:title.
+}
+?j wdt:P1476 ?ti .
+MINUS {?j wdt:P921 ?taxa }
+}
+}
+AS %j
+WHERE {
+INCLUDE %i
+INCLUDE %j
+INCLUDE %t
+BIND (SUBSTR(?ti, STRLEN(STRBEFORE(REPLACE(?ti, ?n_formatted, "=HELP=", "i"), "=HELP=")) +1, STRLEN(?n_formatted)) AS ?a)
+}
+
+
+Using filter EXISTS 
+
+https://w.wiki/5a8t
+
+https://w.wiki/5a9B
+
+
+------
+Curating query 
+
+# Adapted from Daniel Mietchen https://w.wiki/5a7K
+SELECT DISTINCT ?taxa ?taxaLabel ?taxa_chem ?taxa_chemLabel ?ta ?taLabel ?ti 
+(CONCAT(
+REPLACE(STR(?ta), ".*Q", "Q"), "|P703|", REPLACE(STR(?taxa), ".*Q", "Q"), "|S248|", REPLACE(STR(?i), ".*Q", "Q")) AS ?QuickStatements)
+WITH {
+SELECT DISTINCT ?ta ?n_formatted ?taxa_chem WHERE {
+SERVICE bd:sample { ?ta wdt:P31 wd:Q11173 . bd:serviceParam bd:sample.limit 25000 }
+OPTIONAL { ?ta p:P703 ?stmt. }
+OPTIONAL { ?stmt ps:P703 ?taxa_chem. }
+?ta rdfs:label ?n.
+FILTER (LANG(?n) = "en") .
+BIND(REPLACE(REPLACE(REPLACE(STR(?n),"@en",""),"\\+",""),"\\-","") AS ?n_formatted) .
+}
+LIMIT 30
+}
+AS %t
+WITH
+{ SELECT ?i ?n_formatted ?ta ?ti ?taxa WHERE {
+INCLUDE %t
+SERVICE wikibase:mwapi
+{
+bd:serviceParam wikibase:endpoint "www.wikidata.org";
+wikibase:api "Generator";
+mwapi:generator "search";
+mwapi:gsrsearch ?n_formatted ;
+mwapi:gsrlimit "max".
+?i wikibase:apiOutputItem mwapi:title.
+}
+?i wdt:P1476 ?ti .
+?i wdt:P921 ?taxa.
+?taxa wdt:P105 wd:Q7432.
+FILTER (?taxa != ?taxa_chem)
+}
+}
+AS %i
+WHERE {
+INCLUDE %i
+INCLUDE %t
+BIND (SUBSTR(?ti, STRLEN(STRBEFORE(REPLACE(?ti, ?n_formatted, "=HELP=", "i"), "=HELP=")) +1, STRLEN(?n_formatted)) AS ?a)
+SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+
+
+https://w.wiki/5a9T
+
+https://w.wiki/5a9g
