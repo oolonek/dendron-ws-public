@@ -2,9 +2,19 @@
 id: 4QMHs8rY4FY7wrtVPljQ6
 title: Web Articles
 desc: ''
-updated: 1633627879338
+updated: 1661276176248
 created: 1610657531129
 ---
+
+
+# Barry Smith webpage
+
+Indicated by Jo 2022.08.23
+http://ontology.buffalo.edu/smith/
+
+Stuff to read in http://ncorwiki.buffalo.edu/index.php/Main_Page#Semantics_of_Biodiversity
+Ontology of biodiversity
+
 
 
 Thursday 07 October 2021
