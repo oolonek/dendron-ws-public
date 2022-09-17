@@ -2,7 +2,7 @@
 id: lXYgpwVweH35j30wEgBhR
 title: Pandas
 desc: ''
-updated: 1659182623646
+updated: 1662975301069
 created: 1609770454495
 ---
 
@@ -99,6 +99,11 @@ metadata_lat_lon_df = metadata_lat_lon_df.replace('nd', np.nan)
 
 selected_samples.dropna(how='all', inplace = True) 
 selected_samples.dropna(how='all', axis = 1, inplace = True) 
+
+# display all infos of a df
+
+data_train.info(verbose=True, show_counts=True)
+
 
 
 

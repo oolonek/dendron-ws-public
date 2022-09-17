@@ -2,7 +2,7 @@
 id: qcUnyE9eaS2PVPPngKeB1
 title: Sparql
 desc: ''
-updated: 1660499391391
+updated: 1663010700763
 created: 1611593110381
 ---
 
@@ -776,3 +776,16 @@ SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
 https://w.wiki/5a9T
 
 https://w.wiki/5a9g
+
+
+# Solanum genus compounds
+
+https://w.wiki/5h8g
+
+# Solanum and erythroxylum genus compounds
+
+https://w.wiki/5h9f
+
+# Solanum and erythroxylum and Apocynaceae genus compounds
+
+https://w.wiki/5h9p
