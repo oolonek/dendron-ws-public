@@ -2,7 +2,7 @@
 id: AUPz9SrGJPrGmpKhCwiT2
 title: Visualization
 desc: ''
-updated: 1631696594499
+updated: 1663505671067
 created: 1610893898631
 ---
 
@@ -20,3 +20,7 @@ https://octo.github.com/projects/flat-data
 https://streamlit.io/
 
 
+# Data Visualization
+A practical introduction
+
+https://socviz.co/

@@ -2,7 +2,7 @@
 id: 8ElFvQBDYuPdyHJeLaRNS
 title: Scientific_paper
 desc: ''
-updated: 1601410082237
+updated: 1663495097207
 created: 1601410082237
 stub: false
 ---
@@ -25,7 +25,7 @@ Although the above structure reflects the progression of most research projects,
 
 ## The introduction
 
- This is a chapter from Jean-luc Doumont's book, Trees, maps and theorems.
+
  View Full-Size Image An effective introduction for a paper
 
 The introduction reproduced here exhibits the four components that readers find useful as they begin to read a paper.
@@ -120,21 +120,21 @@ Even the most logical structure is of little use if readers do not see and under
 Although papers can be organized into sections in many ways, those reporting experimental work typically include Materials and Methods, Results, and Discussion in their body. In any case, the paragraphs in these sections should begin with a topic sentence to prepare readers for their contents, allow selective reading, and — ideally — get a message across.
 
 ## Materials and methods
- This is a chapter from Jean-luc Doumont's book, Trees, maps and theorems.
- View Full-Size Image A paragraph of materials and methods
+
+
 This paragraph of materials and methods expresses the main idea first, in a topic sentence, so readers immediately know what it is about.
 Most Materials and Methods sections are boring to read, yet they need not be. To make this section interesting, explain the choices you made in your experimental procedure: What justifies using a given compound, concentration, or dimension? What is special, unexpected, or different in your approach? Mention these things early in your paragraph, ideally in the first sentence. If you use a standard or usual procedure, mention that upfront, too. Do not make readers guess: Make sure the paragraph's first sentence gives them a clear idea of what the entire paragraph is about. If you feel you cannot or need not do more than list items, consider using a table or perhaps a schematic diagram rather than a paragraph of text.
 
 ## Results and discussion
- This is a chapter from Jean-luc Doumont's book, Trees, maps and theorems.
- View Full-Size Image A paragraph of results and discussion
+
+
 This paragraph of results and discussion (above) can easily be rewritten (below) to convey the message first, not last.
 The traditional Results and Discussion sections are best combined because results make little sense to most readers without interpretation.
 When reporting and discussing your results, do not force your readers to go through everything you went through in chronological order. Instead, state the message of each paragraph upfront: Convey in the first sentence what you want readers to remember from the paragraph as a whole. Focus on what happened, not on the fact that you observed it. Then develop your message in the remainder of the paragraph, including only that information you think you need to convince your audience.
 
 ## The conclusion
- This is a chapter from Jean-luc Doumont's book, Trees, maps and theorems.
- View Full-Size Image An effective conclusion from a paper
+
+
 This paragraph of results and discussion (above) can easily be rewritten (below) to convey the message first, not last.
 In the Conclusion section, state the most important outcome of your work. Do not simply summarize the points already made in the body — instead, interpret your findings at a higher level of abstraction. Show whether, or to what extent, you have succeeded in addressing the need stated in the Introduction. At the same time, do not focus on yourself (for example, by restating everything you did). Rather, show what your findings mean to readers. Make the Conclusion interesting and memorable for them.
 At the end of your Conclusion, consider including perspectives — that is, an idea of what could or should still be done in relation to the issue addressed in the paper. If you include perspectives, clarify whether you are referring to firm plans for yourself and your colleagues ("In the coming months, we will . . . ") or to an invitation to readers ("One remaining question is . . . ").
@@ -142,8 +142,8 @@ At the end of your Conclusion, consider including perspectives — that is, an i
 If your paper includes a well-structured Introduction and an effective abstract, you need not repeat any of the Introduction in the Conclusion. In particular, do not restate what you have done or what the paper does. Instead, focus on what you have found and, especially, on what your findings mean. Do not be afraid to write a short Conclusion section: If you can conclude in just a few sentences given the rich discussion in the body of the paper, then do so. (In other words, resist the temptation to repeat material from the Introduction just to make the Conclusion longer under the false belief that a longer Conclusion will seem more impressive.)
 
 ## The abstract
- This is a chapter from Jean-luc Doumont's book, Trees, maps and theorems.
- View Full-Size Image An effective abstract
+
+
 In just under 200 words, the abstract reproduced here conveys the motivation for and the outcome of the work with some accuracy but without intimidating readers by its length.
 The readers of a scientific paper read the abstract for two purposes: to decide whether they want to (acquire and) read the full paper, and to prepare themselves for the details presented in that paper. An effective abstract helps readers achieve these two purposes. In particular, because it is typically read before the full paper, the abstract should present what the readers are primarily interested in; that is, what they want to know first of all and most of all.
 Typically, readers are primarily interested in the information presented in a paper's Introduction and Conclusion sections. Primarily, they want to know the motivation for the work presented and the outcome of this work. Then (and only then) the most specialized among them might want to know the details of the work. Thus, an effective abstract focuses on motivation and outcome; in doing so, it parallels the paper's Introduction and Conclusion.
