@@ -2,9 +2,18 @@
 id: 4QMHs8rY4FY7wrtVPljQ6
 title: Web Articles
 desc: ''
-updated: 1661276176248
+updated: 1664094079106
 created: 1610657531129
 ---
+
+
+# Max Lath webpage
+
+https://maxlath.eu/#about
+
+Author of https://github.com/maxlath/wikibase-edit among other stuff
+
+
 
 
 # Barry Smith webpage
