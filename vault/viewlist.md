@@ -2,12 +2,25 @@
 id: k7IyxWpd9nYqWlhZ96CAG
 title: Viewlist
 desc: ''
-updated: 1664280621959
+updated: 1664364882544
 created: 1610469913749
 ---
+
+
+# Inorganic Life with Lee Cronin | Late Night Conference with Wilhelm Huck 1x04
+
+https://www.youtube.com/watch?v=msq06I_G2TA
+
+
+# The Metabolic Origins of Life with Joseph Moran | Late Night Conference with Wilhelm Huck 1x05
+
+https://www.youtube.com/watch?v=n6XDcn5u24I
+
+
+
 # Productivity Expert On How Productivity Ruins Your Life - Oliver Burkeman
 
-(stopped at 1:08:00)
+(stopped at 1:35:00)
 
 https://www.youtube.com/watch?v=KvuM4yrlYxY
 
