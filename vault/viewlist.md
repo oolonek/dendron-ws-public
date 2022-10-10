@@ -2,7 +2,7 @@
 id: k7IyxWpd9nYqWlhZ96CAG
 title: Viewlist
 desc: ''
-updated: 1664364882544
+updated: 1664959147042
 created: 1610469913749
 ---
 
@@ -16,11 +16,14 @@ https://www.youtube.com/watch?v=msq06I_G2TA
 
 https://www.youtube.com/watch?v=n6XDcn5u24I
 
+reducing and phosphorylating agents (Synthesis) vs. oxydizers (Breakdown) fountain of life (see chemical evolution in SBL.00073) min 14:11
+
+![](/assets/images/2022-10-05-10-33-25.png)
 
 
 # Productivity Expert On How Productivity Ruins Your Life - Oliver Burkeman
 
-(stopped at 1:35:00)
+- [x] watched
 
 https://www.youtube.com/watch?v=KvuM4yrlYxY
 
