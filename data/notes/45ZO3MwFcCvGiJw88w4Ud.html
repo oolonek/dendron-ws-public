@@ -1,0 +1,95 @@
+<h1 id="tests"><a aria-hidden="true" class="anchor-heading" href="#tests"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Tests</h1>
+<h1 id="bib-integration-tests-in-dendron"><a aria-hidden="true" class="anchor-heading" href="#bib-integration-tests-in-dendron"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Bib integration tests in dendron</h1>
+<p>The .bib is loaded if the path to th .bib is in the header (check in the .md file)</p>
+<p>active citation <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@Gerwick2012a (Private)</a></p>
+<p>hardcoded copy pasted citation Gerwick and Moore (2012)</p>
+<p>Gerwick, William H, and Bradley S Moore. 2012. “Lessons from the past and charting the future of marine natural products drug discovery and chemical biology.” Chemistry &#x26; Biology 19 (1): 85–98. <a href="https://doi.org/10.1016/j.chembiol.2011.12.014">https://doi.org/10.1016/j.chembiol.2011.12.014</a>.</p>
+<p>The citation can be previewed only if Markdown Preview Enhanced is loaded. However the links can then not be viewed by Dendron Markdown Preview. Kevin is working on it <a href="https://discord.com/channels/717965437182410783/735365126227493004/794977929406185502">https://discord.com/channels/717965437182410783/735365126227493004/794977929406185502</a></p>
+<p>Meanwhile a solution is to copy paste the citation from the preview to the .md.</p>
+<p>I now hae to check if links are displayed and active when published.
+Locally, hey are active in the .md</p>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">projects.tramadol.data (Private)</a></p>
+<p>This is how the preview looks like:</p>
+<p><img src="/dendron-ws-public/assets/images/2021-01-12-12-46-02.png"></p>
+<h1 id="references"><a aria-hidden="true" class="anchor-heading" href="#references"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>References</h1>
+<p>Here should appear the refs</p>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@Blunt2009 (Private)</a></p>
+<pre><code>&#x3C;p>[[projects.tramadol.data]]&#x3C;/p>
+&#x3C;p>This is how the preview looks like:&#x3C;/p>
+&#x3C;p>&#x3C;img src="/assets/images/2021-01-12-12-46-02.png" />&#x3C;/p>
+&#x3C;h1 id="references">References&#x3C;/h1>
+&#x3C;p>Here should appear the refs&#x3C;/p>
+&#x3C;p>&#x3C;span class="citation" data-cites="Blunt2009">@Blunt2009&#x3C;/span>&#x3C;/p>
+
+</code></pre>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@Blunt2009 (Private)</a></p>
+<h3 id="2021-01-12-1532"><a aria-hidden="true" class="anchor-heading" href="#2021-01-12-1532"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>2021-01-12 15:32</h3>
+<p>Just found a pandoc guru <a href="https://niszet.hatenablog.com/">https://niszet.hatenablog.com/</a> and posted an issue on his git repo <a href="https://github.com/niszet/pandocplay/issues/5">https://github.com/niszet/pandocplay/issues/5</a></p>
+<p>Pandoc play might be a way to go to have these citation displayed in line.</p>
+<p>I use it with the folowing option : </p>
+<p><code>"Pandocplay.Pandoc.args": " -s --bibliography '/Users/pma/Documents/library_red.bib'" </code>
+Beware of the space character before the s !</p>
+<h2 id="example-of-outputs"><a aria-hidden="true" class="anchor-heading" href="#example-of-outputs"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>example of outputs</h2>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@Brown2012a (Private)</a></p>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@oolonek (Private)</a></p>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@Brown2012a (Private)</a></p>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@Gerwick2012a (Private)</a></p>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@Blunt2009 (Private)</a></p>
+<pre><code>---
+bibliography: /Users/pma/Documents/library_red.bib
+---
+
+@Brown2012a
+
+@Gerwick2012a
+
+@Blunt2009
+
+</code></pre>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@jimenez-lunaDrugDiscoveryExplainable2020 (Private)</a>```</p>
+
+
+
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>runpandoctmp</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+
+<p><span class="citation" data-cites="Brown2012a">Brown and Okuno (2012)</span></p>
+<p><span class="citation" data-cites="Gerwick2012a">Gerwick and Moore (2012)</span></p>
+<p><span class="citation" data-cites="Blunt2009">Blunt et al. (2009)</span></p>
+<p><span class="citation" data-cites="jimenez-lunaDrugDiscoveryExplainable2020">(<span class="citeproc-not-found" data-reference-id="jimenez-lunaDrugDiscoveryExplainable2020"><strong>???</strong></span>)</span></p>
+<div id="refs" class="references hanging-indent" role="doc-bibliography">
+<div id="ref-Blunt2009">
+<p>Blunt, John W, Brent R Copp, Wan-Ping Hu, Murray H G Munro, Peter T Northcote, and Michèle R Prinsep. 2009. “Marine natural products.” <em>Natural Product Reports</em> 26 (2): 170–244. <a href="https://doi.org/10.1039/b805113p">https://doi.org/10.1039/b805113p</a>.</p>
+</div>
+<div id="ref-Brown2012a">
+<p>Brown, J. B., and Yasushi Okuno. 2012. “Systems Biology and Systems Chemistry: New Directions for Drug Discovery.” <em>Chemistry &#x26; Biology</em> 19 (1): 23–28. <a href="https://doi.org/10.1016/j.chembiol.2011.12.012">https://doi.org/10.1016/j.chembiol.2011.12.012</a>.</p>
+</div>
+<div id="ref-Gerwick2012a">
+<p>Gerwick, William H, and Bradley S Moore. 2012. “Lessons from the past and charting the future of marine natural products drug discovery and chemical biology.” <em>Chemistry &#x26; Biology</em> 19 (1): 85–98. <a href="https://doi.org/10.1016/j.chembiol.2011.12.014">https://doi.org/10.1016/j.chembiol.2011.12.014</a>.</p>
+</div>
+</div>
+
+
+<pre><code>
+
+</code></pre>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/dendron-ws-public/notes/yzy59WAEEAiJCY2mBtZFe">Further</a></li>
+</ol>

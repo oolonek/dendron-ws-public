@@ -1,0 +1,19 @@
+<h1 id="tar"><a aria-hidden="true" class="anchor-heading" href="#tar"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Tar</h1>
+<h2 id="tar-command-lines"><a aria-hidden="true" class="anchor-heading" href="#tar-command-lines"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>tar command lines</h2>
+<p>To create a tar.gz archive from a given folder you can use the following command. This will compress the contents of source-folder-name to a tar.gz
+archive named tar-archive-name.tar.gz</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">tar</span> -zcvf tar-archive-name.tar.gz source-folder-name
+</code></pre>
+<p>To extract a tar.gz compressed archive you can use the following command</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf tar-archive-name.tar.gz
+</code></pre>
+<p>If its a gzipped file</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">gzip</span> -d tar-archive-name.tar.gz
+</code></pre>
+<p>This will extract the archive to the folder tar-archive-name.</p>
+<p>To Preserve permissions</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">tar</span> -pcvzf tar-archive-name.tar.gz source-folder-name
+</code></pre>
+<p>Switch the ‘c’ flag to an ‘x’ to extract (uncompress).</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">tar</span> -pxvzf tar-archive-name.tar.gz
+</code></pre>

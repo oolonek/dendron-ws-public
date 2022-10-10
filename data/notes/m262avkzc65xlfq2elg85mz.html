@@ -1,0 +1,20 @@
+<h1 id="publish"><a aria-hidden="true" class="anchor-heading" href="#publish"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Publish</h1>
+<h1 id="change-published-page-width"><a aria-hidden="true" class="anchor-heading" href="#change-published-page-width"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Change published page width</h1>
+<p>Created a full link snippet</p>
+<pre><code>"full_link": {
+	"prefix": "full",
+	"scope": "markdown,yaml",
+	"body": "[Full display link]($1)",
+	"description": "Full display link"
+}
+</code></pre>
+<p>It's possible to make a custom css them for dendron publishing</p>
+<p>Add this to the custom css</p>
+<p>.ant-layout.side-layout-main{
+max-width: 12000px !important;
+}</p>
+<p>.ant-layout.ant-layout-has-sider{
+width: calc(max((100% - 992px) / 5, 0px) + 200px) !important;
+padding-left: calc((100% - 992px) /5) !important;
+}</p>
+<p>And follow <a href="https://wiki.dendron.so/notes/jknrdi492m8nhq7mw4faydu/">https://wiki.dendron.so/notes/jknrdi492m8nhq7mw4faydu/</a></p>

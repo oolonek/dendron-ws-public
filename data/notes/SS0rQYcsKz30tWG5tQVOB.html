@@ -1,0 +1,82 @@
+<h1 id="rsync"><a aria-hidden="true" class="anchor-heading" href="#rsync"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Rsync</h1>
+<p>Note : pasted from ZK sublime ()</p>
+<p>Sub <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">202002291826 (Private)</a> terminal and unix shortcuts</p>
+<h1 id="local--x2go"><a aria-hidden="true" class="anchor-heading" href="#local--x2go"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>local > x2go</h1>
+<pre class="language-bash"><code class="language-bash"><span class="token function">rsync</span> -rvz -e <span class="token string">'ssh -p 80'</span> --progress ./ allardp@x2go.epgl-geneve.org:/home/EPGL.UNIGE.LOCAL/allardp/pybatchclassyfire/
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh -p 80'</span> --progress ./ allardp@x2go.epgl-geneve.org:/home/EPGL.UNIGE.LOCAL/allardp/
+pybatchclassyfire/
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardp@10.25.88.39:/home/EPGL.UNIGE.LOCAL/allardp/
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardp@10.25.88.39:/home/EPGL.UNIGE.LOCAL/allardp/opennaturalproductsdb/data/interim/tables/3_curated/
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardp@x2go.epgl-geneve.org:/home/farma.unige.ch/allardp/Desktop/FARMAnetwork/RECHERCHE/COMMON<span class="token punctuation">\</span> FASIE-FATHO/PMA/Ubuntu_VM_img/ISDB_DNP/results
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardp@x2go.epgl-geneve.org:/home/farma.unige.ch/allardp/Desktop/FARMAnetwork/RECHERCHE/COMMON<span class="token punctuation">\</span> FASIE-FATHO/PF_project
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardp@x2go.epgl-geneve.org:/home/farma.unige.ch/allardp/is_fragmentation/lotus_data
+</code></pre>
+<h1 id="local--baobab"><a aria-hidden="true" class="anchor-heading" href="#local--baobab"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>local > baobab</h1>
+<pre class="language-bash"><code class="language-bash"><span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./opennpdb_tofrag allardp@baobab2.unige.ch:/home/allardp/data_to_frag/opennpdb/
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardp@baobab2.unige.ch:/home/allardp/bash_files/opennpdb_bash
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardp@baobab2.hpc.unige.ch:/home/allardp/bash_files/lotus_bash
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardp@baobab2.hpc.unige.ch:/home/allardp/data_to_frag/lotus/
+
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardp@baobab2.hpc.unige.ch:/home/allardp/is_fragmentation/lotus_data/
+
+</code></pre>
+<h1 id="local--beast"><a aria-hidden="true" class="anchor-heading" href="#local--beast"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>local > beast</h1>
+<pre class="language-bash"><code class="language-bash"><span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardpm@biolpc045600:/home/allardpm/data_to_frag/opennpdb/
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress ./ allardpm@biolpc045600:/home/allardpm/cfm/bash_files
+</code></pre>
+<h1 id="beast--local"><a aria-hidden="true" class="anchor-heading" href="#beast--local"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>beast > local</h1>
+<pre class="language-bash"><code class="language-bash"><span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress allardpm@biolpc045600:/home/allardpm/sandbox/GNPS_output_Qemistree_set/*.qza ./ 
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress allardpm@biolpc045600:/home/allardpm/sandbox/GNPS_output_Qemistree_set/*.qza ./ 
+
+
+<span class="token comment"># to fetch all file with a given extension. See https://stackoverflow.com/a/11111793 for details</span>
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --include<span class="token operator">=</span><span class="token string">"*/"</span> --include<span class="token operator">=</span><span class="token string">"*.qza"</span> --exclude<span class="token operator">=</span><span class="token string">"*"</span> --progress allardpm@biolpc045600:/home/allardpm/sandbox/GNPS_output_Qemistree_set/ ./
+</code></pre>
+<h1 id="x2go--local"><a aria-hidden="true" class="anchor-heading" href="#x2go--local"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>x2go > local</h1>
+<pre class="language-bash"><code class="language-bash"><span class="token function">rsync</span> -rvz -e <span class="token string">'ssh -p 80'</span> --progress allardp@x2go.epgl-geneve.org:/home/EPGL.UNIGE.LOCAL/allardp/is_fragmentation/coconut_data/coconut_ISDB_pos.mgf /Users/pma/Dropbox/People/Swap_MS/ISDB_Coconut
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh -p 80'</span> --progress allardp@x2go.epgl-geneve.org:/home/EPGL.UNIGE.LOCAL/allardp/opennaturalproductsdb/1_databases/PLANTCYC/2_chemo/2_rdkit/PLANTCYC_chemo_rdkit_new_pm.tsv ./
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh -p 80'</span> --progress allardp@x2go.epgl-geneve.org:/home/EPGL.UNIGE.LOCAL/allardp/opennaturalproductsdb/1_databases/PLANTCYC/2_chemo/2_rdkit/PLANTCYC_chemo_rdkit_sanitized_pm.tsv ./
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh -p 80'</span> --progress allardp@x2go.epgl-geneve.org:/home/EPGL.UNIGE.LOCAL/allardp/opennaturalproductsdb/outputs/tables/3_curated/curated_tablesampled1000.tsv ./
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh -p 80'</span> --progress allardp@x2go.epgl-geneve.org:/home/EPGL.UNIGE.LOCAL/allardp/opennaturalproductsdb/outputs/tables/3_curated/curatedTable5000_shuffled_headed ./
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh -p 80'</span> --progress allardp@x2go.epgl-geneve.org:/home/EPGL.UNIGE.LOCAL/allardp/qiime2_cscs_explo_remote/pfabre/cscs_PCoA.qzv ./
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress allardp@10.25.88.39:/home/EPGL.UNIGE.LOCAL/allardp/opennaturalproductsdb/data/interim/tables/1_translated/structure/unique.tsv ./
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress allardp@10.25.88.39:/home/EPGL.UNIGE.LOCAL/allardp/opennaturalproductsdb/data/interim/tables_min/3_curated/smiles.gz ./
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress --include <span class="token string">'*.txt'</span> allardp@10.25.88.39:/home/EPGL.UNIGE.LOCAL/allardp/opennaturalproductsdb/data/interim/tables/3_curated/ ./
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh -p 80'</span> --progress allardp@x2go.epgl-geneve.org:/home/EPGL.UNIGE.LOCAL/allardp/Desktop/FARMAnetwork/RECHERCHE/COMMON<span class="token punctuation">\</span> FASIE-FATHO/Workshop_Material/Data_annotation_Workshop_2019/190225_FullDNP_prot_deprot.csv ./
+
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress <span class="token string">"allardp@x2go.epgl-geneve.org:/home/farma.unige.ch/allardp/Desktop/FARMAnetwork/RECHERCHE/COMMON\ FASIE-FATHO/PMA/Ubuntu_VM_img/ISDB_DNP/results/fbmn_lena_metabo_results_DNP_top50.out"</span> ./ 
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress <span class="token string">"allardp@x2go.epgl-geneve.org:/home/farma.unige.ch/allardp/lotusProcessor/data/interim/tables/4_analysed/platinum.tsv.gz"</span> ./ 
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress <span class="token string">"allardp@x2go.epgl-geneve.org:/home/farma.unige.ch/allardp/lotusProcessor/data/processed/lotus.sqlite"</span> ./ 
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress <span class="token string">"allardp@x2go.epgl-geneve.org:/home/farma.unige.ch/allardp/Documents/Toy_Dataset_MN/GNPS_output_Toy_Dataset_MN/cscs_PCoA.qzv"</span> ./ 
+
+
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress <span class="token string">"allardp@x2go.epgl-geneve.org:/home/farma.unige.ch/allardp/Documents/PF_GNP3/GNPS_output_PF_GNP3/feature_table_for_biom.tsv"</span> ./ 
+
+
+
+
+
+</code></pre>
+<h1 id="baobab--local"><a aria-hidden="true" class="anchor-heading" href="#baobab--local"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>baobab > local</h1>
+<pre class="language-bash"><code class="language-bash"><span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress allardp@baobab2.unige.ch:/home/allardp/CFM_results/npatlas ./results
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress allardp@baobab2.unige.ch:/home/allardp/CFM_results/npatlas ./results
+<span class="token function">rsync</span> -rvz -e <span class="token string">'ssh'</span> --progress allardp@baobab2.unige.ch:/home/allardp/CFM_results/coconut ./ --apend
+</code></pre>
+<h1 id="metabomaps--local"><a aria-hidden="true" class="anchor-heading" href="#metabomaps--local"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>metabomaps > local</h1>
+<p>rsync -rvz -e 'ssh' --progress --rsync-path="sudo rsync" ~/Downloads/wetransfer-27d788/210523_lotus_map4_2D.js <a href="mailto:pma@metabomaps.nprod.net">pma@metabomaps.nprod.net</a>:/srv/metabo-store/tmap</p>
+<h1 id="local--metabomaps"><a aria-hidden="true" class="anchor-heading" href="#local--metabomaps"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>local > metabomaps</h1>
+<p>rsync -rvz -e 'ssh' --progress --rsync-path="sudo rsync" /Users/pma/Dropbox/UniFr/Projects/Ongoing/COMMONS/NPKB/004_rdf/pos <a href="mailto:pma@metabomaps.nprod.net">pma@metabomaps.nprod.net</a>:/home/pma/graphdb/home/graphdb-import</p>
+<p>rsync -rvz -e 'ssh' --progress /Users/pma/Dropbox/UniFr/Projects/Ongoing/COMMONS/NPKB/004_rdf/pos <a href="mailto:pma@metabomaps.nprod.net">pma@metabomaps.nprod.net</a>:/home/pma/graphdb-import</p>
+<p>rsync -rvz -e 'ssh' --progress /Users/pma/Downloads/ <a href="mailto:pma@metabomaps.nprod.net">pma@metabomaps.nprod.net</a>:/home/pma/Downloads</p>
