@@ -2,7 +2,7 @@
 id: m262avkzc65xlfq2elg85mz
 title: Publish
 desc: ''
-updated: 1657129929910
+updated: 1665811865223
 created: 1657129912966
 ---
 
@@ -34,4 +34,5 @@ Add this to the custom css
 }
 
 And follow https://wiki.dendron.so/notes/jknrdi492m8nhq7mw4faydu/
+
 
