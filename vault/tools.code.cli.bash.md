@@ -2,7 +2,7 @@
 id: cMOaRh3TUHfw6FtdribBg
 title: Bash
 desc: ''
-updated: 1657194418372
+updated: 1666263577575
 created: 1610975606358
 ---
 
@@ -51,4 +51,4 @@ mkdir -p {metadata,results/{cytoscape,met_annot_enhancer,metaboanalyst,mzmine,st
 
 mkdir -p results/{cytoscape,met_annot_enhancer,metaboanalyst,mzmine,stats,sirius,tmp} && touch results/{cytoscape/.gitignore,met_annot_enhancer/.gitignore,metaboanalyst/.gitignore,mzmine/.gitignore,stats/.gitignore,sirius/.gitignore,tmp/.gitignore}
 
-mkdir -p {metadata,results/{cytoscape,met_annot_enhancer,metaboanalyst,mzmine,stats,sirius,tmp}} && touch {metadata,results/{cytoscape/.gitignore,met_annot_enhancer/.gitignore,metaboanalyst/{.gitignore,placeholder.out},mzmine/{.gitignore,placeholder.out},stats/.gitignore,sirius/{.gitignore,placeholder.out},tmp/.gitignore}}
+mkdir -p {metadata,results/{cytoscape,met_annot_enhancer,metaboanalyst,mzmine,stats,sirius,tmp}} && touch {metadata/.gitignore,results/{cytoscape/.gitignore,met_annot_enhancer/.gitignore,metaboanalyst/{.gitignore,placeholder.out},mzmine/{.gitignore,placeholder.out},stats/.gitignore,sirius/{.gitignore,placeholder.out},tmp/.gitignore}}
