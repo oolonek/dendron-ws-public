@@ -2,7 +2,7 @@
 id: FARbP3EQoSJaBTcMcIXle
 title: Creation
 desc: ''
-updated: 1639211454862
+updated: 1669899728190
 created: 1600970442296
 stub: false
 ---
@@ -25,3 +25,4 @@ With a given python version
 ```bash
 conda create -n "chemical_diversity_explorer_dev" python=3.7
 ```
+conda create -n "mapp_metabolomics" python=3.10

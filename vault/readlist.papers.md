@@ -2,7 +2,7 @@
 id: 3PbjxNe7yIn2I9yKJfqXD
 title: Papers
 desc: ''
-updated: 1658763282975
+updated: 1671092890067
 created: 1610194509817
 ---
 
@@ -12,6 +12,16 @@ created: 1610194509817
 
 This is a dump.
 Entries here should be sent to their respective dendron notes when treated.
+
+
+# Machine actionable metadata models
+Dominique Batista, Alejandra Gonzalez-Beltran, Susanna-Assunta Sansone & Philippe Rocca-Serra 
+Scientific Data volume 9, Article number: 592 (2022) Cite this article
+
+
+Article
+Open Access
+Published: 30 September 2022
 
 
 
