@@ -2,7 +2,7 @@
 id: SS0rQYcsKz30tWG5tQVOB
 title: Rsync
 desc: ''
-updated: 1662560578438
+updated: 1672684853150
 created: 1609680294356
 ---
 
@@ -54,6 +54,8 @@ rsync -rvz -e 'ssh' --progress ./ allardpm@biolpc045600:/home/allardpm/cfm/bash_
 rsync -rvz -e 'ssh' --progress allardpm@biolpc045600:/home/allardpm/sandbox/GNPS_output_Qemistree_set/*.qza ./ 
 
 rsync -rvz -e 'ssh' --progress allardpm@biolpc045600:/home/allardpm/sandbox/GNPS_output_Qemistree_set/*.qza ./ 
+
+rsync -rvz -e 'ssh' --progress allardpm@biolpc045600:/home/allardpm/Downloads/wetransfer_rhino_2022-01-10_0411.zip ./ 
 
 
 # to fetch all file with a given extension. See https://stackoverflow.com/a/11111793 for details
