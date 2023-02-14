@@ -2,7 +2,7 @@
 id: SS0rQYcsKz30tWG5tQVOB
 title: Rsync
 desc: ''
-updated: 1672684853150
+updated: 1676390332411
 created: 1609680294356
 ---
 
@@ -44,6 +44,8 @@ rsync -rvz -e 'ssh' --progress ./ allardp@baobab2.hpc.unige.ch:/home/allardp/is_
 ```bash
 rsync -rvz -e 'ssh' --progress ./ allardpm@biolpc045600:/home/allardpm/data_to_frag/opennpdb/
 rsync -rvz -e 'ssh' --progress ./ allardpm@biolpc045600:/home/allardpm/cfm/bash_files
+rsync -rvz -e 'ssh' --progress ./Downloads/forticlient_vpn_7.0.7.0246_amd64.deb allardpm@biolpc045600:/home/allardpm/Downloads/
+
 ```
 
 
@@ -122,3 +124,14 @@ rsync -rvz -e 'ssh' --progress --rsync-path="sudo rsync" /Users/pma/Dropbox/UniF
 rsync -rvz -e 'ssh' --progress /Users/pma/Dropbox/UniFr/Projects/Ongoing/COMMONS/NPKB/004_rdf/pos pma@metabomaps.nprod.net:/home/pma/graphdb-import
 
 rsync -rvz -e 'ssh' --progress /Users/pma/Downloads/ pma@metabomaps.nprod.net:/home/pma/Downloads
+
+
+
+
+
+
+
+
+rsync -rvz -e 'ssh' --progress /Volumes/COMMON\ FASIE-FATHO/PF_project/Graph_organization/7_full_pos_neg ./01_large_files
+
+
