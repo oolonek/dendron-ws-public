@@ -2,7 +2,7 @@
 id: SS0rQYcsKz30tWG5tQVOB
 title: Rsync
 desc: ''
-updated: 1676390332411
+updated: 1676473814134
 created: 1609680294356
 ---
 
@@ -135,3 +135,4 @@ rsync -rvz -e 'ssh' --progress /Users/pma/Downloads/ pma@metabomaps.nprod.net:/h
 rsync -rvz -e 'ssh' --progress /Volumes/COMMON\ FASIE-FATHO/PF_project/Graph_organization/7_full_pos_neg ./01_large_files
 
 
+https://ostechnix.com/how-to-resume-partially-downloaded-or-transferred-files-using-rsync/

@@ -2,7 +2,7 @@
 id: kjCZnMBrXYokZny7loss4
 title: Git
 desc: ''
-updated: 1676446137585
+updated: 1676447552719
 created: 1630424670253
 ---
 
@@ -61,3 +61,16 @@ hint: invocation.
 ```
 
 https://stackoverflow.com/a/62653400/4908629
+
+
+## What is the git fast-forward option ?
+https://blog.mergify.com/what-is-a-git-merge-fast-forward/
+
+> When Git detects that your commit is about to be merged into your project's main branch without the main branch having been modified since your feature branch was first made, it chooses to use a fast-forward merge instead of a three-way merge. Fast-forward merges literally move your main branch's tip forward to the end of your feature branch. This keeps all commits created in your feature branch sequential while integrating it neatly back into your main branch.
+> 
+> 
+
+## For git sensitive information removal
+
+https://rtyley.github.io/bfg-repo-cleaner/
+
