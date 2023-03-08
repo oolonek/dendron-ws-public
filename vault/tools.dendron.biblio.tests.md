@@ -2,7 +2,7 @@
 id: 45ZO3MwFcCvGiJw88w4Ud
 title: Tests
 desc: ''
-updated: 1629590473910
+updated: 1678176685035
 created: 1610451373351
 bibliography:
   - /Users/pma/Documents/library_red.bib
@@ -144,3 +144,7 @@ bibliography: /Users/pma/Documents/library_red.bib
 
 ```
 
+
+
+
+Some news at https://github.com/notZaki/PandocCiter/issues/14#issuecomment-1457550422
