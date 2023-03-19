@@ -2,7 +2,7 @@
 id: NOjG8VZncte4kDY12I6yi
 title: Taskwarrior
 desc: ''
-updated: 1628012250534
+updated: 1679231767345
 created: 1617783155898
 ---
 
@@ -14,11 +14,26 @@ https://randomgeekery.org/tags/taskwarrior/
 Restore a recently deleted task in twarrior
 https://taskwarrior.org/support/faq.html#q7
 
+
+TW commands 
+
+https://taskwarrior.org/docs/commands/
+https://taskwarrior.org/docs/dates/
+
+## Filters 
+https://taskwarrior.org/docs/filter/
+
+
 ## Taskwarrior-tui 
 
 Taskwarrior-tui keybinding
 
 https://kdheepak.com/taskwarrior-tui/keybindings/
+
+https://kdheepak.com/taskwarrior-tui/keybindings/
+
+
+
 
 
 
