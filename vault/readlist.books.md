@@ -2,10 +2,18 @@
 id: 4pLwGBUz89tCKppBaAlDC
 title: Books
 desc: ''
-updated: 1618941991616
+updated: 1681922150661
 created: 1617949743114
 ---
 
+# The pergrine
+
+https://psyche.co/ideas/a-life-of-splendid-uselessness-is-a-life-well-lived
+
+> a decade of such labour bore Baker his small, luminous masterpiece The Peregrine (1967), now recognised as some of the greatest nature writing ever set to paper:
+> 
+> For 10 years, I spent all my winters searching for that restless brilliance, for the sudden passion and violence that peregrines flush from the sky. For 10 years I have been looking upward for that cloud-biting anchor shape, that crossbow flinging through the air.
+> 
 # Latour's prod
 
 http://www.bruno-latour.fr/fr/livres_volumes_edites.html
