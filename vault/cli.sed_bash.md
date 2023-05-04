@@ -2,7 +2,7 @@
 id: QnOOo86260d85beTWwNIt
 title: Sed_bash
 desc: ''
-updated: 1647276960142
+updated: 1682950627290
 created: 1609604978319
 ---
 
@@ -67,3 +67,5 @@ fswatch -0 ./mendeley_output/ | xargs -0 -n1 -I{} echo "{}"
 ## quick replace in text file
 
 `sed -i 's/original/new/g' file.txt`
+
+sed -i'' 's/CHARGE=1-/CHARGE=-1/g' /Users/pma/01_large_files/mgf/isdb_neg.mgf
