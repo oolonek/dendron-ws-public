@@ -2,7 +2,7 @@
 id: FARbP3EQoSJaBTcMcIXle
 title: Creation
 desc: ''
-updated: 1669899728190
+updated: 1688740402717
 created: 1600970442296
 stub: false
 ---
@@ -11,7 +11,6 @@ stub: false
 You can create an env from a given .yml file using 
 
 ```bash
-conda env create -f environment.yml
 ```
 
 Or directly like this 

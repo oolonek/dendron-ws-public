@@ -4,7 +4,6 @@ title: Export
 desc: ''
 updated: 1610362180339
 created: 1600970745852
-stub: false
 ---
 # To create a loose conda environment see details over there
 
@@ -24,3 +23,6 @@ To create and env from this .yml file run [[tools.code.python.conda.environments
 2021-01-11 11:49
 
 
+
+
+conda env create -f environment.yml
