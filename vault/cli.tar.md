@@ -41,3 +41,6 @@ Switch the ‘c’ flag to an ‘x’ to extract (uncompress).
 ```bash
 tar -pxvzf tar-archive-name.tar.gz
 ```
+
+
+sudo certbot --authenticator standalone --installer nginx   -d directus.dbgi.org --pre-hook "service nginx stop" --post-hook "service nginx start"
