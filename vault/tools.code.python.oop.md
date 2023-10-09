@@ -2,7 +2,7 @@
 id: iUJ8ouDaIyDccSkSgCe8E
 title: Oop
 desc: ''
-updated: 1639240509193
+updated: 1696600773439
 created: 1639235161151
 ---
 # Object Oriented Programming
@@ -25,5 +25,11 @@ https://www.youtube.com/watch?v=MikphENIrOo
 
 https://www.geeksforgeeks.org/data-classes-in-python-an-introduction/
 
+
+
+## https://testdriven.io/blog/clean-code-python/
+
+
+https://www.pythontutorial.net/python-oop/python-abstract-class/
 
 
