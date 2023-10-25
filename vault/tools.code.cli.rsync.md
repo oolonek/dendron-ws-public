@@ -2,7 +2,7 @@
 id: SS0rQYcsKz30tWG5tQVOB
 title: Rsync
 desc: ''
-updated: 1691503330373
+updated: 1698056873175
 created: 1609680294356
 ---
 
@@ -45,6 +45,7 @@ nda
 rsync -rvz -e 'ssh' --progress ./ allardpm@biolpc045600:/home/allardpm/data_to_frag/opennpdb/
 rsync -rvz -e 'ssh' --progress ./ allardpm@biolpc045600:/home/allardpm/cfm/bash_files
 rsync -rvz -e 'ssh' --progress ./Downloads/forticlient_vpn_7.0.7.0246_amd64.deb allardpm@biolpc045600:/home/allardpm/Downloads/
+rsync -rvz -e 'ssh' --progress ./Downloads/structures_metadata.db allardpm@biolpc045600:/home/ENPKG/data/structures_db/
 
 ```
 
