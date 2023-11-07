@@ -9,3 +9,6 @@ created: 1613376740612
 # Delete
 
 `conda env remove -n ENV_NAME`
+
+
+find /prog -type d -exec chmod 755 {} \;
