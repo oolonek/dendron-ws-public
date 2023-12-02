@@ -4,7 +4,6 @@ title: Scientific_paper
 desc: ''
 updated: 1663495097207
 created: 1601410082237
-stub: false
 ---
 
 # Scientific Papers
@@ -172,3 +171,5 @@ Second, state the need for your work, as an opposition between what the scientif
 Third, indicate what you have done in an effort to address the need (this is the task).
 ## Object (of the paper/doc/note/paragraph)
 Finally, preview the remainder of the paper to mentally prepare readers for its structure, in the object of the document.
+
+
