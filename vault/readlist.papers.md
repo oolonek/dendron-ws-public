@@ -2,7 +2,7 @@
 id: 3PbjxNe7yIn2I9yKJfqXD
 title: Papers
 desc: ''
-updated: 1671092890067
+updated: 1702025462313
 created: 1610194509817
 ---
 
@@ -12,6 +12,11 @@ created: 1610194509817
 
 This is a dump.
 Entries here should be sent to their respective dendron notes when treated.
+
+
+# Exotic Chemical Life
+
+https://link.springer.com/chapter/10.1007/978-94-009-2959-3_24
 
 
 # Machine actionable metadata models
