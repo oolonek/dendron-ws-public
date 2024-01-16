@@ -2,7 +2,7 @@
 id: cO1TjrEicNPknM4qFPBm1
 title: Cscs
 desc: ''
-updated: 1615884720600
+updated: 1705413507861
 created: 1606994034189
 ---
 
@@ -14,8 +14,7 @@ tags = #bioinfo #recipee #tutorial #qiime
 List of commands and recippe for a qiime2 cscs project
 
 qiime2
-<https://docs.qiime2.org/2020.2/getting-started/>
-
+<https://docs.qiime2.org/2020.2/getting-starte
 qiime cscs 
 <https://github.com/madeleineernst/q2-cscs#2-compute-the-chemical-structural-and-compositional-dissimilarity-for-a-real-world-dataset>
 
