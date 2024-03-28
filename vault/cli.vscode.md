@@ -2,7 +2,7 @@
 id: gLinvZHBi7hpldyaJWSuD
 title: Vscode
 desc: ''
-updated: 1669913198123
+updated: 1711638216608
 created: 1611225989378
 ---
 
@@ -26,4 +26,15 @@ CMD + K + CMD + J — to unfold
 # Define the stoppers for a word selection
 
 https://stackoverflow.com/a/46417503
+
+
+# Replcae text at several places
+
+
+Cmd + D in Vscode can replace the current text at several places 
+
+
+several.gsgsg
+
+
 
