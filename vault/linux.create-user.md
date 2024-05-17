@@ -2,7 +2,7 @@
 id: odldFcVy0q1pW8lql76Jm
 title: Create User
 desc: ''
-updated: 1693894656182
+updated: 1715763729622
 created: 1638267558093
 ---
 # User creation on a linux server
@@ -20,3 +20,25 @@ https://linuxconcept.com/how-to-create-a-sudo-user-on-rhel-red-hat-enterprise-li
 
 adduser user_name
 passwd user_name
+
+
+
+sudo useradd -m jane
+
+sudo passwd jane
+
+
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+You can check whether your user has been added to the `docker` group by running the following command:
+
+```bash
+groups $USER
+```
+
+
+Setting up the ssh keys
+
