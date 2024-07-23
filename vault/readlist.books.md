@@ -2,10 +2,18 @@
 id: 4pLwGBUz89tCKppBaAlDC
 title: Books
 desc: ''
-updated: 1708873004707
+updated: 1721716875001
 created: 1617949743114
 ---
 
+#  Tyranny of the gene
+
+https://www.penguinrandomhouse.com/books/622502/tyranny-of-the-gene-by-james-tabery/
+
+
+#  The Dawn of a Mindful universe
+
+https://www.harpercollins.com/products/the-dawn-of-a-mindful-universe-marcelo-gleiser?variant=40985778421794
 
 # The pergrine
 
