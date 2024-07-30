@@ -2,9 +2,18 @@
 id: 4pLwGBUz89tCKppBaAlDC
 title: Books
 desc: ''
-updated: 1721716875001
+updated: 1722323043488
 created: 1617949743114
 ---
+# Slow Productivity
+
+https://calnewport.com/my-new-book-slow-productivity/
+
+
+
+# The Silences of Science
+https://www.routledge.com/The-Silences-of-Science-Gaps-and-Pauses-in-the-Communication-of-Science/Mellor-Webster/p/book/9780367596057
+
 
 #  Tyranny of the gene
 
