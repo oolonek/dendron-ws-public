@@ -2,7 +2,7 @@
 id: odldFcVy0q1pW8lql76Jm
 title: Create User
 desc: ''
-updated: 1715763729622
+updated: 1726822782359
 created: 1638267558093
 ---
 # User creation on a linux server
@@ -39,6 +39,4 @@ You can check whether your user has been added to the `docker` group by running 
 groups $USER
 ```
 
-
-Setting up the ssh keys
 
