@@ -2,9 +2,15 @@
 id: 4QMHs8rY4FY7wrtVPljQ6
 title: Web Articles
 desc: ''
-updated: 1664094079106
+updated: 1735279964438
 created: 1610657531129
 ---
+
+# The Collector’s Fallacy
+
+https://zettelkasten.de/posts/collectors-fallacy/
+
+Basically stating that notes should be taken. Directly. If you wan't to keep some information on the long term about some article you have read. Take notes. Don't fall in the "collector's fallacy" of thinking that because you have bookmarked (or printed) the article you will remind valuable information. Research, read, take notes. Repeat.
 
 
 # Max Lath webpage
